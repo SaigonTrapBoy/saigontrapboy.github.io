@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <title>KTV 選擇指南 - Poseify</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="KTV, 唱歌, 娛樂, 選擇指南" name="keywords">
+    <meta content="完整的 KTV 選擇指南，幫助您找到最適合的 KTV 場所" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Work+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+                <h2 class="mb-0 text-primary text-uppercase"><i class="fa-regular fa-face-smile me-1"></i>Poseify</h2>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">服務指南</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="ktv.html" class="dropdown-item active">KTV 選擇</a>
+                            <a href="hotel.html" class="dropdown-item">飯店選擇</a>
+                            <a href="restaurant.html" class="dropdown-item">餐廳推薦</a>
+                            <a href="guide.html" class="dropdown-item">新手指南</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="team.html" class="dropdown-item">Our Models</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Page</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="#" class="nav-item nav-link d-lg-none" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fas fa-search me-1"></i>搜尋
+                    </a>
+                </div>
+                <div class="d-none d-lg-flex align-items-center">
+                    <button type="button" class="btn btn-outline-primary border-2 me-3" data-bs-toggle="modal" data-bs-target="#searchModal" title="搜尋網站">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a class="btn btn-outline-primary border-2" href="https://themewagon.com/themes/poseify">Download
+                        Now</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="page-header pb-5">
+            <div class="container text-center py-5">
+                <h1 class="display-4 text-uppercase mb-3 animated slideInDown">KTV 選擇指南</h1>
+                <nav aria-label="breadcrumb animated slideInDown">
+                    <ol class="breadcrumb justify-content-center text-uppercase mb-0">
+                        <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="service.html">Services</a></li>
+                        <li class="breadcrumb-item text-primary active" aria-current="page">KTV 選擇</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Article Content Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- Article Header -->
+                    <article class="article-content">
+                        <div class="article-meta mb-4">
+                            <span class="text-muted"><i class="far fa-calendar me-2"></i>最後更新：2024年1月</span>
+                            <span class="text-muted ms-4"><i class="far fa-clock me-2"></i>閱讀時間：約 8 分鐘</span>
+                        </div>
+
+                        <!-- Introduction -->
+                        <div class="article-intro mb-5">
+                            <p class="lead text-white">
+                                選擇合適的 KTV 場所是享受美好夜晚的關鍵。無論是慶祝生日、朋友聚會，還是單純想放鬆唱歌，本指南將幫助您找到最適合的 KTV 場所。
+                            </p>
+                        </div>
+
+                        <!-- Table of Contents -->
+                        <div class="article-toc mb-5 p-4 bg-secondary rounded">
+                            <h5 class="text-primary mb-3"><i class="fas fa-list me-2"></i>目錄</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><a href="#location" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>1. 地理位置考量</a></li>
+                                <li class="mb-2"><a href="#price" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>2. 價格與消費方式</a></li>
+                                <li class="mb-2"><a href="#equipment" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>3. 設備與音響品質</a></li>
+                                <li class="mb-2"><a href="#service" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>4. 服務品質</a></li>
+                                <li class="mb-2"><a href="#atmosphere" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>5. 環境氛圍</a></li>
+                                <li class="mb-2"><a href="#tips" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>6. 實用建議</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Section 1 -->
+                        <section id="location" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-map-marker-alt me-2"></i>1. 地理位置考量
+                            </h2>
+                            <p class="text-white mb-3">
+                                選擇 KTV 時，地理位置是首要考量因素。理想的 KTV 應該位於交通便利的地區，方便您和朋友的到達。
+                            </p>
+                            <h4 class="text-white-50 mb-3 mt-4">交通便利性</h4>
+                            <ul class="text-white mb-4">
+                                <li class="mb-2">靠近地鐵站或公車站，減少轉乘時間</li>
+                                <li class="mb-2">附近有停車場，方便開車前往的客人</li>
+                                <li class="mb-2">位於市中心或商業區，周邊設施完善</li>
+                            </ul>
+                            <h4 class="text-white-50 mb-3 mt-4">安全性</h4>
+                            <p class="text-white mb-3">
+                                選擇治安良好的區域，特別是晚上前往時，安全是最重要的考量。建議選擇有良好照明和周邊環境安全的 KTV 場所。
+                            </p>
+                        </section>
+
+                        <!-- Section 2 -->
+                        <section id="price" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-dollar-sign me-2"></i>2. 價格與消費方式
+                            </h2>
+                            <p class="text-white mb-3">
+                                了解 KTV 的計費方式對於控制預算非常重要。不同的 KTV 有不同的計費模式。
+                            </p>
+                            <h4 class="text-white-50 mb-3 mt-4">計費方式</h4>
+                            <div class="table-responsive mb-4">
+                                <table class="table table-dark table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>計費類型</th>
+                                            <th>說明</th>
+                                            <th>適用情況</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>時段計費</td>
+                                            <td>按小時計費，通常有不同時段價格</td>
+                                            <td>短時間聚會（1-3小時）</td>
+                                        </tr>
+                                        <tr>
+                                            <td>包廂計費</td>
+                                            <td>固定價格包時段，不限人數</td>
+                                            <td>長時間聚會（3小時以上）</td>
+                                        </tr>
+                                        <tr>
+                                            <td>人頭計費</td>
+                                            <td>按人數收費，通常包含飲料</td>
+                                            <td>人數較多的聚會</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h4 class="text-white-50 mb-3 mt-4">優惠時段</h4>
+                            <p class="text-white mb-3">
+                                許多 KTV 在平日白天或非熱門時段提供優惠價格。建議提前查詢優惠時段，可以節省不少費用。
+                            </p>
+                        </section>
+
+                        <!-- Section 3 -->
+                        <section id="equipment" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-microphone me-2"></i>3. 設備與音響品質
+                            </h2>
+                            <p class="text-white mb-3">
+                                良好的設備和音響系統是享受 KTV 體驗的關鍵。選擇時應注意以下幾點：
+                            </p>
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3">
+                                    <div class="p-3 bg-secondary rounded">
+                                        <h5 class="text-primary mb-3"><i class="fas fa-music me-2"></i>音響系統</h5>
+                                        <ul class="text-white mb-0">
+                                            <li>立體聲環繞音效</li>
+                                            <li>音質清晰無雜音</li>
+                                            <li>音量可調節範圍大</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="p-3 bg-secondary rounded">
+                                        <h5 class="text-primary mb-3"><i class="fas fa-tv me-2"></i>視聽設備</h5>
+                                        <ul class="text-white mb-0">
+                                            <li>大尺寸螢幕</li>
+                                            <li>高解析度畫質</li>
+                                            <li>觸控點歌系統</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="text-white-50 mb-3 mt-4">歌曲庫</h4>
+                            <p class="text-white mb-3">
+                                豐富的歌曲庫是選擇 KTV 的重要因素。好的 KTV 應該包含：
+                            </p>
+                            <ul class="text-white mb-4">
+                                <li class="mb-2">最新流行歌曲及時更新</li>
+                                <li class="mb-2">經典老歌完整收錄</li>
+                                <li class="mb-2">多語言歌曲選擇（中文、英文、日文、韓文等）</li>
+                                <li class="mb-2">支援手機點歌和遙控功能</li>
+                            </ul>
+                        </section>
+
+                        <!-- Section 4 -->
+                        <section id="service" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-concierge-bell me-2"></i>4. 服務品質
+                            </h2>
+                            <p class="text-white mb-3">
+                                優質的服務能讓您的 KTV 體驗更加愉快。選擇時應考慮以下服務項目：
+                            </p>
+                            <div class="service-features mb-4">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-utensils fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">餐飲服務</h6>
+                                            <p class="text-white-50 small mb-0">提供多樣化餐點和飲料選擇</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-headset fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">客服支援</h6>
+                                            <p class="text-white-50 small mb-0">快速響應的服務人員</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-wifi fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">網路設施</h6>
+                                            <p class="text-white-50 small mb-0">免費 WiFi 和充電設備</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Section 5 -->
+                        <section id="atmosphere" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-palette me-2"></i>5. 環境氛圍
+                            </h2>
+                            <p class="text-white mb-3">
+                                良好的環境氛圍能提升整體體驗。不同風格的 KTV 適合不同的場合：
+                            </p>
+                            <div class="atmosphere-types mb-4">
+                                <div class="card bg-secondary mb-3 border-0">
+                                    <div class="card-body">
+                                        <h5 class="text-primary mb-3"><i class="fas fa-star me-2"></i>豪華型</h5>
+                                        <p class="text-white mb-0">適合商務聚會、重要慶祝活動，提供高檔裝潢和尊貴服務。</p>
+                                    </div>
+                                </div>
+                                <div class="card bg-secondary mb-3 border-0">
+                                    <div class="card-body">
+                                        <h5 class="text-primary mb-3"><i class="fas fa-users me-2"></i>休閒型</h5>
+                                        <p class="text-white mb-0">適合朋友聚會、日常娛樂，價格親民且氣氛輕鬆。</p>
+                                    </div>
+                                </div>
+                                <div class="card bg-secondary mb-3 border-0">
+                                    <div class="card-body">
+                                        <h5 class="text-primary mb-3"><i class="fas fa-heart me-2"></i>主題型</h5>
+                                        <p class="text-white mb-0">特殊裝潢主題，適合拍照打卡和特殊場合。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Section 6 -->
+                        <section id="tips" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-lightbulb me-2"></i>6. 實用建議
+                            </h2>
+                            <div class="tips-list">
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-calendar-check me-2"></i>提前預訂</h5>
+                                    <p class="text-white mb-0">特別是週末和節假日，建議提前 1-2 天預訂，確保有包廂可用。</p>
+                                </div>
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-star me-2"></i>查看評價</h5>
+                                    <p class="text-white mb-0">在選擇前查看網路評價和評分，了解其他客人的真實體驗。</p>
+                                </div>
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-users me-2"></i>選擇合適包廂</h5>
+                                    <p class="text-white mb-0">根據人數選擇包廂大小，太小會擁擠，太大則浪費空間和金錢。</p>
+                                </div>
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-clock me-2"></i>注意時間</h5>
+                                    <p class="text-white mb-0">了解 KTV 的營業時間和最後點餐時間，避免影響您的計劃。</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Conclusion -->
+                        <div class="article-conclusion mt-5 p-4 bg-primary rounded">
+                            <h4 class="text-white mb-3"><i class="fas fa-check-circle me-2"></i>總結</h4>
+                            <p class="text-white mb-0">
+                                選擇 KTV 時，綜合考慮地理位置、價格、設備、服務和環境氛圍等因素，才能找到最適合您的場所。記住提前預訂和查看評價，讓您的 KTV 體驗更加完美！
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Article Content End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <a href="index.html">
+                <h1 class="display-4 mb-3 text-white text-uppercase"><i
+                        class="fa-regular fa-face-smile me-1"></i>Poseify</h1>
+            </a>
+            <div class="d-flex justify-content-center mb-4">
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-x-twitter"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-youtube"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.</p>
+            <p class="mb-0">Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>.
+                Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>.</p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white" id="searchModalLabel">
+                        <i class="fas fa-search me-2"></i>搜尋網站
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-secondary border-0 text-white" id="searchInput" 
+                                   placeholder="輸入關鍵字搜尋..." autocomplete="off">
+                            <button class="btn btn-primary" type="button" id="searchButton">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="searchResults" class="search-results">
+                        <div class="text-center py-5 text-muted">
+                            <i class="fas fa-search fa-2x mb-3"></i>
+                            <p>請輸入關鍵字開始搜尋</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+</body>
+
+</html>

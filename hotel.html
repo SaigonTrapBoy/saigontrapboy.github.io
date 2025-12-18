@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <title>飯店選擇指南 - Poseify</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="飯店, 住宿, 選擇指南, 旅遊" name="keywords">
+    <meta content="完整的飯店選擇指南，幫助您找到最適合的住宿場所" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Work+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+                <h2 class="mb-0 text-primary text-uppercase"><i class="fa-regular fa-face-smile me-1"></i>Poseify</h2>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">服務指南</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
+                            <a href="hotel.html" class="dropdown-item active">飯店選擇</a>
+                            <a href="restaurant.html" class="dropdown-item">餐廳推薦</a>
+                            <a href="guide.html" class="dropdown-item">新手指南</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="team.html" class="dropdown-item">Our Models</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Page</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="#" class="nav-item nav-link d-lg-none" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fas fa-search me-1"></i>搜尋
+                    </a>
+                </div>
+                <div class="d-none d-lg-flex align-items-center">
+                    <button type="button" class="btn btn-outline-primary border-2 me-3" data-bs-toggle="modal" data-bs-target="#searchModal" title="搜尋網站">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a class="btn btn-outline-primary border-2" href="https://themewagon.com/themes/poseify">Download
+                        Now</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="page-header pb-5">
+            <div class="container text-center py-5">
+                <h1 class="display-4 text-uppercase mb-3 animated slideInDown">飯店選擇指南</h1>
+                <nav aria-label="breadcrumb animated slideInDown">
+                    <ol class="breadcrumb justify-content-center text-uppercase mb-0">
+                        <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="service.html">Services</a></li>
+                        <li class="breadcrumb-item text-primary active" aria-current="page">飯店選擇</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Article Content Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- Article Header -->
+                    <article class="article-content">
+                        <div class="article-meta mb-4">
+                            <span class="text-muted"><i class="far fa-calendar me-2"></i>最後更新：2024年1月</span>
+                            <span class="text-muted ms-4"><i class="far fa-clock me-2"></i>閱讀時間：約 10 分鐘</span>
+                        </div>
+
+                        <!-- Introduction -->
+                        <div class="article-intro mb-5">
+                            <p class="lead text-white">
+                                選擇合適的飯店是旅行成功的一半。無論是商務出差還是休閒旅遊，本指南將幫助您根據需求找到最適合的住宿場所。
+                            </p>
+                        </div>
+
+                        <!-- Table of Contents -->
+                        <div class="article-toc mb-5 p-4 bg-secondary rounded">
+                            <h5 class="text-primary mb-3"><i class="fas fa-list me-2"></i>目錄</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><a href="#location" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>1. 地理位置選擇</a></li>
+                                <li class="mb-2"><a href="#budget" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>2. 預算規劃</a></li>
+                                <li class="mb-2"><a href="#amenities" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>3. 設施與服務</a></li>
+                                <li class="mb-2"><a href="#room" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>4. 房型選擇</a></li>
+                                <li class="mb-2"><a href="#reviews" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>5. 評價與口碑</a></li>
+                                <li class="mb-2"><a href="#booking" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>6. 預訂技巧</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Section 1 -->
+                        <section id="location" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-map-marked-alt me-2"></i>1. 地理位置選擇
+                            </h2>
+                            <p class="text-white mb-3">
+                                飯店的地理位置直接影響您的旅行體驗。選擇時應根據您的行程安排和活動需求來決定。
+                            </p>
+                            <h4 class="text-white-50 mb-3 mt-4">市中心 vs 郊區</h4>
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3">
+                                    <div class="p-4 bg-secondary rounded h-100">
+                                        <h5 class="text-primary mb-3"><i class="fas fa-city me-2"></i>市中心</h5>
+                                        <ul class="text-white mb-0">
+                                            <li class="mb-2">✓ 交通便利，靠近景點</li>
+                                            <li class="mb-2">✓ 購物和餐飲選擇多</li>
+                                            <li class="mb-2">✓ 夜生活豐富</li>
+                                            <li class="mb-2">✗ 價格通常較高</li>
+                                            <li class="mb-2">✗ 可能較為喧鬧</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="p-4 bg-secondary rounded h-100">
+                                        <h5 class="text-primary mb-3"><i class="fas fa-tree me-2"></i>郊區</h5>
+                                        <ul class="text-white mb-0">
+                                            <li class="mb-2">✓ 價格較為實惠</li>
+                                            <li class="mb-2">✓ 環境安靜舒適</li>
+                                            <li class="mb-2">✓ 停車方便</li>
+                                            <li class="mb-2">✗ 交通可能不便</li>
+                                            <li class="mb-2">✗ 周邊設施較少</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="text-white-50 mb-3 mt-4">交通便利性</h4>
+                            <p class="text-white mb-3">
+                                選擇靠近地鐵站、火車站或主要交通樞紐的飯店，可以節省大量交通時間和費用。特別是對於需要頻繁移動的行程，交通便利性至關重要。
+                            </p>
+                        </section>
+
+                        <!-- Section 2 -->
+                        <section id="budget" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-wallet me-2"></i>2. 預算規劃
+                            </h2>
+                            <p class="text-white mb-3">
+                                合理的預算規劃能讓您在享受舒適住宿的同時，不超出財務負擔。
+                            </p>
+                            <h4 class="text-white-50 mb-3 mt-4">價格區間參考</h4>
+                            <div class="table-responsive mb-4">
+                                <table class="table table-dark table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>等級</th>
+                                            <th>價格範圍（每晚）</th>
+                                            <th>特點</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>經濟型</td>
+                                            <td>$50 - $100</td>
+                                            <td>基本設施，乾淨舒適</td>
+                                        </tr>
+                                        <tr>
+                                            <td>中檔</td>
+                                            <td>$100 - $200</td>
+                                            <td>良好設施，優質服務</td>
+                                        </tr>
+                                        <tr>
+                                            <td>高檔</td>
+                                            <td>$200 - $400</td>
+                                            <td>豪華設施，頂級服務</td>
+                                        </tr>
+                                        <tr>
+                                            <td>奢華</td>
+                                            <td>$400+</td>
+                                            <td>頂級體驗，個性化服務</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h4 class="text-white-50 mb-3 mt-4">節省預算的技巧</h4>
+                            <ul class="text-white mb-4">
+                                <li class="mb-2">提前預訂通常有優惠價格</li>
+                                <li class="mb-2">選擇淡季或平日入住</li>
+                                <li class="mb-2">關注飯店官網和訂房平台的促銷活動</li>
+                                <li class="mb-2">考慮包含早餐的套餐，可能更划算</li>
+                                <li class="mb-2">使用會員卡或累積積分</li>
+                            </ul>
+                        </section>
+
+                        <!-- Section 3 -->
+                        <section id="amenities" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-swimming-pool me-2"></i>3. 設施與服務
+                            </h2>
+                            <p class="text-white mb-3">
+                                飯店的設施和服務品質直接影響住宿體驗。根據您的需求選擇合適的設施：
+                            </p>
+                            <div class="amenities-grid mb-4">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-wifi fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">免費 WiFi</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-dumbbell fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">健身房</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-swimming-pool fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">游泳池</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-utensils fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">餐廳</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-parking fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">停車場</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-spa fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">SPA 服務</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="text-white-50 mb-3 mt-4">重要服務項目</h4>
+                            <ul class="text-white mb-4">
+                                <li class="mb-2"><strong>24 小時前台服務：</strong>方便隨時處理需求</li>
+                                <li class="mb-2"><strong>行李寄存：</strong>提前到達或延遲退房時很有用</li>
+                                <li class="mb-2"><strong>機場接送：</strong>節省交通時間和費用</li>
+                                <li class="mb-2"><strong>客房服務：</strong>提供餐飲和清潔服務</li>
+                                <li class="mb-2"><strong>商務中心：</strong>適合商務旅客</li>
+                            </ul>
+                        </section>
+
+                        <!-- Section 4 -->
+                        <section id="room" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-bed me-2"></i>4. 房型選擇
+                            </h2>
+                            <p class="text-white mb-3">
+                                選擇合適的房型能讓您的住宿更加舒適。我們提供三種主要房型供您選擇：
+                            </p>
+                            
+                            <!-- 房型綜合比較表 -->
+                            <div class="table-responsive mb-5">
+                                <table class="table table-dark table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>比較項目</th>
+                                            <th>公寓式</th>
+                                            <th>飯店式</th>
+                                            <th>Villa式</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>空間大小</strong></td>
+                                            <td>中等（30-60 平方公尺）</td>
+                                            <td>標準（20-40 平方公尺）</td>
+                                            <td>寬敞（80-200+ 平方公尺）</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>廚房設施</strong></td>
+                                            <td>✓ 完整廚房設備</td>
+                                            <td>✗ 通常無廚房</td>
+                                            <td>✓ 完整廚房設備</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>服務等級</strong></td>
+                                            <td>自助式</td>
+                                            <td>全服務（24小時前台）</td>
+                                            <td>管家式服務</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>隱私性</strong></td>
+                                            <td>高</td>
+                                            <td>中等</td>
+                                            <td>極高（獨立建築）</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>適合人數</strong></td>
+                                            <td>2-4 人</td>
+                                            <td>1-2 人</td>
+                                            <td>4-10+ 人</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>價格範圍</strong></td>
+                                            <td>中檔（$80-$150/晚）</td>
+                                            <td>經濟-高檔（$50-$200/晚）</td>
+                                            <td>高檔-奢華（$200-$500+/晚）</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>適合場合</strong></td>
+                                            <td>長期住宿、家庭旅行</td>
+                                            <td>短期商務、觀光</td>
+                                            <td>特殊慶祝、團體聚會</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- 房型輪播展示 -->
+                            <div class="room-types-showcase mb-5">
+                                <h4 class="text-white-50 mb-4 text-center">探索各房型詳細介紹</h4>
+                                <div class="row g-4">
+                                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                        <div class="team-item">
+                                            <div class="team-body">
+                                                <div class="team-before">
+                                                    <span>空間</span>
+                                                    <span>廚房</span>
+                                                    <span>服務</span>
+                                                    <span>隱私</span>
+                                                    <span>價格</span>
+                                                    <span>適合</span>
+                                                </div>
+                                                <img class="img-fluid" src="img/service-1.jpg" alt="公寓式">
+                                                <div class="team-after">
+                                                    <span>30-60㎡</span>
+                                                    <span>完整設備</span>
+                                                    <span>自助式</span>
+                                                    <span>高隱私</span>
+                                                    <span>$80-$150</span>
+                                                    <span>長期住宿</span>
+                                                </div>
+                                            </div>
+                                            <a class="team-name" href="room-types/apartment.html">
+                                                <h5 class="text-uppercase mb-0">公寓式</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                        <div class="team-item">
+                                            <div class="team-body">
+                                                <div class="team-before">
+                                                    <span>空間</span>
+                                                    <span>廚房</span>
+                                                    <span>服務</span>
+                                                    <span>隱私</span>
+                                                    <span>價格</span>
+                                                    <span>適合</span>
+                                                </div>
+                                                <img class="img-fluid" src="img/service-2.jpg" alt="飯店式">
+                                                <div class="team-after">
+                                                    <span>20-40㎡</span>
+                                                    <span>無廚房</span>
+                                                    <span>全服務</span>
+                                                    <span>中等</span>
+                                                    <span>$50-$200</span>
+                                                    <span>短期住宿</span>
+                                                </div>
+                                            </div>
+                                            <a class="team-name" href="room-types/hotel-type.html">
+                                                <h5 class="text-uppercase mb-0">飯店式</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                        <div class="team-item">
+                                            <div class="team-body">
+                                                <div class="team-before">
+                                                    <span>空間</span>
+                                                    <span>廚房</span>
+                                                    <span>服務</span>
+                                                    <span>隱私</span>
+                                                    <span>價格</span>
+                                                    <span>適合</span>
+                                                </div>
+                                                <img class="img-fluid" src="img/service-3.jpg" alt="Villa式">
+                                                <div class="team-after">
+                                                    <span>80-200+㎡</span>
+                                                    <span>完整設備</span>
+                                                    <span>管家服務</span>
+                                                    <span>極高</span>
+                                                    <span>$200-$500+</span>
+                                                    <span>特殊場合</span>
+                                                </div>
+                                            </div>
+                                            <a class="team-name" href="room-types/villa.html">
+                                                <h5 class="text-uppercase mb-0">Villa式</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-info bg-primary border-0 text-white mb-4">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>提示：</strong>點擊上方房型卡片可查看詳細介紹，包括設施、照片、價格和預訂資訊。
+                            </div>
+                        </section>
+
+                        <!-- Section 5 -->
+                        <section id="reviews" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-star me-2"></i>5. 評價與口碑
+                            </h2>
+                            <p class="text-white mb-3">
+                                查看其他旅客的真實評價是選擇飯店的重要參考。注意以下幾點：
+                            </p>
+                            <h4 class="text-white-50 mb-3 mt-4">評價重點</h4>
+                            <ul class="text-white mb-4">
+                                <li class="mb-2"><strong>清潔度：</strong>房間和公共區域的整潔程度</li>
+                                <li class="mb-2"><strong>服務態度：</strong>工作人員的專業和友善程度</li>
+                                <li class="mb-2"><strong>設施狀況：</strong>設備是否正常運作</li>
+                                <li class="mb-2"><strong>位置便利性：</strong>實際的地理位置是否如描述</li>
+                                <li class="mb-2"><strong>性價比：</strong>價格與品質是否相符</li>
+                            </ul>
+                            <h4 class="text-white-50 mb-3 mt-4">如何閱讀評價</h4>
+                            <p class="text-white mb-3">
+                                不要只看評分，仔細閱讀具體的評價內容。注意評價的時間，較新的評價更能反映當前狀況。同時，要理性看待極端評價，關注大多數人的意見。
+                            </p>
+                        </section>
+
+                        <!-- Section 6 -->
+                        <section id="booking" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-calendar-check me-2"></i>6. 預訂技巧
+                            </h2>
+                            <div class="booking-tips">
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-clock me-2"></i>最佳預訂時機</h5>
+                                    <p class="text-white mb-0">通常提前 2-4 週預訂能獲得較好價格。但也要關注最後一刻的促銷優惠。</p>
+                                </div>
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-exchange-alt me-2"></i>取消政策</h5>
+                                    <p class="text-white mb-0">確認預訂前，務必了解取消和退款政策，特別是對於可能變動的行程。</p>
+                                </div>
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-gift me-2"></i>會員優惠</h5>
+                                    <p class="text-white mb-0">加入飯店或訂房平台的會員計劃，通常能享受折扣、免費升級或積分回饋。</p>
+                                </div>
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-phone me-2"></i>直接聯繫</h5>
+                                    <p class="text-white mb-0">有時直接聯繫飯店可能獲得更好的價格或特殊安排，特別是對於團體預訂。</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Conclusion -->
+                        <div class="article-conclusion mt-5 p-4 bg-primary rounded">
+                            <h4 class="text-white mb-3"><i class="fas fa-check-circle me-2"></i>總結</h4>
+                            <p class="text-white mb-0">
+                                選擇飯店時，綜合考慮地理位置、預算、設施、房型和評價等因素。提前規劃和預訂，仔細閱讀評價，相信您一定能找到最適合的住宿場所，讓您的旅程更加完美！
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Article Content End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <a href="index.html">
+                <h1 class="display-4 mb-3 text-white text-uppercase"><i
+                        class="fa-regular fa-face-smile me-1"></i>Poseify</h1>
+            </a>
+            <div class="d-flex justify-content-center mb-4">
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-x-twitter"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-youtube"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.</p>
+            <p class="mb-0">Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>.
+                Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>.</p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white" id="searchModalLabel">
+                        <i class="fas fa-search me-2"></i>搜尋網站
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-secondary border-0 text-white" id="searchInput" 
+                                   placeholder="輸入關鍵字搜尋..." autocomplete="off">
+                            <button class="btn btn-primary" type="button" id="searchButton">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="searchResults" class="search-results">
+                        <div class="text-center py-5 text-muted">
+                            <i class="fas fa-search fa-2x mb-3"></i>
+                            <p>請輸入關鍵字開始搜尋</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+</body>
+
+</html>

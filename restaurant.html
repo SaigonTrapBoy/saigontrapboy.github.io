@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <title>餐廳推薦指南 - Poseify</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="餐廳, 美食, 推薦, 用餐指南" name="keywords">
+    <meta content="完整的餐廳推薦指南，幫助您找到最適合的用餐場所" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Work+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+                <h2 class="mb-0 text-primary text-uppercase"><i class="fa-regular fa-face-smile me-1"></i>Poseify</h2>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">服務指南</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
+                            <a href="hotel.html" class="dropdown-item">飯店選擇</a>
+                            <a href="restaurant.html" class="dropdown-item active">餐廳推薦</a>
+                            <a href="guide.html" class="dropdown-item">新手指南</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="team.html" class="dropdown-item">Our Models</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Page</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="#" class="nav-item nav-link d-lg-none" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fas fa-search me-1"></i>搜尋
+                    </a>
+                </div>
+                <div class="d-none d-lg-flex align-items-center">
+                    <button type="button" class="btn btn-outline-primary border-2 me-3" data-bs-toggle="modal" data-bs-target="#searchModal" title="搜尋網站">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a class="btn btn-outline-primary border-2" href="https://themewagon.com/themes/poseify">Download
+                        Now</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="page-header pb-5">
+            <div class="container text-center py-5">
+                <h1 class="display-4 text-uppercase mb-3 animated slideInDown">餐廳推薦指南</h1>
+                <nav aria-label="breadcrumb animated slideInDown">
+                    <ol class="breadcrumb justify-content-center text-uppercase mb-0">
+                        <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="service.html">Services</a></li>
+                        <li class="breadcrumb-item text-primary active" aria-current="page">餐廳推薦</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Article Content Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- Article Header -->
+                    <article class="article-content">
+                        <div class="article-meta mb-4">
+                            <span class="text-muted"><i class="far fa-calendar me-2"></i>最後更新：2024年1月</span>
+                            <span class="text-muted ms-4"><i class="far fa-clock me-2"></i>閱讀時間：約 9 分鐘</span>
+                        </div>
+
+                        <!-- Introduction -->
+                        <div class="article-intro mb-5">
+                            <p class="lead text-white">
+                                美食是旅行和生活中不可或缺的一部分。本指南將幫助您根據不同場合和需求，找到最適合的餐廳，享受美好的用餐體驗。
+                            </p>
+                        </div>
+
+                        <!-- Table of Contents -->
+                        <div class="article-toc mb-5 p-4 bg-secondary rounded">
+                            <h5 class="text-primary mb-3"><i class="fas fa-list me-2"></i>目錄</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><a href="#cuisine" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>1. 菜系選擇</a></li>
+                                <li class="mb-2"><a href="#occasion" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>2. 場合考量</a></li>
+                                <li class="mb-2"><a href="#price" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>3. 價格範圍</a></li>
+                                <li class="mb-2"><a href="#atmosphere" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>4. 環境氛圍</a></li>
+                                <li class="mb-2"><a href="#service" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>5. 服務品質</a></li>
+                                <li class="mb-2"><a href="#tips" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>6. 用餐建議</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Section 1 -->
+                        <section id="cuisine" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-utensils me-2"></i>1. 菜系選擇
+                            </h2>
+                            <p class="text-white mb-3">
+                                選擇合適的菜系是享受美食的第一步。不同的菜系適合不同的口味和場合。
+                            </p>
+                            <div class="cuisine-types mb-4">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="p-4 bg-secondary rounded h-100">
+                                            <h5 class="text-primary mb-3"><i class="fas fa-dragon me-2"></i>中式料理</h5>
+                                            <p class="text-white mb-2">豐富多樣，從川菜到粵菜，適合各種口味偏好。</p>
+                                            <small class="text-white-50">推薦場合：家庭聚餐、商務宴請</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-4 bg-secondary rounded h-100">
+                                            <h5 class="text-primary mb-3"><i class="fas fa-fish me-2"></i>日式料理</h5>
+                                            <p class="text-white mb-2">精緻細膩，注重食材新鮮度和擺盤藝術。</p>
+                                            <small class="text-white-50">推薦場合：約會、特殊慶祝</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-4 bg-secondary rounded h-100">
+                                            <h5 class="text-primary mb-3"><i class="fas fa-pizza-slice me-2"></i>西式料理</h5>
+                                            <p class="text-white mb-2">從義大利到法式，提供多樣化的選擇。</p>
+                                            <small class="text-white-50">推薦場合：浪漫晚餐、商務午餐</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-4 bg-secondary rounded h-100">
+                                            <h5 class="text-primary mb-3"><i class="fas fa-pepper-hot me-2"></i>異國料理</h5>
+                                            <p class="text-white mb-2">泰式、韓式、印度等，體驗不同文化風味。</p>
+                                            <small class="text-white-50">推薦場合：朋友聚會、探索新口味</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Section 2 -->
+                        <section id="occasion" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-calendar-alt me-2"></i>2. 場合考量
+                            </h2>
+                            <p class="text-white mb-3">
+                                根據不同的場合選擇合適的餐廳，能讓用餐體驗更加完美。
+                            </p>
+                            <div class="occasion-guide mb-4">
+                                <div class="card bg-secondary mb-3 border-0">
+                                    <div class="card-body">
+                                        <h5 class="text-primary mb-3"><i class="fas fa-heart me-2"></i>約會用餐</h5>
+                                        <p class="text-white mb-2">選擇環境優雅、氣氛浪漫的餐廳，注重隱私和服務品質。</p>
+                                        <ul class="text-white-50 mb-0 small">
+                                            <li>安靜的環境，適合交談</li>
+                                            <li>精緻的擺盤和燈光</li>
+                                            <li>優質的服務態度</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card bg-secondary mb-3 border-0">
+                                    <div class="card-body">
+                                        <h5 class="text-primary mb-3"><i class="fas fa-briefcase me-2"></i>商務用餐</h5>
+                                        <p class="text-white mb-2">選擇正式、專業的餐廳，注重效率和隱私。</p>
+                                        <ul class="text-white-50 mb-0 small">
+                                            <li>包廂或安靜區域</li>
+                                            <li>快速上菜服務</li>
+                                            <li>專業的服務人員</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card bg-secondary mb-3 border-0">
+                                    <div class="card-body">
+                                        <h5 class="text-primary mb-3"><i class="fas fa-users me-2"></i>朋友聚會</h5>
+                                        <p class="text-white mb-2">選擇氣氛輕鬆、適合分享的餐廳，價格實惠。</p>
+                                        <ul class="text-white-50 mb-0 small">
+                                            <li>寬敞的座位空間</li>
+                                            <li>適合分享的菜式</li>
+                                            <li>輕鬆愉快的氛圍</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card bg-secondary mb-3 border-0">
+                                    <div class="card-body">
+                                        <h5 class="text-primary mb-3"><i class="fas fa-birthday-cake me-2"></i>慶祝活動</h5>
+                                        <p class="text-white mb-2">選擇有特色、能提供特殊服務的餐廳。</p>
+                                        <ul class="text-white-50 mb-0 small">
+                                            <li>可預訂特殊安排</li>
+                                            <li>適合拍照的環境</li>
+                                            <li>慶祝服務（如蛋糕、裝飾）</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Section 3 -->
+                        <section id="price" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-tags me-2"></i>3. 價格範圍
+                            </h2>
+                            <p class="text-white mb-3">
+                                根據預算選擇合適的餐廳，不同價格區間提供不同的用餐體驗。
+                            </p>
+                            <div class="table-responsive mb-4">
+                                <table class="table table-dark table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>價格等級</th>
+                                            <th>人均消費</th>
+                                            <th>特點</th>
+                                            <th>適合場合</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>經濟實惠</td>
+                                            <td>$10 - $30</td>
+                                            <td>價格親民，口味不錯</td>
+                                            <td>日常用餐、朋友聚會</td>
+                                        </tr>
+                                        <tr>
+                                            <td>中檔餐廳</td>
+                                            <td>$30 - $80</td>
+                                            <td>環境舒適，服務良好</td>
+                                            <td>約會、家庭聚餐</td>
+                                        </tr>
+                                        <tr>
+                                            <td>高檔餐廳</td>
+                                            <td>$80 - $200</td>
+                                            <td>精緻料理，優質服務</td>
+                                            <td>商務宴請、特殊慶祝</td>
+                                        </tr>
+                                        <tr>
+                                            <td>頂級餐廳</td>
+                                            <td>$200+</td>
+                                            <td>米其林級別，頂級體驗</td>
+                                            <td>重要場合、特殊紀念</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h4 class="text-white-50 mb-3 mt-4">省錢小技巧</h4>
+                            <ul class="text-white mb-4">
+                                <li class="mb-2">關注餐廳的優惠時段（如午餐特價）</li>
+                                <li class="mb-2">使用優惠券或會員折扣</li>
+                                <li class="mb-2">選擇套餐而非單點</li>
+                                <li class="mb-2">避開節假日和熱門時段</li>
+                                <li class="mb-2">分享大份量菜式</li>
+                            </ul>
+                        </section>
+
+                        <!-- Section 4 -->
+                        <section id="atmosphere" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-palette me-2"></i>4. 環境氛圍
+                            </h2>
+                            <p class="text-white mb-3">
+                                餐廳的環境氛圍直接影響用餐體驗。根據您的需求選擇合適的環境：
+                            </p>
+                            <div class="atmosphere-features mb-4">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-volume-down fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">安靜環境</h6>
+                                            <p class="text-white-50 small mb-0">適合商務和約會</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-music fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">輕鬆氛圍</h6>
+                                            <p class="text-white-50 small mb-0">適合朋友聚會</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-camera fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">網美風格</h6>
+                                            <p class="text-white-50 small mb-0">適合拍照打卡</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-eye fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">景觀餐廳</h6>
+                                            <p class="text-white-50 small mb-0">享受美景配美食</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-home fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">溫馨風格</h6>
+                                            <p class="text-white-50 small mb-0">適合家庭聚餐</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 bg-secondary rounded text-center h-100">
+                                            <i class="fas fa-crown fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-white">豪華裝潢</h6>
+                                            <p class="text-white-50 small mb-0">適合特殊場合</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Section 5 -->
+                        <section id="service" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-concierge-bell me-2"></i>5. 服務品質
+                            </h2>
+                            <p class="text-white mb-3">
+                                優質的服務能讓用餐體驗更加愉快。注意以下服務要素：
+                            </p>
+                            <div class="service-checklist mb-4">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="p-3 bg-secondary rounded">
+                                            <h6 class="text-primary mb-2"><i class="fas fa-check-circle me-2"></i>服務態度</h6>
+                                            <p class="text-white-50 small mb-0">友善、專業、及時回應需求</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-3 bg-secondary rounded">
+                                            <h6 class="text-primary mb-2"><i class="fas fa-check-circle me-2"></i>上菜速度</h6>
+                                            <p class="text-white-50 small mb-0">合理的等待時間，不過快或過慢</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-3 bg-secondary rounded">
+                                            <h6 class="text-primary mb-2"><i class="fas fa-check-circle me-2"></i>專業知識</h6>
+                                            <p class="text-white-50 small mb-0">能介紹菜式和推薦搭配</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-3 bg-secondary rounded">
+                                            <h6 class="text-primary mb-2"><i class="fas fa-check-circle me-2"></i>問題處理</h6>
+                                            <p class="text-white-50 small mb-0">遇到問題時能快速妥善處理</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Section 6 -->
+                        <section id="tips" class="article-section mb-5">
+                            <h2 class="text-primary mb-4">
+                                <i class="fas fa-lightbulb me-2"></i>6. 用餐建議
+                            </h2>
+                            <div class="dining-tips">
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-calendar-check me-2"></i>提前預訂</h5>
+                                    <p class="text-white mb-0">熱門餐廳建議提前 1-2 週預訂，特別是週末和節假日。提前預訂還能確保獲得理想的座位。</p>
+                                </div>
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-star me-2"></i>查看評價</h5>
+                                    <p class="text-white mb-0">在選擇前查看網路評價和照片，了解真實的用餐體驗。注意評價的時間和具體內容。</p>
+                                </div>
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-utensils me-2"></i>嘗試招牌菜</h5>
+                                    <p class="text-white mb-0">選擇餐廳的招牌菜或推薦菜式，通常能體驗到餐廳的最佳水準。</p>
+                                </div>
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-allergies me-2"></i>注意飲食限制</h5>
+                                    <p class="text-white mb-0">如有過敏或特殊飲食需求，提前告知餐廳，確保能提供適合的選項。</p>
+                                </div>
+                                <div class="tip-item mb-4 p-4 bg-secondary rounded">
+                                    <h5 class="text-primary mb-3"><i class="fas fa-clock me-2"></i>選擇合適時段</h5>
+                                    <p class="text-white mb-0">避開用餐高峰時段，可以享受更好的服務和更安靜的環境。</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Conclusion -->
+                        <div class="article-conclusion mt-5 p-4 bg-primary rounded">
+                            <h4 class="text-white mb-3"><i class="fas fa-check-circle me-2"></i>總結</h4>
+                            <p class="text-white mb-0">
+                                選擇餐廳時，綜合考慮菜系、場合、價格、環境和服務等因素。提前規劃和預訂，查看評價，相信您一定能找到最適合的餐廳，享受美好的用餐時光！
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Article Content End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <a href="index.html">
+                <h1 class="display-4 mb-3 text-white text-uppercase"><i
+                        class="fa-regular fa-face-smile me-1"></i>Poseify</h1>
+            </a>
+            <div class="d-flex justify-content-center mb-4">
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-x-twitter"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-youtube"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.</p>
+            <p class="mb-0">Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>.
+                Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>.</p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white" id="searchModalLabel">
+                        <i class="fas fa-search me-2"></i>搜尋網站
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-secondary border-0 text-white" id="searchInput" 
+                                   placeholder="輸入關鍵字搜尋..." autocomplete="off">
+                            <button class="btn btn-primary" type="button" id="searchButton">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="searchResults" class="search-results">
+                        <div class="text-center py-5 text-muted">
+                            <i class="fas fa-search fa-2x mb-3"></i>
+                            <p>請輸入關鍵字開始搜尋</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+</body>
+
+</html>
