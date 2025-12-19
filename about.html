@@ -32,6 +32,86 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Nested Dropdown Styles */
+        .dropdown-submenu {
+            position: relative;
+        }
+        .dropdown-submenu > .dropdown-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin: 0;
+            min-width: 200px;
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+            z-index: 1000;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        /* 確保滑鼠移動到子選單時不會中斷 hover */
+        .dropdown-submenu > .dropdown-menu:hover {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown-submenu > a::after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+        .dropdown-submenu:hover > a::after {
+            border-left-color: #fff;
+        }
+        /* 添加一個偽元素來填充間隙，確保 hover 連續 */
+        .dropdown-submenu::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+            z-index: 1001;
+            background: transparent;
+        }
+        /* 當 hover 時，偽元素也要保持 */
+        .dropdown-submenu:hover::after {
+            background: transparent;
+        }
+        /* 確保父級下拉選單打開時，子選單不會自動顯示 */
+        .dropdown-menu.show .dropdown-submenu > .dropdown-menu {
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .dropdown-menu.show .dropdown-submenu:hover > .dropdown-menu {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        @media (max-width: 991px) {
+            .dropdown-submenu > .dropdown-menu {
+                position: static;
+                float: none;
+                margin-left: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -59,11 +139,22 @@
                 <div class="navbar-nav mx-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="about.html" class="nav-item nav-link active">About</a>
-                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <a href="service.html" class="nav-item nav-link">香狼津桃包套服務</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">服務指南</a>
                         <div class="dropdown-menu m-0">
-                            <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
+                            <li class="dropdown-submenu">
+                                <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="ktv.html" class="dropdown-item">所有主題</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a href="ktv-types/chinese.html" class="dropdown-item">華人主題</a></li>
+                                    <li><a href="ktv-types/korean.html" class="dropdown-item">韓主題</a></li>
+                                    <li><a href="ktv-types/dress.html" class="dropdown-item">禮服主題</a></li>
+                                    <li><a href="ktv-types/sheer.html" class="dropdown-item">薄紗主題</a></li>
+                                    <li><a href="ktv-types/nude.html" class="dropdown-item">裸主題</a></li>
+                                </ul>
+                            </li>
                             <a href="hotel.html" class="dropdown-item">飯店選擇</a>
                             <a href="restaurant.html" class="dropdown-item">餐廳推薦</a>
                             <a href="guide.html" class="dropdown-item">新手指南</a>
@@ -485,6 +576,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/dropdown-submenu.js"></script>
 </body>
 
 </html>

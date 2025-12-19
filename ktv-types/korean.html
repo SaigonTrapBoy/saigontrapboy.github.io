@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Villa式房型介紹 - Poseify</title>
+    <title>韓主題 - KTV 選擇 - Poseify</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Villa, 別墅, 奢華, 團體" name="keywords">
-    <meta content="Villa式房型詳細介紹，適合特殊慶祝和團體聚會" name="description">
+    <meta content="韓, KTV, 韓式, 時尚" name="keywords">
+    <meta content="感受韓式流行文化的韓主題 KTV，體驗現代時尚的獨特風采" name="description">
 
     <!-- Favicon -->
     <link href="../img/favicon.ico" rel="icon">
@@ -32,6 +32,105 @@
 
     <!-- Template Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
+    <style>
+        /* Nested Dropdown Styles */
+        .dropdown-submenu {
+            position: relative;
+        }
+        .dropdown-submenu > .dropdown-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin: 0;
+            min-width: 200px;
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+            z-index: 1000;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        /* 確保滑鼠移動到子選單時不會中斷 hover */
+        .dropdown-submenu > .dropdown-menu:hover {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown-submenu > a::after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+        /* 添加一個偽元素來填充間隙，確保 hover 連續 */
+        .dropdown-submenu::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+            z-index: 1001;
+            background: transparent;
+        }
+        /* 當 hover 時，偽元素也要保持 */
+        .dropdown-submenu:hover::after {
+            background: transparent;
+        }
+        .dropdown-submenu:hover > a::after {
+            border-left-color: #fff;
+        }
+        /* 添加一個偽元素來填充間隙，確保 hover 連續 */
+        /* 添加一個偽元素來填充間隙，確保 hover 連續 */
+        .dropdown-submenu::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+            z-index: 1001;
+            background: transparent;
+        }
+        /* 當 hover 時，偽元素也要保持 */
+        .dropdown-submenu:hover::after {
+            background: transparent;
+        }
+        /* 確保父級下拉選單打開時，子選單不會自動顯示 */
+        .dropdown-menu.show .dropdown-submenu > .dropdown-menu {
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .dropdown-menu.show .dropdown-submenu:hover > .dropdown-menu {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        @media (max-width: 991px) {
+            .dropdown-submenu > .dropdown-menu {
+                position: static;
+                float: none;
+                margin-left: 1rem;
+            }
+            .dropdown-submenu::after {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -63,8 +162,19 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">服務指南</a>
                         <div class="dropdown-menu m-0">
-                            <a href="../ktv.html" class="dropdown-item">KTV 選擇</a>
-                            <a href="../hotel.html" class="dropdown-item active">飯店選擇</a>
+                            <li class="dropdown-submenu">
+                                <a href="../ktv.html" class="dropdown-item active">KTV 選擇</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../ktv.html" class="dropdown-item">所有主題</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a href="chinese.html" class="dropdown-item">華人主題</a></li>
+                                    <li><a href="korean.html" class="dropdown-item active">韓主題</a></li>
+                                    <li><a href="dress.html" class="dropdown-item">禮服主題</a></li>
+                                    <li><a href="sheer.html" class="dropdown-item">薄紗主題</a></li>
+                                    <li><a href="nude.html" class="dropdown-item">裸主題</a></li>
+                                </ul>
+                            </li>
+                            <a href="../hotel.html" class="dropdown-item">飯店選擇</a>
                             <a href="../restaurant.html" class="dropdown-item">餐廳推薦</a>
                             <a href="../guide.html" class="dropdown-item">新手指南</a>
                         </div>
@@ -94,12 +204,13 @@
 
         <div class="page-header pb-5">
             <div class="container text-center py-5">
-                <h1 class="display-4 text-uppercase mb-3 animated slideInDown">Villa式房型</h1>
+                <h1 class="display-4 text-uppercase mb-3 animated slideInDown">韓主題</h1>
+                <p class="lead text-white mb-4 animated slideInDown">韓式風格，時尚魅力</p>
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb justify-content-center text-uppercase mb-0">
                         <li class="breadcrumb-item"><a class="text-white" href="../index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a class="text-white" href="../hotel.html">飯店選擇</a></li>
-                        <li class="breadcrumb-item text-primary active" aria-current="page">Villa式</li>
+                        <li class="breadcrumb-item"><a class="text-white" href="../ktv.html">KTV 選擇</a></li>
+                        <li class="breadcrumb-item text-primary active" aria-current="page">韓主題</li>
                     </ol>
                 </nav>
             </div>
@@ -116,40 +227,40 @@
                     <!-- 主要特色 -->
                     <div class="row mb-5">
                         <div class="col-lg-6 mb-4">
-                            <img src="../img/service-3.jpg" alt="Villa式房型" class="img-fluid rounded">
+                            <img src="../img/service-2.jpg" alt="韓主題" class="img-fluid rounded">
                         </div>
                         <div class="col-lg-6">
-                            <h2 class="text-primary mb-4">Villa式房型特色</h2>
+                            <h2 class="text-primary mb-4">韓主題特色</h2>
                             <p class="text-white lead mb-4">
-                                獨立別墅式住宿，提供極致的隱私和奢華體驗，是特殊慶祝和團體聚會的完美選擇。
+                                感受韓式流行文化，體驗現代時尚的獨特風采。韓主題融合了當代流行元素與精緻服務。
                             </p>
                             <div class="feature-list">
                                 <div class="d-flex mb-3">
                                     <i class="fas fa-check-circle text-primary me-3 mt-1"></i>
                                     <div>
-                                        <h6 class="text-white mb-1">獨立建築</h6>
-                                        <p class="text-white-50 mb-0 small">完全獨立的別墅，享受極致隱私</p>
+                                        <h6 class="text-white mb-1">時尚潮流設計</h6>
+                                        <p class="text-white-50 mb-0 small">融合最新韓式流行元素</p>
                                     </div>
                                 </div>
                                 <div class="d-flex mb-3">
                                     <i class="fas fa-check-circle text-primary me-3 mt-1"></i>
                                     <div>
-                                        <h6 class="text-white mb-1">寬敞空間</h6>
-                                        <p class="text-white-50 mb-0 small">80-200+ 平方公尺，適合 4-10+ 人</p>
+                                        <h6 class="text-white mb-1">精緻服務</h6>
+                                        <p class="text-white-50 mb-0 small">提供細緻周到的專業服務</p>
                                     </div>
                                 </div>
                                 <div class="d-flex mb-3">
                                     <i class="fas fa-check-circle text-primary me-3 mt-1"></i>
                                     <div>
-                                        <h6 class="text-white mb-1">管家服務</h6>
-                                        <p class="text-white-50 mb-0 small">專屬管家，提供個人化服務</p>
+                                        <h6 class="text-white mb-1">現代氛圍</h6>
+                                        <p class="text-white-50 mb-0 small">營造時尚現代的環境氛圍</p>
                                     </div>
                                 </div>
                                 <div class="d-flex mb-3">
                                     <i class="fas fa-check-circle text-primary me-3 mt-1"></i>
                                     <div>
-                                        <h6 class="text-white mb-1">豪華設施</h6>
-                                        <p class="text-white-50 mb-0 small">私人泳池、花園、娛樂設施</p>
+                                        <h6 class="text-white mb-1">獨特體驗</h6>
+                                        <p class="text-white-50 mb-0 small">享受專屬的韓式文化體驗</p>
                                     </div>
                                 </div>
                             </div>
@@ -161,15 +272,14 @@
                         <div class="col-md-6 mb-4">
                             <div class="card bg-secondary border-0 h-100">
                                 <div class="card-body p-4">
-                                    <h4 class="text-primary mb-4"><i class="fas fa-home me-2"></i>空間配置</h4>
+                                    <h4 class="text-primary mb-4"><i class="fas fa-palette me-2"></i>風格特色</h4>
                                     <ul class="text-white mb-0">
-                                        <li class="mb-2">多間臥室（3-5 間）</li>
-                                        <li class="mb-2">寬敞客廳與用餐區</li>
-                                        <li class="mb-2">完整廚房與餐廳</li>
-                                        <li class="mb-2">多間衛浴</li>
-                                        <li class="mb-2">私人花園或庭院</li>
-                                        <li class="mb-2">私人泳池（部分 Villa）</li>
-                                        <li class="mb-2">娛樂室或遊戲區</li>
+                                        <li class="mb-2">現代韓式設計風格</li>
+                                        <li class="mb-2">時尚潮流的裝潢元素</li>
+                                        <li class="mb-2">精緻的細節處理</li>
+                                        <li class="mb-2">融合流行文化元素</li>
+                                        <li class="mb-2">獨特的時尚氛圍</li>
+                                        <li class="mb-2">舒適現代的環境</li>
                                     </ul>
                                 </div>
                             </div>
@@ -177,51 +287,16 @@
                         <div class="col-md-6 mb-4">
                             <div class="card bg-secondary border-0 h-100">
                                 <div class="card-body p-4">
-                                    <h4 class="text-primary mb-4"><i class="fas fa-crown me-2"></i>豪華設施</h4>
+                                    <h4 class="text-primary mb-4"><i class="fas fa-star me-2"></i>服務項目</h4>
                                     <ul class="text-white mb-0">
-                                        <li class="mb-2">私人泳池與按摩浴缸</li>
-                                        <li class="mb-2">專屬管家服務</li>
-                                        <li class="mb-2">私人廚師服務（可選）</li>
-                                        <li class="mb-2">高級音響與娛樂系統</li>
-                                        <li class="mb-2">BBQ 設施</li>
-                                        <li class="mb-2">停車位（多輛）</li>
-                                        <li class="mb-2">24 小時安全監控</li>
+                                        <li class="mb-2">專業的服務團隊</li>
+                                        <li class="mb-2">精選的韓式音樂歌單</li>
+                                        <li class="mb-2">高品質的設備設施</li>
+                                        <li class="mb-2">個性化的服務體驗</li>
+                                        <li class="mb-2">隱私保護措施</li>
+                                        <li class="mb-2">24 小時預約服務</li>
                                     </ul>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 價格資訊 -->
-                    <div class="card bg-primary border-0 mb-5">
-                        <div class="card-body p-4">
-                            <h4 class="text-white mb-4"><i class="fas fa-tag me-2"></i>價格資訊</h4>
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <div class="text-center p-3 bg-dark rounded">
-                                        <h5 class="text-white mb-2">標準 Villa</h5>
-                                        <h3 class="text-primary mb-0">$200-$300</h3>
-                                        <small class="text-white-50">每晚（4-6人）</small>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <div class="text-center p-3 bg-dark rounded">
-                                        <h5 class="text-white mb-2">豪華 Villa</h5>
-                                        <h3 class="text-primary mb-0">$300-$400</h3>
-                                        <small class="text-white-50">每晚（6-8人）</small>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <div class="text-center p-3 bg-dark rounded">
-                                        <h5 class="text-white mb-2">頂級 Villa</h5>
-                                        <h3 class="text-primary mb-0">$400-$500+</h3>
-                                        <small class="text-white-50">每晚（8-10+人）</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="alert alert-dark mt-3 mb-0">
-                                <i class="fas fa-info-circle me-2"></i>
-                                <strong>注意：</strong>價格可能因季節、人數和特殊服務而有所變動。長期租賃可享優惠。
                             </div>
                         </div>
                     </div>
@@ -232,23 +307,23 @@
                         <div class="row g-3">
                             <div class="col-md-4">
                                 <div class="p-4 bg-secondary rounded text-center h-100">
-                                    <i class="fas fa-birthday-cake fa-3x text-primary mb-3"></i>
-                                    <h5 class="text-white mb-2">特殊慶祝</h5>
-                                    <p class="text-white-50 small mb-0">生日、紀念日、求婚等特殊場合的完美選擇</p>
+                                    <i class="fas fa-music fa-3x text-primary mb-3"></i>
+                                    <h5 class="text-white mb-2">韓流愛好者</h5>
+                                    <p class="text-white-50 small mb-0">喜愛韓式流行文化的您</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="p-4 bg-secondary rounded text-center h-100">
-                                    <i class="fas fa-users fa-3x text-primary mb-3"></i>
-                                    <h5 class="text-white mb-2">團體聚會</h5>
-                                    <p class="text-white-50 small mb-0">朋友聚會、家庭團聚、公司活動的理想場所</p>
+                                    <i class="fas fa-sparkles fa-3x text-primary mb-3"></i>
+                                    <h5 class="text-white mb-2">時尚追求者</h5>
+                                    <p class="text-white-50 small mb-0">追求時尚潮流的您</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="p-4 bg-secondary rounded text-center h-100">
-                                    <i class="fas fa-gem fa-3x text-primary mb-3"></i>
-                                    <h5 class="text-white mb-2">奢華體驗</h5>
-                                    <p class="text-white-50 small mb-0">追求頂級住宿體驗和極致隱私的旅客</p>
+                                    <i class="fas fa-star fa-3x text-primary mb-3"></i>
+                                    <h5 class="text-white mb-2">品質重視者</h5>
+                                    <p class="text-white-50 small mb-0">重視服務品質的您</p>
                                 </div>
                             </div>
                         </div>
@@ -259,8 +334,8 @@
                         <a href="../contact.html" class="btn btn-primary btn-lg px-5 py-3 me-3">
                             <i class="fas fa-calendar-check me-2"></i>立即預訂
                         </a>
-                        <a href="../hotel.html" class="btn btn-outline-primary btn-lg px-5 py-3">
-                            <i class="fas fa-arrow-left me-2"></i>返回飯店指南
+                        <a href="../ktv.html" class="btn btn-outline-primary btn-lg px-5 py-3">
+                            <i class="fas fa-arrow-left me-2"></i>返回主題選擇
                         </a>
                     </div>
                 </div>
@@ -342,6 +417,8 @@
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/dropdown-submenu.js"></script>
 </body>
 
 </html>
+

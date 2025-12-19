@@ -32,6 +32,86 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Nested Dropdown Styles */
+        .dropdown-submenu {
+            position: relative;
+        }
+        .dropdown-submenu > .dropdown-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin: 0;
+            min-width: 200px;
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+            z-index: 1000;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        /* 確保滑鼠移動到子選單時不會中斷 hover */
+        .dropdown-submenu > .dropdown-menu:hover {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        /* 添加一個偽元素來填充間隙，確保 hover 連續 */
+        .dropdown-submenu::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+            z-index: 1001;
+            background: transparent;
+        }
+        /* 當 hover 時，偽元素也要保持 */
+        .dropdown-submenu:hover::after {
+            background: transparent;
+        }
+        .dropdown-submenu > a::after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+        .dropdown-submenu:hover > a::after {
+            border-left-color: #fff;
+        }
+        /* 確保父級下拉選單打開時，子選單不會自動顯示 */
+        .dropdown-menu.show .dropdown-submenu > .dropdown-menu {
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .dropdown-menu.show .dropdown-submenu:hover > .dropdown-menu {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        @media (max-width: 991px) {
+            .dropdown-submenu > .dropdown-menu {
+                position: static;
+                float: none;
+                margin-left: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -59,11 +139,22 @@
                 <div class="navbar-nav mx-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <a href="service.html" class="nav-item nav-link">香狼津桃包套服務</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">服務指南</a>
                         <div class="dropdown-menu m-0">
-                            <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
+                            <li class="dropdown-submenu">
+                                <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="ktv.html" class="dropdown-item">所有主題</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a href="ktv-types/chinese.html" class="dropdown-item">華人主題</a></li>
+                                    <li><a href="ktv-types/korean.html" class="dropdown-item">韓主題</a></li>
+                                    <li><a href="ktv-types/dress.html" class="dropdown-item">禮服主題</a></li>
+                                    <li><a href="ktv-types/sheer.html" class="dropdown-item">薄紗主題</a></li>
+                                    <li><a href="ktv-types/nude.html" class="dropdown-item">裸主題</a></li>
+                                </ul>
+                            </li>
                             <a href="hotel.html" class="dropdown-item">飯店選擇</a>
                             <a href="restaurant.html" class="dropdown-item">餐廳推薦</a>
                             <a href="guide.html" class="dropdown-item">新手指南</a>
@@ -193,8 +284,8 @@
             <div class="text-center">
                 <div class="title wow fadeInUp" data-wow-delay="0.1s">
                     <div class="title-center">
-                        <h5>Services</h5>
-                        <h1>How We Help You</h1>
+                        <h5>服務項目</h5>
+                        <h1>香狼津桃包套服務</h1>
                     </div>
                 </div>
             </div>
@@ -207,12 +298,9 @@
                     </div>
                     <div class="col-md-7">
                         <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">Fashion Shows</h3>
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat
-                                fermentum urna, sed gravida enim eleifend vitae. Ut rhoncus non metus at convallis.
-                                Maecenas pharetra placerat mauris. Phasellus quis egestas dui. Nullam ornare consectetur
-                                rhoncus. Praesent elit mauris, feugiat quis convallis et, egestas a tellus.</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="#!">Read More <i
+                            <h3 class="text-uppercase">簽證服務</h3>
+                            <p class="mb-4">快速通關及越南簽證服務，讓您輕鬆入境越南，無需繁瑣手續。專業團隊協助辦理，確保簽證快速核發，節省您的寶貴時間，讓旅程從一開始就順暢無阻。</p>
+                            <a class="btn btn-outline-primary border-2 px-4" href="contact.html">了解更多 <i
                                     class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
@@ -227,12 +315,9 @@
                     </div>
                     <div class="col-md-7">
                         <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">Corporate Events</h3>
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat
-                                fermentum urna, sed gravida enim eleifend vitae. Ut rhoncus non metus at convallis.
-                                Maecenas pharetra placerat mauris. Phasellus quis egestas dui. Nullam ornare consectetur
-                                rhoncus. Praesent elit mauris, feugiat quis convallis et, egestas a tellus.</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="#!">Read More <i
+                            <h3 class="text-uppercase">專屬包車</h3>
+                            <p class="mb-4">頂級包車服務，讓您享受最舒適的旅遊體驗。專業司機、豪華座駕，無論是機場接送、市區觀光還是長途旅行，都能為您提供最貼心的服務。24小時待命，隨時為您的行程提供最便捷的交通解決方案，讓您專注享受旅程，無需擔心交通問題。</p>
+                            <a class="btn btn-outline-primary border-2 px-4" href="contact.html">了解更多 <i
                                     class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
@@ -247,12 +332,9 @@
                     </div>
                     <div class="col-md-7">
                         <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">Commercial Photo Shots</h3>
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat
-                                fermentum urna, sed gravida enim eleifend vitae. Ut rhoncus non metus at convallis.
-                                Maecenas pharetra placerat mauris. Phasellus quis egestas dui. Nullam ornare consectetur
-                                rhoncus. Praesent elit mauris, feugiat quis convallis et, egestas a tellus.</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="#!">Read More <i
+                            <h3 class="text-uppercase">頂級隱私住宿</h3>
+                            <p class="mb-4">多種房型可供您選擇，而且絕對隱私，老司機懂的都懂。從豪華套房到特色主題房，每一間都經過精心設計，確保您的隱私與舒適。無論是商務洽談還是私人聚會，都能提供最安全、最隱密的環境，讓您安心享受每一刻。</p>
+                            <a class="btn btn-outline-primary border-2 px-4" href="hotel.html">了解更多 <i
                                     class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
@@ -267,12 +349,9 @@
                     </div>
                     <div class="col-md-7">
                         <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">Professional Modeling</h3>
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat
-                                fermentum urna, sed gravida enim eleifend vitae. Ut rhoncus non metus at convallis.
-                                Maecenas pharetra placerat mauris. Phasellus quis egestas dui. Nullam ornare consectetur
-                                rhoncus. Praesent elit mauris, feugiat quis convallis et, egestas a tellus.</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="#!">Read More <i
+                            <h3 class="text-uppercase">暗黑行程</h3>
+                            <p class="mb-4">特色 KTV、龍宮 VILLA、奧黛聖地、高速吸引口爆店、專屬伴遊、土嗨酒吧、潮流夜店、越式洗頭 / 按摩，多樣化選擇供您體驗。專業導遊帶您探索越南最精彩的夜生活，從傳統到現代，從低調到高調，滿足您各種需求，讓您的越南之旅充滿驚喜與刺激。</p>
+                            <a class="btn btn-outline-primary border-2 px-4" href="ktv.html">了解更多 <i
                                     class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
@@ -651,6 +730,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/dropdown-submenu.js"></script>
 </body>
 
 </html>
