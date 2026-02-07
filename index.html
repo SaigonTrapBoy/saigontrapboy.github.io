@@ -274,6 +274,71 @@
             background-color: #1a1a1a !important;
         }
         
+        /* Testimonial + Footer 區塊：依 toggle 切換顏色（包套行程=深色、自由行=淺色） */
+        #testimonialFooterSection.package-tour .testimonial-footer-bg,
+        #testimonialFooterSection.package-tour .footer-block {
+            background-color: #1a1a1a !important;
+            background: #1a1a1a !important;
+        }
+        #testimonialFooterSection.package-tour .testimonial-footer-bg .title h5,
+        #testimonialFooterSection.package-tour .testimonial-footer-bg .title h1,
+        #testimonialFooterSection.package-tour .testimonial-footer-bg .testimonial-item p,
+        #testimonialFooterSection.package-tour .testimonial-footer-bg .testimonial-item h5,
+        #testimonialFooterSection.package-tour .testimonial-footer-bg .text-primary {
+            color: #ffffff !important;
+        }
+        #testimonialFooterSection.package-tour .footer-block,
+        #testimonialFooterSection.package-tour .footer-block .footer-logo,
+        #testimonialFooterSection.package-tour .footer-block .footer-copyright,
+        #testimonialFooterSection.package-tour .footer-block .footer-credit,
+        #testimonialFooterSection.package-tour .footer-block .footer-link {
+            color: #f8f9fa !important;
+        }
+        #testimonialFooterSection.package-tour .footer-block .footer-logo {
+            color: #ffffff !important;
+        }
+        #testimonialFooterSection.package-tour .footer-block a.footer-link {
+            color: #E41779 !important;
+        }
+        #testimonialFooterSection.package-tour .footer-block a.footer-link:hover {
+            color: #ff3399 !important;
+        }
+        
+        #testimonialFooterSection.free-travel .testimonial-footer-bg {
+            background-color: #ffffff !important;
+            background: #ffffff !important;
+        }
+        #testimonialFooterSection.free-travel .testimonial-footer-bg .title h5,
+        #testimonialFooterSection.free-travel .testimonial-footer-bg .title h1,
+        #testimonialFooterSection.free-travel .testimonial-footer-bg .title h5::after,
+        #testimonialFooterSection.free-travel .testimonial-footer-bg .title h5::before,
+        #testimonialFooterSection.free-travel .testimonial-footer-bg .testimonial-item p,
+        #testimonialFooterSection.free-travel .testimonial-footer-bg .testimonial-item h5 {
+            color: #000000 !important;
+        }
+        #testimonialFooterSection.free-travel .testimonial-footer-bg .text-primary {
+            color: #E41779 !important;
+        }
+        #testimonialFooterSection.free-travel .footer-block {
+            background-color: #f8f9fa !important;
+            background: #f8f9fa !important;
+        }
+        #testimonialFooterSection.free-travel .footer-block .footer-logo,
+        #testimonialFooterSection.free-travel .footer-block .footer-copyright,
+        #testimonialFooterSection.free-travel .footer-block .footer-credit,
+        #testimonialFooterSection.free-travel .footer-block .footer-link {
+            color: #212529 !important;
+        }
+        #testimonialFooterSection.free-travel .footer-block .footer-logo {
+            color: #000000 !important;
+        }
+        #testimonialFooterSection.free-travel .footer-block a.footer-link {
+            color: #E41779 !important;
+        }
+        #testimonialFooterSection.free-travel .footer-block a.footer-link:hover {
+            color: #c01466 !important;
+        }
+        
         /* Day-Night Toggle Switch Styles - 自由行/包套行程切換開關 */
         .trip-toggle-container {
             display: inline-flex;
@@ -710,6 +775,248 @@
         #searchModal .search-results a:hover {
             color: #E41779 !important;
         }
+        
+        /* Sticky Contact Action Bar Styles - LINE 來電通知風格 */
+        /* 確保不受 content-section 規則影響 */
+        .sticky-contact-bar,
+        #stickyContactBar,
+        body .sticky-contact-bar,
+        .content-section .sticky-contact-bar,
+        .content-section.free-travel .sticky-contact-bar,
+        .content-section.package-tour .sticky-contact-bar {
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            background: linear-gradient(135deg, #2d5a7a 0%, #1a3a52 100%) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4) !important;
+            z-index: 9990 !important;
+            transform: translateY(0) !important;
+            transition: transform 0.3s ease-in-out !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .sticky-contact-bar.hidden {
+            transform: translateY(100%);
+        }
+        .sticky-contact-content {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 15px !important;
+            padding: 12px 20px !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            position: relative !important;
+            width: 100% !important;
+            min-height: 70px !important;
+        }
+        
+        /* 左側：LINE 來電信息區域 */
+        .line-call-info {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            flex: 1 1 auto !important;
+            min-width: 0 !important;
+        }
+        .line-avatar {
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 8px !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        .line-avatar i {
+            font-size: 24px !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+        .line-call-details {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 4px !important;
+            min-width: 0 !important;
+            flex: 1 1 auto !important;
+        }
+        .line-app-info {
+            display: flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+        }
+        .line-icon-small {
+            width: 20px !important;
+            height: 20px !important;
+            border-radius: 50% !important;
+            background: #00C300 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+        }
+        .line-icon-small i {
+            font-size: 12px !important;
+            color: #ffffff !important;
+        }
+        .line-call-type {
+            font-size: 12px !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 400 !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+        .line-call-name {
+            font-size: 15px !important;
+            color: #ffffff !important;
+            font-weight: 500 !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+        
+        /* 右側：接受和拒絕按鈕 */
+        .line-call-actions {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            flex: 0 0 auto !important;
+        }
+        .line-call-btn {
+            width: 48px !important;
+            height: 48px !important;
+            border-radius: 50% !important;
+            border: none !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            font-size: 20px !important;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            flex-shrink: 0 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+        }
+        .line-call-btn:hover {
+            transform: scale(1.1) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+        }
+        .line-call-btn:active {
+            transform: scale(0.95) !important;
+        }
+        .line-call-decline {
+            background: #dc3545 !important;
+        }
+        .line-call-decline:hover {
+            background: #c82333 !important;
+        }
+        .line-call-accept {
+            background: #007bff !important;
+        }
+        .line-call-accept:hover {
+            background: #0056b3 !important;
+        }
+        .line-call-btn i {
+            display: block !important;
+        }
+        /* 確保 back-to-top 按鈕不會被遮擋 */
+        .back-to-top {
+            z-index: 9989 !important;
+        }
+        /* 確保 sticky bar 在所有元素之上 */
+        body {
+            padding-bottom: 0 !important;
+        }
+        /* 確保沒有其他元素遮擋 */
+        .modal-backdrop {
+            z-index: 9998 !important;
+        }
+        #searchModal {
+            z-index: 9999 !important;
+        }
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .sticky-contact-content {
+                padding: 10px 15px !important;
+                gap: 12px !important;
+                min-height: 65px !important;
+            }
+            .line-avatar {
+                width: 45px !important;
+                height: 45px !important;
+            }
+            .line-avatar i {
+                font-size: 20px !important;
+            }
+            .line-call-name {
+                font-size: 14px !important;
+            }
+            .line-call-type {
+                font-size: 11px !important;
+            }
+            .line-icon-small {
+                width: 18px !important;
+                height: 18px !important;
+            }
+            .line-icon-small i {
+                font-size: 11px !important;
+            }
+            .line-call-btn {
+                width: 44px !important;
+                height: 44px !important;
+                font-size: 18px !important;
+            }
+            .line-call-actions {
+                gap: 10px !important;
+            }
+        }
+        @media (max-width: 576px) {
+            .sticky-contact-content {
+                padding: 8px 12px !important;
+                gap: 10px !important;
+                min-height: 60px !important;
+            }
+            .line-avatar {
+                width: 40px !important;
+                height: 40px !important;
+            }
+            .line-avatar i {
+                font-size: 18px !important;
+            }
+            .line-call-name {
+                font-size: 13px !important;
+            }
+            .line-call-type {
+                font-size: 10px !important;
+            }
+            .line-icon-small {
+                width: 16px !important;
+                height: 16px !important;
+            }
+            .line-icon-small i {
+                font-size: 10px !important;
+            }
+            .line-call-btn {
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 16px !important;
+            }
+            .line-call-actions {
+                gap: 8px !important;
+            }
+            .line-call-info {
+                gap: 10px !important;
+            }
+        }
     </style>
 </head>
 
@@ -739,6 +1046,7 @@
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="service.html" class="nav-item nav-link">香狼津桃包套服務</a>
+                    <a href="free-travel.html" class="nav-item nav-link">自由行</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">服務指南</a>
                         <div class="dropdown-menu m-0">
@@ -845,7 +1153,7 @@
 
     <!-- Content Section Start - Package Tour (Default) -->
     <div id="packageTourContent" class="content-section package-tour">
-    <!-- About Start -->
+    <!-- About Start - 包套行程 -->
     <div class="container-fluid bg-secondary">
         <div class="container">
             <div class="row g-5 align-items-center">
@@ -853,40 +1161,34 @@
                     <div class="pb-0 pb-lg-5 py-5">
                         <div class="title wow fadeInUp" data-wow-delay="0.1s">
                             <div class="title-left">
-                                <h5>History</h5>
-                                <h1>About Our Agency</h1>
+                                <h5>包套行程</h5>
+                                <h1>專人包套暢遊越南</h1>
                             </div>
                         </div>
-                        <p class="mb-4 wow fadeInUp" data-wow-delay="0.2s">Tempor erat elitr rebum at clita. Diam dolor
-                            diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
-                            lorem sit clita duo justo magna dolore erat amet. Stet no et lorem dolor et diam, amet duo
-                            ut dolore vero eos.</p>
+                        <p class="mb-4 wow fadeInUp" data-wow-delay="0.2s">包套行程讓您無需操心，專人為您安排簽證、交通、住宿與精彩行程。從機場接送到 KTV、龍宮 VILLA、奧黛聖地到夜生活體驗，一站搞定，讓您專心享受越南的暗黑與日光魅力。</p>
                         <ul class="list-group list-group-flush mb-5 wow fadeInUp" data-wow-delay="0.3s">
                             <li class="list-group-item bg-dark text-body border-secondary ps-0">
-                                <i class="fa fa-check-circle text-primary me-1"></i> Lorem ipsum dolor sit amet
-                                consectetur elit.
+                                <i class="fa fa-check-circle text-primary me-1"></i> 專人全程安排，簽證快通／包車／住宿一次搞定
                             </li>
                             <li class="list-group-item bg-dark text-body border-secondary ps-0">
-                                <i class="fa fa-check-circle text-primary me-1"></i> Donec vehicula, sem ut tempus
-                                tempus.
+                                <i class="fa fa-check-circle text-primary me-1"></i> 精選 KTV、龍宮、伴遊與夜店行程，老司機帶路
                             </li>
                             <li class="list-group-item bg-dark text-body border-secondary ps-0">
-                                <i class="fa fa-check-circle text-primary me-1"></i> Morbi mi dapibus, feugiat nisi non
-                                mollis justo.
+                                <i class="fa fa-check-circle text-primary me-1"></i> 24 小時在地支援，越南／胡志明市有困難隨時聯絡
                             </li>
                         </ul>
                         <div class="row wow fadeInUp" data-wow-delay="0.4s">
                             <div class="col-6">
-                                <a href="#!" class="btn btn-outline-primary border-2 py-3 w-100">Become A Model</a>
+                                <a href="service.html" class="btn btn-outline-primary border-2 py-3 w-100">預約包套</a>
                             </div>
                             <div class="col-6">
-                                <a href="#!" class="btn btn-primary py-3 w-100">Schedule Casting</a>
+                                <a href="contact.html" class="btn btn-primary py-3 w-100">聯絡我們</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.5s">
-                    <img class="img-fluid" src="img/about.png" alt="">
+                    <img class="img-fluid" src="img/about.png" alt="香狼津桃包套行程">
                 </div>
             </div>
         </div>
@@ -1406,13 +1708,10 @@
     <!-- Content Section End - Free Travel -->
 
 
+    <!-- Testimonial + Footer：依 toggle 切換 package-tour / free-travel 樣式 -->
+    <div id="testimonialFooterSection" class="content-section package-tour">
     <!-- Testimonial Start -->
-    
-    
-    <!-- Content Section Start - Free Travel (Banner & Team) -->
-    <div id="freeTravelBannerTeam" class="content-section free-travel" style="display: none;">
-    <!-- Banner Start - Free Travel -->
-    <div class="container-fluid py-5 bg-secondary">
+    <div class="container-fluid py-5 bg-secondary testimonial-footer-bg">
         <div class="container py-5">
             <div class="text-center">
                 <div class="title wow fadeInUp" data-wow-delay="0.1s">
@@ -1454,10 +1753,10 @@
 
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn footer-block" data-wow-delay="0.1s">
         <div class="container text-center py-5">
             <a href="index.html">
-                <h1 class="display-4 mb-3 text-white text-uppercase"><i
+                <h1 class="display-4 mb-3 text-white text-uppercase footer-logo"><i
                         class="fa-regular fa-face-smile me-1"></i>Poseify</h1>
             </a>
             <div class="d-flex justify-content-center mb-4">
@@ -1470,15 +1769,46 @@
                 <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
                         class="fab fa-linkedin-in"></i></a>
             </div>
-            <p>&copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.</p>
+            <p class="footer-copyright">&copy; <a class="border-bottom footer-link" href="#">Your Site Name</a>, All Right Reserved.</p>
 
             <!--/*** The author’s attribution link must remain intact in the template. ***/-->
             <!--/*** If you wish to remove this credit link, please purchase the Pro Version . ***/-->
-            <p class="mb-0">Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>. Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>.</p>
+            <p class="mb-0 footer-credit">Designed By <a class="border-bottom footer-link" href="https://htmlcodex.com">HTML Codex</a>. Distributed by <a class="footer-link" href="https://themewagon.com" target="_blank">ThemeWagon</a>.</p>
         </div>
     </div>
     <!-- Footer End -->
+    </div>
 
+    <!-- Sticky Contact Action Bar - LINE 來電通知風格 -->
+    <div class="sticky-contact-bar" id="stickyContactBar">
+        <div class="sticky-contact-content">
+            <!-- 左側：頭像和 LINE 信息 -->
+            <div class="line-call-info">
+                <div class="line-avatar">
+                    <i class="fas fa-user"></i>
+            </div>
+                <div class="line-call-details">
+                    <div class="line-app-info">
+                        <div class="line-icon-small">
+                    <i class="fab fa-line"></i>
+            </div>
+                        <span class="line-call-type">LINE 語音通話</span>
+            </div>
+                    <div class="line-call-name">香狼津桃服務</div>
+                </div>
+            </div>
+            
+            <!-- 右側：接受和拒絕按鈕 -->
+            <div class="line-call-actions">
+                <button class="line-call-btn line-call-decline" id="stickyContactClose" title="拒絕">
+                <i class="fas fa-times"></i>
+            </button>
+                <a href="tel:+84901234567" class="line-call-btn line-call-accept" id="mainCallButton" title="接受並撥打電話">
+                    <i class="fas fa-check"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -1529,12 +1859,155 @@
     <script src="js/search.js"></script>
     <script src="js/dropdown-submenu.js"></script>
     
-    <!-- 修復首頁搜尋 Modal 顯示問題 -->
+    <!-- 修復首頁元素顯示問題 - 確保應該顯示的元素在初始載入時就顯示 -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const searchModalElement = document.getElementById('searchModal');
-            if (!searchModalElement) return;
+            // 確保應該始終顯示的元素是可見的（不影響 toggle switch 的邏輯）
+            function ensureElementsVisible() {
+                // 確保 body 和 html 可見
+                if (document.body) {
+                    const bodyStyle = window.getComputedStyle(document.body);
+                    if (bodyStyle.display === 'none') {
+                        document.body.style.display = 'block';
+                    }
+                }
+                
+                if (document.documentElement) {
+                    const htmlStyle = window.getComputedStyle(document.documentElement);
+                    if (htmlStyle.display === 'none') {
+                        document.documentElement.style.display = 'block';
+                    }
+                }
+                
+                // 獲取 content-section 元素（用於檢查 toggle switch 狀態）
+                const packageTourContent = document.getElementById('packageTourContent');
+                const freeTravelContent = document.getElementById('freeTravelContent');
+                
+                // 確保 packageTourContent 可見（這是預設顯示的）
+                // 但不要覆蓋 toggle switch 的設置
+                if (packageTourContent) {
+                    // 檢查是否是因為父元素被隱藏而導致的
+                    let parent = packageTourContent.parentElement;
+                    let parentHidden = false;
+                    while (parent && parent !== document.body) {
+                        const parentStyle = window.getComputedStyle(parent);
+                        if (parentStyle.display === 'none') {
+                            parent.style.display = 'block';
+                            parentHidden = true;
+                        }
+                        parent = parent.parentElement;
+                    }
+                    
+                    // 只有在以下情況才修復 packageTourContent：
+                    // 1. 父元素被隱藏導致不可見
+                    // 2. 沒有被 toggle switch 明確設置為 none（通過 style.display）
+                    // 3. freeTravelContent 也沒有被明確設置為 block（表示 toggle switch 沒有切換到自由行）
+                    const packageInlineStyle = packageTourContent.style.display;
+                    const freeTravelInlineStyle = freeTravelContent ? freeTravelContent.style.display : '';
+                    
+                    // 如果父元素被隱藏，且 toggle switch 沒有明確設置，則顯示 packageTourContent
+                    if (parentHidden) {
+                        if (packageInlineStyle !== 'none' && freeTravelInlineStyle !== 'block') {
+                            packageTourContent.style.display = 'block';
+                        }
+                    }
+                }
+                
+                // 確保 footer 可見（footer 不在 content-section 內，應該始終顯示）
+                const footer = document.querySelector('.footer');
+                if (footer) {
+                    const footerStyle = window.getComputedStyle(footer);
+                    if (footerStyle.display === 'none') {
+                        footer.style.display = 'block';
+                    }
+                    // 確保 footer 的父元素可見
+                    let parent = footer.parentElement;
+                    while (parent && parent !== document.body) {
+                        const parentStyle = window.getComputedStyle(parent);
+                        if (parentStyle.display === 'none') {
+                            parent.style.display = 'block';
+                        }
+                        parent = parent.parentElement;
+                    }
+                }
+                
+                // 確保 sticky-contact-bar 可見
+                const stickyBar = document.getElementById('stickyContactBar');
+                if (stickyBar) {
+                    const stickyStyle = window.getComputedStyle(stickyBar);
+                    if (stickyStyle.display === 'none' && !stickyBar.classList.contains('hidden')) {
+                        stickyBar.style.display = 'block';
+                    }
+                    // 確保 sticky-contact-bar 的父元素可見
+                    let parent = stickyBar.parentElement;
+                    while (parent && parent !== document.body) {
+                        const parentStyle = window.getComputedStyle(parent);
+                        if (parentStyle.display === 'none') {
+                            parent.style.display = 'block';
+                        }
+                        parent = parent.parentElement;
+                    }
+                }
+                
+                // 確保在 packageTourContent 內的 container py-5 元素可見
+                // 但只在 packageTourContent 應該顯示時才修復（不影響 toggle switch）
+                const isFreeTravelActive = freeTravelContent && freeTravelContent.style.display === 'block';
+                const isPackageTourActive = packageTourContent && packageTourContent.style.display !== 'none';
+                
+                // 只在包套行程模式且 packageTourContent 應該顯示時才修復
+                if (packageTourContent && !isFreeTravelActive && isPackageTourActive) {
+                    const containers = packageTourContent.querySelectorAll('.container.py-5, .container-fluid.py-5');
+                    containers.forEach(function(container) {
+                        const containerStyle = window.getComputedStyle(container);
+                        if (containerStyle.display === 'none') {
+                            container.style.display = 'block';
+                        }
+                        // 確保容器的父元素可見（但不要影響 content-section）
+                        let parent = container.parentElement;
+                        while (parent && parent !== packageTourContent && parent !== document.body) {
+                            const parentStyle = window.getComputedStyle(parent);
+                            if (parentStyle.display === 'none' && !parent.classList.contains('content-section')) {
+                                parent.style.display = 'block';
+                            }
+                            parent = parent.parentElement;
+                        }
+                    });
+                }
+                
+                // 同樣修復 freeTravelContent 內的容器（如果自由行模式是活動的）
+                if (freeTravelContent && isFreeTravelActive) {
+                    const containers = freeTravelContent.querySelectorAll('.container.py-5, .container-fluid.py-5');
+                    containers.forEach(function(container) {
+                        const containerStyle = window.getComputedStyle(container);
+                        if (containerStyle.display === 'none') {
+                            container.style.display = 'block';
+                        }
+                        // 確保容器的父元素可見（但不要影響 content-section）
+                        let parent = container.parentElement;
+                        while (parent && parent !== freeTravelContent && parent !== document.body) {
+                            const parentStyle = window.getComputedStyle(parent);
+                            if (parentStyle.display === 'none' && !parent.classList.contains('content-section')) {
+                                parent.style.display = 'block';
+                            }
+                            parent = parent.parentElement;
+                        }
+                    });
+                }
+            }
             
+            // 立即執行一次
+            ensureElementsVisible();
+            
+            // 延遲執行以確保所有元素都已載入
+            setTimeout(ensureElementsVisible, 100);
+            setTimeout(ensureElementsVisible, 500);
+            
+            // 監聽 window load 事件
+            window.addEventListener('load', ensureElementsVisible);
+            
+            // 修復首頁搜尋 Modal 顯示問題
+            const searchModalElement = document.getElementById('searchModal');
+            if (searchModalElement) {
             // 確保 modal 實例存在
             let searchModal = bootstrap.Modal.getInstance(searchModalElement);
             if (!searchModal) {
@@ -1547,6 +2020,7 @@
             
             // 監聽 modal 顯示事件，修復父元素 display: none 的問題
             searchModalElement.addEventListener('show.bs.modal', function() {
+                    ensureElementsVisible(); // 確保所有元素可見
                 const parentElement = searchModalElement.parentElement;
                 if (parentElement && window.getComputedStyle(parentElement).display === 'none') {
                     parentElement.style.display = 'block';
@@ -1572,6 +2046,7 @@
                     }
                 }, 50);
             });
+            }
         });
     </script>
     
@@ -1585,6 +2060,7 @@
             const heroBackground = document.getElementById('hero-background');
             const freeTravelContent = document.getElementById('freeTravelContent');
             const packageTourContent = document.getElementById('packageTourContent');
+            const testimonialFooterSection = document.getElementById('testimonialFooterSection');
             if (!dayNightToggle || !freeTravelLabel || !packageLabel || !heroBackground || !freeTravelContent || !packageTourContent) return;
             
             // 背景圖片設定
@@ -1622,6 +2098,11 @@
                     packageInfo.style.display = 'none';
                     freeTravelInfo.style.display = 'flex';
                 }
+                // 切換 Testimonial + Footer 為自由行（淺色）樣式
+                if (testimonialFooterSection) {
+                    testimonialFooterSection.classList.remove('package-tour');
+                    testimonialFooterSection.classList.add('free-travel');
+                }
             }
             
             // 切換到包套行程（夜晚模式）
@@ -1650,6 +2131,11 @@
                     freeTravelInfo.style.display = 'none';
                     packageInfo.style.display = 'flex';
                 }
+                // 切換 Testimonial + Footer 為包套行程（深色）樣式
+                if (testimonialFooterSection) {
+                    testimonialFooterSection.classList.remove('free-travel');
+                    testimonialFooterSection.classList.add('package-tour');
+                }
             }
             
             // 點擊 toggle switch
@@ -1676,6 +2162,156 @@
                 switchToPackageTour();
             });
         });
+    </script>
+    
+    <!-- Sticky Contact Bar JavaScript -->
+    <script>
+        // 使用多種方式確保執行
+        function initStickyContactBar() {
+            const stickyContactBar = document.getElementById('stickyContactBar');
+            const stickyContactClose = document.getElementById('stickyContactClose');
+            
+            if (!stickyContactBar) {
+                console.error('Sticky contact bar element not found!');
+                return;
+            }
+            
+            if (!stickyContactClose) {
+                console.error('Sticky contact close button not found!');
+                return;
+            }
+            
+            console.log('Sticky contact bar found, initializing...');
+            
+            // 強制設置樣式確保顯示
+            stickyContactBar.style.cssText = `
+                position: fixed !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
+                height: auto !important;
+                min-height: 60px !important;
+                z-index: 9990 !important;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 100%) !important;
+                border-top: 2px solid #E41779 !important;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5) !important;
+            `;
+            
+            // 添加點擊動畫效果到主要按鈕
+            const mainCallButton = document.getElementById('mainCallButton');
+            if (mainCallButton) {
+                mainCallButton.addEventListener('click', function(e) {
+                    // 添加點擊動畫效果
+                    this.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            }
+            
+            // 檢查元素尺寸
+            setTimeout(function() {
+                const rect = stickyContactBar.getBoundingClientRect();
+                const computedStyle = window.getComputedStyle(stickyContactBar);
+                console.log('Sticky bar dimensions:', {
+                    width: rect.width,
+                    height: rect.height,
+                    top: rect.top,
+                    bottom: rect.bottom,
+                    left: rect.left,
+                    right: rect.right,
+                    display: computedStyle.display,
+                    visibility: computedStyle.visibility,
+                    opacity: computedStyle.opacity,
+                    zIndex: computedStyle.zIndex,
+                    position: computedStyle.position,
+                    bottomStyle: computedStyle.bottom
+                });
+                
+                // 如果高度仍然為 0，嘗試其他方法
+                if (rect.height === 0 || rect.width === 0) {
+                    console.warn('Bar still has zero dimensions, trying alternative fix...');
+                    // 強制設置最小尺寸
+                    stickyContactBar.style.minHeight = '60px';
+                    stickyContactBar.style.height = 'auto';
+                    if (content) {
+                        content.style.minHeight = '60px';
+                        content.style.height = 'auto';
+                    }
+                    // 強制重新計算
+                    stickyContactBar.offsetHeight;
+                }
+            }, 300);
+            
+            // 檢查 localStorage 中是否已關閉
+            const isHidden = localStorage.getItem('stickyContactBarHidden') === 'true';
+            if (isHidden) {
+                stickyContactBar.classList.add('hidden');
+                console.log('Sticky bar is hidden (from localStorage)');
+            } else {
+                stickyContactBar.classList.remove('hidden');
+                console.log('Sticky bar is visible');
+            }
+            
+            // 關閉按鈕點擊事件
+            stickyContactClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                stickyContactBar.classList.add('hidden');
+                localStorage.setItem('stickyContactBarHidden', 'true');
+                console.log('Sticky bar closed');
+            });
+            
+            // 確保在頁面滾動時保持顯示
+            window.addEventListener('scroll', function() {
+                if (!stickyContactBar.classList.contains('hidden')) {
+                    stickyContactBar.style.display = 'block';
+                    stickyContactBar.style.visibility = 'visible';
+                    stickyContactBar.style.opacity = '1';
+                }
+            });
+            
+            // 定期檢查並修復樣式
+            setInterval(function() {
+                if (!stickyContactBar.classList.contains('hidden')) {
+                    const computedStyle = window.getComputedStyle(stickyContactBar);
+                    if (computedStyle.display === 'none' || 
+                        computedStyle.visibility === 'hidden' || 
+                        computedStyle.opacity === '0') {
+                        stickyContactBar.style.cssText = `
+                            position: fixed !important;
+                            bottom: 0 !important;
+                            left: 0 !important;
+                            right: 0 !important;
+                            width: 100% !important;
+                            z-index: 9990 !important;
+                            display: block !important;
+                            visibility: visible !important;
+                            opacity: 1 !important;
+                        `;
+                    }
+                }
+            }, 1000);
+            
+            console.log('Sticky contact bar initialized successfully');
+        }
+        
+        // 多種初始化方式
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initStickyContactBar);
+        } else {
+            initStickyContactBar();
+        }
+        
+        // 延遲執行以確保所有元素都已載入
+        setTimeout(initStickyContactBar, 100);
+        setTimeout(initStickyContactBar, 500);
     </script>
 </body>
 
