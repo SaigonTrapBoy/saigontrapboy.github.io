@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Poseify - Modeling Agency Website Template</title>
+    <title>香郎津桃包套服務 - 香郎津桃</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -78,6 +78,29 @@
         .dropdown-submenu:hover > a::after {
             border-left-color: #fff;
         }
+        /* 包套服務頁 CTA 區塊（與自由行頁一致風格） */
+        .service-cta {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+        }
+        .service-cta .btn-primary { background: #E41779; border-color: #E41779; }
+        .service-cta .btn-outline-primary { color: #fff; border-color: rgba(255,255,255,0.5); }
+        .service-cta .btn-outline-primary:hover { background: #E41779; border-color: #E41779; color: #fff; }
+        /* 顧客分享：襯線字體 + 重點 highlight */
+        .service-testimonial .testimonial-item p {
+            font-family: Georgia, "Noto Serif TC", "Noto Serif SC", "Source Han Serif TC", "Times New Roman", serif;
+        }
+        .service-testimonial .testimonial-item h5,
+        .service-testimonial .testimonial-item .text-primary {
+            font-family: Georgia, "Noto Serif TC", "Noto Serif SC", "Times New Roman", serif;
+        }
+        .service-testimonial .testimonial-hl {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 0 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
         /* 添加一個偽元素來填充間隙，確保 hover 連續 */
         .dropdown-submenu::after {
             content: "";
@@ -128,8 +151,9 @@
     <!-- Header Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
-            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                <h2 class="mb-0 text-primary text-uppercase"><i class="fa-regular fa-face-smile me-1"></i>Poseify</h2>
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center gap-2">
+                <img src="img/logo-symbol.svg" alt="" class="navbar-logo-symbol" width="36" height="54">
+                <img src="img/logo-text.png" alt="香郎津桃" class="navbar-logo-text" height="40" style="max-height: 40px; width: auto;">
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -139,7 +163,7 @@
                 <div class="navbar-nav mx-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link active">香狼津桃包套服務</a>
+                    <a href="service.html" class="nav-item nav-link active">香郎津桃包套服務</a>
                     <a href="free-travel.html" class="nav-item nav-link">自由行</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">服務指南</a>
@@ -178,20 +202,19 @@
                     <button type="button" class="btn btn-outline-primary border-2 me-3" data-bs-toggle="modal" data-bs-target="#searchModal" title="搜尋網站">
                         <i class="fas fa-search"></i>
                     </button>
-                    <a class="btn btn-outline-primary border-2" href="https://themewagon.com/themes/poseify">Download
-                        Now</a>
+                    <a class="btn btn-outline-primary border-2" href="contact.html">立即諮詢</a>
                 </div>
             </div>
         </nav>
 
         <div class="page-header pb-5">
             <div class="container text-center py-5">
-                <h1 class="display-4 text-uppercase mb-3 animated slideInDown">香狼津桃包套服務</h1>
+                <h1 class="display-4 text-uppercase mb-3 animated slideInDown">香郎津桃包套服務</h1>
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb justify-content-center text-uppercase mb-0">
                         <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-primary active" aria-current="page">香狼津桃包套服務</li>
+                        <li class="breadcrumb-item text-primary active" aria-current="page">香郎津桃包套服務</li>
                     </ol>
                 </nav>
             </div>
@@ -207,7 +230,7 @@
                 <div class="title wow fadeInUp" data-wow-delay="0.1s">
                     <div class="title-center">
                         <h5>服務項目</h5>
-                        <h1>香狼津桃包套服務</h1>
+                        <h1>香郎津桃包套服務</h1>
                     </div>
                 </div>
             </div>
@@ -284,54 +307,73 @@
     <!-- Service End -->
 
 
-    <!-- Testimonial Start -->
-    <div class="container-fluid py-5 bg-secondary">
+    <!-- 顧客分享 Start -->
+    <div class="container-fluid py-5 bg-secondary service-testimonial">
         <div class="container py-5">
             <div class="text-center">
                 <div class="title wow fadeInUp" data-wow-delay="0.1s">
                     <div class="title-center">
-                        <h5>Testimonial</h5>
-                        <h1>Our Clients Say</h1>
+                        <h5>顧客分享</h5>
+                        <h1>他們這樣說</h1>
                     </div>
                 </div>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.3s">
                 <div class="testimonial-item text-center"
-                    data-dot="<img class='img-fluid' src='img/testimonial-1.jpg' alt=''>">
-                    <p class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed
-                        sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum
-                        justo sea clita.</p>
-                    <h5 class="text-uppercase">Joanne Irwin</h5>
-                    <span class="text-primary">Profession</span>
+                    data-dot="<img class='img-fluid rounded-circle' src='https://randomuser.me/api/portraits/men/32.jpg' alt=''>">
+                    <p class="fs-5">第一次自己來越南其實很緊張，怕被宰、怕踩雷。香郎津桃從接機到住宿、KTV、龍宮都幫你安排好，導遊會講中文也很懂當地，晚上帶我們去的那幾間<span class="testimonial-hl">都超嗨，完全沒冷場</span>。下次還會找他們包套。</p>
+                    <h5 class="text-uppercase">阿傑</h5>
+                    <span class="text-primary">台北 · 包套五日</span>
                 </div>
                 <div class="testimonial-item text-center"
-                    data-dot="<img class='img-fluid' src='img/testimonial-2.jpg' alt=''>">
-                    <p class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed
-                        sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum
-                        justo sea clita.</p>
-                    <h5 class="text-uppercase">Lana Anderson</h5>
-                    <span class="text-primary">Profession</span>
+                    data-dot="<img class='img-fluid rounded-circle' src='https://randomuser.me/api/portraits/men/44.jpg' alt=''>">
+                    <p class="fs-5">朋友去年跟過團推薦的。我本來只想自由行自己摸，後來想說試一次包套看看，結果差很多——<span class="testimonial-hl">不用自己找店、比價、怕被坑</span>，他們排的飯店跟行程<span class="testimonial-hl">品質都很穩，玩得安心</span>。已經在約明年再衝一團了。</p>
+                    <h5 class="text-uppercase">阿偉</h5>
+                    <span class="text-primary">新北 · 回訪客</span>
                 </div>
                 <div class="testimonial-item text-center"
-                    data-dot="<img class='img-fluid' src='img/testimonial-3.jpg' alt=''>">
-                    <p class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed
-                        sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum
-                        justo sea clita.</p>
-                    <h5 class="text-uppercase">Pamela Torney</h5>
-                    <span class="text-primary">Profession</span>
+                    data-dot="<img class='img-fluid rounded-circle' src='https://randomuser.me/api/portraits/men/56.jpg' alt=''>">
+                    <p class="fs-5">我們三個男生一起去，從簽證、機票到胡志明住宿、奧黛體驗、夜店酒吧都<span class="testimonial-hl">一條龍</span>搞定。導遊<span class="testimonial-hl">很會帶氣氛</span>又不會強推，想加什麼行程也可以當場喬。整體CP值高，有興趣的真的可以問問看。</p>
+                    <h5 class="text-uppercase">小陳</h5>
+                    <span class="text-primary">台中 · 三人成行</span>
+                </div>
+                <div class="testimonial-item text-center"
+                    data-dot="<img class='img-fluid rounded-circle' src='https://randomuser.me/api/portraits/men/68.jpg' alt=''>">
+                    <p class="fs-5">第一次參加這種行程，出發前超緊張，不知道會怎樣、會不會很尬。結果導遊<span class="testimonial-hl">從頭帶到尾</span>，該去的都有去到，節奏抓得很好也不會讓人不知所措，整體比想像中安心很多。跟我一樣沒經驗的真的可以找他們。</p>
+                    <h5 class="text-uppercase">志明</h5>
+                    <span class="text-primary">高雄 · 首次體驗</span>
+                </div>
+                <div class="testimonial-item text-center"
+                    data-dot="<img class='img-fluid rounded-circle' src='https://randomuser.me/api/portraits/men/77.jpg' alt=''>">
+                    <p class="fs-5">完全新手，被朋友慫恿才報的。本來很怕被騙或踩雷，結果<span class="testimonial-hl">從頭到尾都有人帶</span>，住宿跟行程都<span class="testimonial-hl">幫你安排好，只要跟著走就好</span>。體驗完覺得早該試一次，有在考慮下次再報一團。</p>
+                    <h5 class="text-uppercase">阿宏</h5>
+                    <span class="text-primary">桃園 · 新手初體驗</span>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Testimonial End -->
+    <!-- 顧客分享 End -->
 
+    <!-- CTA：準備好了嗎？（與自由行頁同風格） -->
+    <div class="container-fluid py-5 service-cta">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="text-primary text-uppercase mb-3">開始規劃</h5>
+                    <h2 class="text-white mb-4">準備好體驗香郎津桃包套行程了嗎？</h2>
+                    <p class="text-white-50 mb-4">填寫聯絡方式，我們將為您量身規劃包套行程與報價。</p>
+                    <a href="contact.html" class="btn btn-primary btn-lg me-2 mb-2">聯絡我們</a>
+                    <a href="index.html" class="btn btn-outline-primary btn-lg mb-2">返回首頁</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center py-5">
             <a href="index.html">
-                <h1 class="display-4 mb-3 text-white text-uppercase"><i
-                        class="fa-regular fa-face-smile me-1"></i>Poseify</h1>
+                <img src="img/logo-text.png" alt="香郎津桃" class="footer-logo-img" style="max-height: 56px; width: auto;">
             </a>
             <div class="d-flex justify-content-center mb-4">
                 <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
@@ -343,13 +385,9 @@
                 <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
                         class="fab fa-linkedin-in"></i></a>
             </div>
-            <p>&copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.</p>
+            <p>&copy; 香郎津桃旅行社, All Right Reserved.</p>
 
-            <!--/*** The author’s attribution link must remain intact in the template. ***/-->
-            <!--/*** If you wish to remove this credit link, please purchase the Pro Version . ***/-->
-            <p class="mb-0">Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>.
-                Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>.</p>
-            </p>
+            <p class="mb-0">Designed by ZXC</p>
         </div>
     </div>
     <!-- Footer End -->

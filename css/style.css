@@ -1,5 +1,9 @@
 /********** Template CSS **********/
 
+.navbar-logo-symbol { flex-shrink: 0; display: block; }
+.navbar-logo-text { object-fit: contain; vertical-align: middle; }
+.footer-logo-img { display: inline-block; }
+
 .back-to-top {
     position: fixed;
     display: none;

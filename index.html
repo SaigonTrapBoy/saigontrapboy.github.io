@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Poseify - Modeling Agency Website Template</title>
+    <title>香郎津桃 - 越南暗黑旅行</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <!-- Favicon：第一張圖粉色線透明符號 -->
+    <link href="img/logo-symbol.svg" rel="icon" type="image/svg+xml">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -776,8 +776,7 @@
             color: #E41779 !important;
         }
         
-        /* Sticky Contact Action Bar Styles - LINE 來電通知風格 */
-        /* 確保不受 content-section 規則影響 */
+        /* Sticky Contact Bar - 文青風格 · 動態邀請聯繫 */
         .sticky-contact-bar,
         #stickyContactBar,
         body .sticky-contact-bar,
@@ -789,12 +788,12 @@
             left: 0 !important;
             right: 0 !important;
             width: 100% !important;
-            background: linear-gradient(135deg, #2d5a7a 0%, #1a3a52 100%) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4) !important;
+            background: linear-gradient(135deg, #1a1a24 0%, #252532 50%, #1e1e2a 100%) !important;
+            border-top: 1px solid rgba(228, 23, 121, 0.25) !important;
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.35) !important;
             z-index: 9990 !important;
             transform: translateY(0) !important;
-            transition: transform 0.3s ease-in-out !important;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
             display: block !important;
             visibility: visible !important;
             opacity: 1 !important;
@@ -808,130 +807,152 @@
             display: flex !important;
             align-items: center !important;
             justify-content: space-between !important;
-            gap: 15px !important;
-            padding: 12px 20px !important;
-            max-width: 1200px !important;
+            gap: 20px !important;
+            padding: 18px 24px 18px 24px !important;
+            padding-right: 56px !important;
+            max-width: 1000px !important;
             margin: 0 auto !important;
             position: relative !important;
             width: 100% !important;
-            min-height: 70px !important;
+            min-height: 80px !important;
         }
         
-        /* 左側：LINE 來電信息區域 */
-        .line-call-info {
+        /* 內層：文案＋按鈕，預留右側給關閉鈕，不重疊 */
+        .sticky-contact-inner {
             display: flex !important;
             align-items: center !important;
-            gap: 12px !important;
+            flex-wrap: wrap !important;
+            gap: 16px 24px !important;
             flex: 1 1 auto !important;
             min-width: 0 !important;
         }
-        .line-avatar {
-            width: 50px !important;
-            height: 50px !important;
-            border-radius: 8px !important;
-            background: rgba(255, 255, 255, 0.15) !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            flex-shrink: 0 !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        
+        /* 文青文案區 · 襯線、粗體、較大字級 */
+        .sticky-msg {
+            flex: 1 1 auto !important;
+            min-width: 0 !important;
+            font-family: Georgia, "Noto Serif TC", "Noto Serif SC", "Source Han Serif TC", "Times New Roman", serif !important;
         }
-        .line-avatar i {
-            font-size: 24px !important;
+        .sticky-msg-main {
+            margin: 0 0 6px 0 !important;
+            font-size: 1.12rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.06em !important;
+            color: rgba(255, 255, 255, 0.92) !important;
+            line-height: 1.6 !important;
+        }
+        .sticky-msg-line1 {
+            font-style: normal !important;
+        }
+        .sticky-msg-sub {
+            margin: 0 !important;
+            font-size: 0.95rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.04em !important;
             color: rgba(255, 255, 255, 0.7) !important;
+            line-height: 1.5 !important;
         }
-        .line-call-details {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 4px !important;
-            min-width: 0 !important;
-            flex: 1 1 auto !important;
+        .sticky-msg-brand {
+            color: rgba(228, 23, 121, 0.95) !important;
+            font-weight: 700 !important;
+            animation: sticky-glow 4s ease-in-out infinite !important;
         }
-        .line-app-info {
-            display: flex !important;
-            align-items: center !important;
-            gap: 6px !important;
+        .sticky-msg-dot {
+            color: rgba(255, 255, 255, 0.4) !important;
+            font-weight: 700 !important;
         }
-        .line-icon-small {
-            width: 20px !important;
-            height: 20px !important;
-            border-radius: 50% !important;
-            background: #00C300 !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            flex-shrink: 0 !important;
-        }
-        .line-icon-small i {
-            font-size: 12px !important;
-            color: #ffffff !important;
-        }
-        .line-call-type {
-            font-size: 12px !important;
+        .sticky-msg-line2 {
             color: rgba(255, 255, 255, 0.8) !important;
-            font-weight: 400 !important;
-            white-space: nowrap !important;
-            overflow: hidden !important;
-            text-overflow: ellipsis !important;
         }
-        .line-call-name {
-            font-size: 15px !important;
-            color: #ffffff !important;
-            font-weight: 500 !important;
-            white-space: nowrap !important;
-            overflow: hidden !important;
-            text-overflow: ellipsis !important;
+        @keyframes sticky-glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.88; }
+        }
+        /* 輪播淡入淡出 */
+        .sticky-msg-carousel {
+            transition: opacity 0.5s ease !important;
+        }
+        .sticky-msg-carousel.sticky-msg-fade {
+            opacity: 0 !important;
         }
         
-        /* 右側：接受和拒絕按鈕 */
-        .line-call-actions {
+        /* 聯繫方式按鈕組 */
+        .sticky-contact-methods {
             display: flex !important;
             align-items: center !important;
-            gap: 12px !important;
-            flex: 0 0 auto !important;
+            gap: 8px !important;
+            flex-wrap: wrap !important;
         }
-        .line-call-btn {
-            width: 48px !important;
-            height: 48px !important;
+        .sticky-method {
+            display: inline-flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 4px !important;
+            padding: 8px 14px !important;
+            border-radius: 999px !important;
+            background: rgba(255, 255, 255, 0.06) !important;
+            border: 1px solid rgba(255, 255, 255, 0.12) !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+            min-width: 56px !important;
+        }
+        .sticky-method {
+            font-family: Georgia, "Noto Serif TC", "Noto Serif SC", "Source Han Serif TC", "Times New Roman", serif !important;
+        }
+        .sticky-method:hover {
+            background: rgba(228, 23, 121, 0.2) !important;
+            border-color: rgba(228, 23, 121, 0.4) !important;
+            color: #fff !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(228, 23, 121, 0.25) !important;
+        }
+        .sticky-method-icon {
+            font-size: 1.25rem !important;
+            line-height: 1 !important;
+        }
+        .sticky-method-icon i { display: block !important; }
+        .sticky-method-label {
+            font-size: 0.78rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.05em !important;
+            text-transform: uppercase !important;
+            opacity: 0.95 !important;
+        }
+        
+        /* 關閉按鈕 */
+        .sticky-contact-close {
+            position: absolute !important;
+            top: 50% !important;
+            right: 16px !important;
+            transform: translateY(-50%) !important;
+            width: 36px !important;
+            height: 36px !important;
             border-radius: 50% !important;
-            border: none !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            background: rgba(255, 255, 255, 0.06) !important;
+            color: rgba(255, 255, 255, 0.6) !important;
+            font-size: 0.9rem !important;
+            cursor: pointer !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            cursor: pointer !important;
-            transition: all 0.2s ease !important;
-            font-size: 20px !important;
-            color: #ffffff !important;
-            text-decoration: none !important;
-            flex-shrink: 0 !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+            transition: all 0.25s ease !important;
         }
-        .line-call-btn:hover {
-            transform: scale(1.1) !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+        .sticky-contact-close:hover {
+            background: rgba(255, 255, 255, 0.12) !important;
+            color: #fff !important;
+            border-color: rgba(255, 255, 255, 0.25) !important;
         }
-        .line-call-btn:active {
-            transform: scale(0.95) !important;
-        }
-        .line-call-decline {
-            background: #dc3545 !important;
-        }
-        .line-call-decline:hover {
-            background: #c82333 !important;
-        }
-        .line-call-accept {
-            background: #007bff !important;
-        }
-        .line-call-accept:hover {
-            background: #0056b3 !important;
-        }
-        .line-call-btn i {
-            display: block !important;
-        }
+        .sticky-contact-close i { display: block !important; }
         /* 確保 back-to-top 按鈕不會被遮擋 */
         .back-to-top {
             z-index: 9989 !important;
         }
+        .navbar-logo-symbol { flex-shrink: 0; display: block; }
+        .navbar-logo-text { object-fit: contain; vertical-align: middle; }
+        .footer-logo-img { display: inline-block; }
         /* 確保 sticky bar 在所有元素之上 */
         body {
             padding-bottom: 0 !important;
@@ -943,78 +964,42 @@
         #searchModal {
             z-index: 9999 !important;
         }
-        /* 響應式設計 */
+        /* 響應式：維持右側留白，關閉鈕不重疊 */
         @media (max-width: 768px) {
             .sticky-contact-content {
-                padding: 10px 15px !important;
-                gap: 12px !important;
-                min-height: 65px !important;
+                padding: 14px 18px 14px 18px !important;
+                padding-right: 50px !important;
+                gap: 12px 18px !important;
+                min-height: auto !important;
             }
-            .line-avatar {
-                width: 45px !important;
-                height: 45px !important;
-            }
-            .line-avatar i {
-                font-size: 20px !important;
-            }
-            .line-call-name {
-                font-size: 14px !important;
-            }
-            .line-call-type {
-                font-size: 11px !important;
-            }
-            .line-icon-small {
-                width: 18px !important;
-                height: 18px !important;
-            }
-            .line-icon-small i {
-                font-size: 11px !important;
-            }
-            .line-call-btn {
-                width: 44px !important;
-                height: 44px !important;
-                font-size: 18px !important;
-            }
-            .line-call-actions {
-                gap: 10px !important;
+            .sticky-contact-inner { gap: 12px 16px !important; }
+            .sticky-msg-main { font-size: 1.05rem !important; }
+            .sticky-msg-sub { font-size: 0.9rem !important; }
+            .sticky-method { padding: 6px 10px !important; min-width: 48px !important; }
+            .sticky-method-icon { font-size: 1.1rem !important; }
+            .sticky-method-label { font-size: 0.72rem !important; }
+            .sticky-contact-close {
+                right: 12px !important;
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 0.9rem !important;
             }
         }
         @media (max-width: 576px) {
             .sticky-contact-content {
-                padding: 8px 12px !important;
-                gap: 10px !important;
-                min-height: 60px !important;
+                padding: 12px 14px 12px 14px !important;
+                padding-right: 46px !important;
+                gap: 10px 12px !important;
             }
-            .line-avatar {
-                width: 40px !important;
-                height: 40px !important;
-            }
-            .line-avatar i {
-                font-size: 18px !important;
-            }
-            .line-call-name {
-                font-size: 13px !important;
-            }
-            .line-call-type {
-                font-size: 10px !important;
-            }
-            .line-icon-small {
-                width: 16px !important;
-                height: 16px !important;
-            }
-            .line-icon-small i {
-                font-size: 10px !important;
-            }
-            .line-call-btn {
-                width: 40px !important;
-                height: 40px !important;
-                font-size: 16px !important;
-            }
-            .line-call-actions {
-                gap: 8px !important;
-            }
-            .line-call-info {
-                gap: 10px !important;
+            .sticky-contact-inner { gap: 10px 12px !important; }
+            .sticky-msg-main { font-size: 1rem !important; }
+            .sticky-msg-sub { font-size: 0.85rem !important; }
+            .sticky-method-label { display: none !important; }
+            .sticky-method { padding: 8px 12px !important; min-width: 44px !important; }
+            .sticky-contact-close {
+                right: 10px !important;
+                width: 30px !important;
+                height: 30px !important;
             }
         }
     </style>
@@ -1034,8 +1019,9 @@
     <!-- Header Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
-            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                <h2 class="mb-0 text-primary text-uppercase"><i class="fa-regular fa-face-smile me-1"></i>Poseify</h2>
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center gap-2">
+                <img src="img/logo-symbol.svg" alt="" class="navbar-logo-symbol" width="36" height="54">
+                <img src="img/logo-text.png" alt="香郎津桃" class="navbar-logo-text" height="40" style="max-height: 40px; width: auto;">
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -1045,7 +1031,7 @@
                 <div class="navbar-nav mx-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">香狼津桃包套服務</a>
+                    <a href="service.html" class="nav-item nav-link">香郎津桃包套服務</a>
                     <a href="free-travel.html" class="nav-item nav-link">自由行</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">服務指南</a>
@@ -1084,8 +1070,7 @@
                     <button type="button" class="btn btn-outline-primary border-2 me-3" data-bs-toggle="modal" data-bs-target="#searchModal" title="搜尋網站">
                         <i class="fas fa-search"></i>
                     </button>
-                    <a class="btn btn-outline-primary border-2" href="https://themewagon.com/themes/poseify">Download
-                        Now</a>
+                    <a class="btn btn-outline-primary border-2" href="contact.html">立即諮詢</a>
                 </div>
             </div>
         </nav>
@@ -1093,14 +1078,26 @@
         <div id="header-hero" class="header-hero-container">
             <img id="hero-background" class="w-100 hero-background-img" src="img/carousel-2.jpg" alt="Background Image">
             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                <div class="title mx-5 px-5 animated slideInDown">
-                    <div class="title-center">
-                        <h5>Welcome</h5>
-                        <h1 class="display-1">Modeling Agency</h1>
+                <!-- 包套行程文案（預設顯示） -->
+                <div id="heroCopyPackage" class="hero-copy animated slideInDown">
+                    <div class="title mx-5 px-5">
+                        <div class="title-center">
+                            <h5>包套行程</h5>
+                            <h1 class="display-1">把心交給我們<br>你只管，玩</h1>
+                        </div>
                     </div>
+                    <p class="fs-5 mb-5">出國不該是另一場行軍。<br>在這裡，有人為你打點好一切——安全、歡樂、輕鬆，你只需要出現。</p>
                 </div>
-                <p class="fs-5 mb-5 animated slideInDown">Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit.<br> Sed erat lectus, venenatis sit amet egestas eget, aliquet a nisl.</p>
+                <!-- 自由行文案（切換時顯示） -->
+                <div id="heroCopyFree" class="hero-copy animated slideInDown" style="display: none;">
+                    <div class="title mx-5 px-5">
+                        <div class="title-center">
+                            <h5>自由行</h5>
+                            <h1 class="display-1">你的節奏，你決定<br>想停就停，想走就走</h1>
+                        </div>
+                    </div>
+                    <p class="fs-5 mb-5">旅行不該被行程表綁架。<br>在這裡，「彈性」是你的特權——代訂、包車、預約，其餘你說了算。</p>
+                </div>
                 <div class="trip-toggle-container animated slideInDown">
                     <div class="toggle-title">
                         <h4 class="mb-2">選擇您的旅遊方式</h4>
@@ -1188,7 +1185,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.5s">
-                    <img class="img-fluid" src="img/about.png" alt="香狼津桃包套行程">
+                    <img class="img-fluid" src="img/about.png" alt="香郎津桃包套行程">
                 </div>
             </div>
         </div>
@@ -1203,7 +1200,7 @@
                 <div class="title wow fadeInUp" data-wow-delay="0.1s">
                     <div class="title-center">
                         <h5>服務項目</h5>
-                        <h1>香狼津桃包套服務</h1>
+                        <h1>香郎津桃包套服務</h1>
                     </div>
                 </div>
             </div>
@@ -1756,8 +1753,7 @@
     <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn footer-block" data-wow-delay="0.1s">
         <div class="container text-center py-5">
             <a href="index.html">
-                <h1 class="display-4 mb-3 text-white text-uppercase footer-logo"><i
-                        class="fa-regular fa-face-smile me-1"></i>Poseify</h1>
+                <img src="img/logo-text.png" alt="香郎津桃" class="footer-logo-img" style="max-height: 56px; width: auto;">
             </a>
             <div class="d-flex justify-content-center mb-4">
                 <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
@@ -1769,44 +1765,44 @@
                 <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i
                         class="fab fa-linkedin-in"></i></a>
             </div>
-            <p class="footer-copyright">&copy; <a class="border-bottom footer-link" href="#">Your Site Name</a>, All Right Reserved.</p>
+            <p class="footer-copyright">&copy; 香郎津桃旅行社, All Right Reserved.</p>
 
-            <!--/*** The author’s attribution link must remain intact in the template. ***/-->
-            <!--/*** If you wish to remove this credit link, please purchase the Pro Version . ***/-->
-            <p class="mb-0 footer-credit">Designed By <a class="border-bottom footer-link" href="https://htmlcodex.com">HTML Codex</a>. Distributed by <a class="footer-link" href="https://themewagon.com" target="_blank">ThemeWagon</a>.</p>
+            <p class="mb-0 footer-credit">Designed by ZXC</p>
         </div>
     </div>
     <!-- Footer End -->
     </div>
 
-    <!-- Sticky Contact Action Bar - LINE 來電通知風格 -->
+    <!-- Sticky Contact Bar - 文青 · 黃山料感 · 接住遲疑的人 -->
     <div class="sticky-contact-bar" id="stickyContactBar">
         <div class="sticky-contact-content">
-            <!-- 左側：頭像和 LINE 信息 -->
-            <div class="line-call-info">
-                <div class="line-avatar">
-                    <i class="fas fa-user"></i>
-            </div>
-                <div class="line-call-details">
-                    <div class="line-app-info">
-                        <div class="line-icon-small">
-                    <i class="fab fa-line"></i>
-            </div>
-                        <span class="line-call-type">LINE 語音通話</span>
-            </div>
-                    <div class="line-call-name">香狼津桃服務</div>
+            <div class="sticky-contact-inner">
+                <div class="sticky-msg sticky-msg-carousel" id="stickyMsgCarousel">
+                    <p class="sticky-msg-main" id="stickyMsgMain">你心裡想過，但還沒問出口的那件事。</p>
+                    <p class="sticky-msg-sub" id="stickyMsgSub"><span class="sticky-msg-brand">香郎津桃</span><span class="sticky-msg-dot"> · </span><span class="sticky-msg-line2" id="stickyMsgSubText">我們在聽。一句話就夠。</span></p>
+                </div>
+                <div class="sticky-contact-methods">
+                    <a href="https://line.me/ti/p/@yourlineid" target="_blank" rel="noopener" class="sticky-method" title="Line">
+                        <span class="sticky-method-icon"><i class="fab fa-line"></i></span>
+                        <span class="sticky-method-label">Line</span>
+                    </a>
+                    <a href="https://wa.me/84901234567" target="_blank" rel="noopener" class="sticky-method" title="WhatsApp">
+                        <span class="sticky-method-icon"><i class="fab fa-whatsapp"></i></span>
+                        <span class="sticky-method-label">WhatsApp</span>
+                    </a>
+                    <a href="mailto:keinchen0314@gmail.com" class="sticky-method" title="Email">
+                        <span class="sticky-method-icon"><i class="fas fa-envelope"></i></span>
+                        <span class="sticky-method-label">Email</span>
+                    </a>
+                    <a href="tel:+84907906455" class="sticky-method" title="電話">
+                        <span class="sticky-method-icon"><i class="fas fa-phone-alt"></i></span>
+                        <span class="sticky-method-label">電話</span>
+                    </a>
                 </div>
             </div>
-            
-            <!-- 右側：接受和拒絕按鈕 -->
-            <div class="line-call-actions">
-                <button class="line-call-btn line-call-decline" id="stickyContactClose" title="拒絕">
+            <button class="sticky-contact-close" id="stickyContactClose" title="關閉" aria-label="關閉">
                 <i class="fas fa-times"></i>
             </button>
-                <a href="tel:+84901234567" class="line-call-btn line-call-accept" id="mainCallButton" title="接受並撥打電話">
-                    <i class="fas fa-check"></i>
-                </a>
-            </div>
         </div>
     </div>
 
@@ -2090,7 +2086,13 @@
                 // 切換內容區塊
                 packageTourContent.style.display = 'none';
                 freeTravelContent.style.display = 'block';
-                
+                // 切換 hero 文案為自由行
+                const heroCopyPackage = document.getElementById('heroCopyPackage');
+                const heroCopyFree = document.getElementById('heroCopyFree');
+                if (heroCopyPackage && heroCopyFree) {
+                    heroCopyPackage.style.display = 'none';
+                    heroCopyFree.style.display = 'block';
+                }
                 // 切換說明資訊
                 const packageInfo = document.getElementById('packageInfo');
                 const freeTravelInfo = document.getElementById('freeTravelInfo');
@@ -2123,7 +2125,13 @@
                 // 切換內容區塊
                 freeTravelContent.style.display = 'none';
                 packageTourContent.style.display = 'block';
-                
+                // 切換 hero 文案為包套
+                const heroCopyPackage = document.getElementById('heroCopyPackage');
+                const heroCopyFree = document.getElementById('heroCopyFree');
+                if (heroCopyPackage && heroCopyFree) {
+                    heroCopyFree.style.display = 'none';
+                    heroCopyPackage.style.display = 'block';
+                }
                 // 切換說明資訊
                 const packageInfo = document.getElementById('packageInfo');
                 const freeTravelInfo = document.getElementById('freeTravelInfo');
@@ -2203,18 +2211,6 @@
                 box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5) !important;
             `;
             
-            // 添加點擊動畫效果到主要按鈕
-            const mainCallButton = document.getElementById('mainCallButton');
-            if (mainCallButton) {
-                mainCallButton.addEventListener('click', function(e) {
-                    // 添加點擊動畫效果
-                    this.style.transform = 'scale(0.9)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                });
-            }
-            
             // 檢查元素尺寸
             setTimeout(function() {
                 const rect = stickyContactBar.getBoundingClientRect();
@@ -2267,6 +2263,35 @@
                 localStorage.setItem('stickyContactBarHidden', 'true');
                 console.log('Sticky bar closed');
             });
+            
+            // 文案輪播（文青多句輪播）
+            var stickyCopyList = [
+                { main: '你心裡想過，但還沒問出口的那件事。', sub: '我們在聽。一句話就夠。' },
+                { main: '放心交給我們，帶你出遊。', sub: '香郎津桃 · 一路都在。' },
+                { main: '第一次來越南也沒關係。', sub: '我們帶你，放心玩。' },
+                { main: '來越南暗黑旅行，第一步就從一句話開始。', sub: '我們在等。' },
+                { main: '出遊的路上，我們陪你走。', sub: '不催你。不趕路。' },
+                { main: '有人帶路，比較安心。', sub: '香郎津桃 · 帶你出遊。' },
+                { main: '想問就問。', sub: '我們在聽。' },
+                { main: '放心玩。我們帶路。', sub: '我們在。' }
+            ];
+            var stickyMsgCarousel = document.getElementById('stickyMsgCarousel');
+            var stickyMsgMain = document.getElementById('stickyMsgMain');
+            var stickyMsgSubText = document.getElementById('stickyMsgSubText');
+            if (stickyMsgCarousel && stickyMsgMain && stickyMsgSubText) {
+                var stickyCopyIndex = 0;
+                function nextStickyCopy() {
+                    stickyMsgCarousel.classList.add('sticky-msg-fade');
+                    setTimeout(function() {
+                        stickyCopyIndex = (stickyCopyIndex + 1) % stickyCopyList.length;
+                        var item = stickyCopyList[stickyCopyIndex];
+                        stickyMsgMain.textContent = item.main;
+                        stickyMsgSubText.textContent = item.sub;
+                        stickyMsgCarousel.classList.remove('sticky-msg-fade');
+                    }, 500);
+                }
+                setInterval(nextStickyCopy, 4500);
+            }
             
             // 確保在頁面滾動時保持顯示
             window.addEventListener('scroll', function() {

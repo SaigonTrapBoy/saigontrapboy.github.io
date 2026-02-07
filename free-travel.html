@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>自由行 - 自由探索越南 | 香狼津桃</title>
+    <title>自由行 - 自由探索越南 | 香郎津桃</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="越南自由行,簽證代辦,行程規劃,胡志明市,河內" name="keywords">
-    <meta content="香狼津桃自由行服務：簽證代辦、交通安排、住宿推薦、旅遊資訊，彈性探索越南。" name="description">
+    <meta content="香郎津桃自由行服務：簽證代辦、交通安排、住宿推薦、旅遊資訊，彈性探索越南。" name="description">
 
     <link href="img/favicon.ico" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +18,7 @@
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <style>
         /* 自由行專頁 - 明亮風格 */
         .page-header-light {
@@ -72,6 +73,34 @@
         .ft-cta .btn-primary { background: #E41779; border-color: #E41779; }
         .ft-cta .btn-outline-primary { color: #fff; border-color: rgba(255,255,255,0.5); }
         .ft-cta .btn-outline-primary:hover { background: #E41779; border-color: #E41779; color: #fff; }
+        /* 自由行頁 - 顧客分享區塊（明亮風格 + 襯線 + highlight） */
+        .ft-testimonial {
+            background: #f0f7fa;
+            color: #1a1a2e;
+        }
+        .ft-testimonial .title-center h5 { color: #E41779; }
+        .ft-testimonial .title-center h1 { color: #1a1a2e; }
+        .ft-testimonial .testimonial-item p,
+        .ft-testimonial .testimonial-item h5,
+        .ft-testimonial .testimonial-item .text-primary {
+            font-family: Georgia, "Noto Serif TC", "Noto Serif SC", "Source Han Serif TC", "Times New Roman", serif;
+        }
+        .ft-testimonial .testimonial-item p { color: #333; }
+        .ft-testimonial .testimonial-item h5 { color: #1a1a2e; }
+        .ft-testimonial .testimonial-item .text-primary { color: #E41779 !important; }
+        .ft-testimonial .testimonial-hl {
+            background: rgba(228, 23, 121, 0.15);
+            color: #1a1a2e;
+            padding: 0 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .ft-testimonial .owl-dots .owl-dot span { background: rgba(26,26,46,0.2); }
+        .ft-testimonial .owl-dots .owl-dot.active span { background: #E41779; }
+        /* 自由行頁 navbar 深色底 */
+        .ft-navbar {
+            background: #1a1a2e !important;
+        }
     </style>
 </head>
 
@@ -82,9 +111,10 @@
 
     <!-- Header -->
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
-            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                <h2 class="mb-0 text-primary text-uppercase"><i class="fa-regular fa-face-smile me-1"></i>Poseify</h2>
+        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5 ft-navbar">
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center gap-2">
+                <img src="img/logo-symbol.svg" alt="" class="navbar-logo-symbol" width="36" height="54">
+                <img src="img/logo-text.png" alt="香郎津桃" class="navbar-logo-text" height="40" style="max-height: 40px; width: auto;">
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -93,7 +123,7 @@
                 <div class="navbar-nav mx-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">香狼津桃包套服務</a>
+                    <a href="service.html" class="nav-item nav-link">香郎津桃包套服務</a>
                     <a href="free-travel.html" class="nav-item nav-link active">自由行</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">服務指南</a>
@@ -192,6 +222,52 @@
         </div>
     </div>
 
+    <!-- 顧客分享（自由行） -->
+    <div class="container-fluid py-5 ft-testimonial">
+        <div class="container py-5">
+            <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="title">
+                    <div class="title-center">
+                        <h5 class="text-primary text-uppercase mb-2">顧客分享</h5>
+                        <h1>他們這樣說</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.3s">
+                <div class="testimonial-item text-center"
+                    data-dot="<img class='img-fluid rounded-circle' src='https://randomuser.me/api/portraits/men/22.jpg' alt=''>">
+                    <p class="fs-5">帶家人去越南玩，白天跟他們跑景點，晚上想自己放鬆。請香郎津桃幫我<span class="testimonial-hl">代訂</span>市區飯店跟幾天包車，晚上他們安排車子送我去他們配合的場所，家人以為我去酒吧坐坐，<span class="testimonial-hl">來回都接好</span>，很順。</p>
+                    <h5 class="text-uppercase">阿宏</h5>
+                    <span class="text-primary">台北 · 家庭＋自由行</span>
+                </div>
+                <div class="testimonial-item text-center"
+                    data-dot="<img class='img-fluid rounded-circle' src='https://randomuser.me/api/portraits/men/35.jpg' alt=''>">
+                    <p class="fs-5">有些地方自己訂不到或沒門路，透過他們可以<span class="testimonial-hl">預約到一般人進不去的娛樂場所</span>，省事很多，品質也比較有保障。自由行想加一點特別行程的話很推。</p>
+                    <h5 class="text-uppercase">志偉</h5>
+                    <span class="text-primary">新北 · 自由行＋預約</span>
+                </div>
+                <div class="testimonial-item text-center"
+                    data-dot="<img class='img-fluid rounded-circle' src='https://randomuser.me/api/portraits/men/48.jpg' alt=''>">
+                    <p class="fs-5">跟老婆小孩白天玩，晚上說跟朋友約。他們幫我包車跟<span class="testimonial-hl">代訂</span>好場，時間到接送往返，隔天繼續陪家人，兩邊都顧到。飯店也是他們<span class="testimonial-hl">幫忙訂</span>的，位置跟價錢都不錯。</p>
+                    <h5 class="text-uppercase">小傑</h5>
+                    <span class="text-primary">台中 · 白天家人晚上自己</span>
+                </div>
+                <div class="testimonial-item text-center"
+                    data-dot="<img class='img-fluid rounded-circle' src='https://randomuser.me/api/portraits/men/61.jpg' alt=''>">
+                    <p class="fs-5"><span class="testimonial-hl">自由行</span>但不想自己搞訂房跟交通，他們幫忙<span class="testimonial-hl">代訂</span>訂房、機場接送跟包車。晚上想放鬆時也幫我排了幾個點，有專人帶進去，不用自己找路或怕踩雷。</p>
+                    <h5 class="text-uppercase">大華</h5>
+                    <span class="text-primary">高雄 · 訂房＋包車＋夜間</span>
+                </div>
+                <div class="testimonial-item text-center"
+                    data-dot="<img class='img-fluid rounded-circle' src='https://randomuser.me/api/portraits/men/84.jpg' alt=''>">
+                    <p class="fs-5"><span class="testimonial-hl">行程自己排</span>，但需要的那幾晚請他們搞定<span class="testimonial-hl">一般人進不去的地方</span>跟包車，<span class="testimonial-hl">低調又方便</span>。不用跟團，想哪天晚上出去就哪天，<span class="testimonial-hl">彈性很大</span>。</p>
+                    <h5 class="text-uppercase">阿成</h5>
+                    <span class="text-primary">桃園 · 彈性自由行</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- CTA -->
     <div class="container-fluid py-5 ft-cta">
         <div class="container py-5">
@@ -210,15 +286,15 @@
     <!-- Footer -->
     <div class="container-fluid bg-dark text-light footer py-5">
         <div class="container text-center py-5">
-            <a href="index.html"><h1 class="display-4 mb-3 text-white text-uppercase"><i class="fa-regular fa-face-smile me-1"></i>Poseify</h1></a>
+            <a href="index.html"><img src="img/logo-text.png" alt="香郎津桃" class="footer-logo-img" style="max-height: 56px; width: auto;"></a>
             <div class="d-flex justify-content-center mb-4">
                 <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-x-twitter"></i></a>
                 <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-youtube"></i></a>
                 <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <p>&copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.</p>
-            <p class="mb-0">Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>. Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>.</p>
+            <p>&copy; 香郎津桃旅行社, All Right Reserved.</p>
+            <p class="mb-0">Designed by ZXC</p>
         </div>
     </div>
 
@@ -254,6 +330,7 @@
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
     <script src="js/dropdown-submenu.js"></script>
