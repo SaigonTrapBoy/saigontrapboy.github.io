@@ -134,6 +134,438 @@
                 margin-left: 1rem;
             }
         }
+        /* 團費包含以下服務內容 — 深色包套區塊（純色、大區塊） */
+        .package-includes {
+            background: #0d0d12;
+            color: #fff;
+            overflow: visible;
+        }
+        .package-includes .container { overflow: visible; }
+        .package-includes .section-badge {
+            font-size: 0.8rem;
+            letter-spacing: 0.25em;
+            color: #ff8ab8;
+            font-weight: 600;
+        }
+        .package-includes .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .package-includes .section-title::after {
+            display: block;
+            width: 48px;
+            height: 2px;
+            margin: 0.6rem auto 0;
+            background: linear-gradient(90deg, #ff8ab8, #00e5cc);
+            content: "";
+        }
+        .package-includes .section-lead {
+            color: rgba(255,255,255,0.7);
+        }
+        /* 大區塊進場動畫（誇張版） */
+        @keyframes package-block-in {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.88);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        @keyframes package-card-in {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.92);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        /* 團費包含：內斂有質感，左線＋文字，無卡片感 */
+        .package-includes .includes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem 2.5rem;
+        }
+        .package-includes .include-group {
+            padding-left: 1rem;
+            border-left: 2px solid rgba(255,138,184,0.4);
+            opacity: 0;
+            animation: package-block-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            transition: border-left-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .package-includes .include-group:hover {
+            border-left-color: #ff8ab8;
+            box-shadow: -2px 0 16px rgba(255,138,184,0.35), -4px 0 32px rgba(255,138,184,0.15), 0 0 24px rgba(255,138,184,0.08);
+        }
+        .package-includes .include-group:nth-child(1) { animation-delay: 0.1s; }
+        .package-includes .include-group:nth-child(2) { animation-delay: 0.2s; }
+        .package-includes .include-group:nth-child(3) { animation-delay: 0.3s; }
+        .package-includes .include-group:nth-child(4) { animation-delay: 0.4s; }
+        .package-includes .include-group .group-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: rgba(255,138,184,0.9);
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .package-includes .include-group .group-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .package-includes .include-group .group-items li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.82);
+            margin-bottom: 0.25rem;
+        }
+        .package-includes .include-group .group-items li:last-child { margin-bottom: 0; }
+        .package-includes .include-group .group-items li::before {
+            content: "·";
+            color: #ff8ab8;
+            flex-shrink: 0;
+        }
+        .package-includes .include-group .group-items li .item-note {
+            display: block;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.2rem;
+            padding-left: 0;
+        }
+        .package-includes .duration-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        @media (max-width: 991px) {
+            .package-includes .duration-cards {
+                grid-template-columns: 1fr;
+            }
+            .package-includes .includes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* 價格方案區：價錢吸睛、清楚差異，格式「價錢 / 每人」 */
+        .package-includes .duration-cards {
+            overflow: visible;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+        @media (max-width: 991px) {
+            .package-includes .duration-cards { grid-template-columns: 1fr; }
+        }
+        .package-includes .duration-card {
+            position: relative;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(0,229,204,0.2);
+            border-radius: 10px;
+            padding: 1.75rem 1.5rem;
+            text-align: center;
+            opacity: 0;
+            animation: package-card-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            transition: border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+            z-index: 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15), 0 0 20px rgba(0,229,204,0.08), 0 0 40px rgba(0,229,204,0.04);
+        }
+        .package-includes .duration-card::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            border-radius: 10px 10px 0 0;
+            background: linear-gradient(90deg, transparent, #00e5cc, transparent);
+            box-shadow: 0 0 12px rgba(0,229,204,0.5), 0 0 24px rgba(0,229,204,0.2);
+            content: "";
+        }
+        .package-includes .duration-card:hover {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(24px) saturate(200%);
+            -webkit-backdrop-filter: blur(24px) saturate(200%);
+            border-color: rgba(0,229,204,0.6);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 0 20px rgba(0,229,204,0.25), 0 0 40px rgba(0,229,204,0.15), 0 0 60px rgba(0,229,204,0.08);
+        }
+        .package-includes .duration-card:nth-child(1) { animation-delay: 0.2s; }
+        .package-includes .duration-card:nth-child(2) { animation-delay: 0.35s; }
+        .package-includes .duration-card:nth-child(3) { animation-delay: 0.5s; }
+        .package-includes .duration-card .duration-label {
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            color: rgba(0,229,204,0.95);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            text-shadow: 0 0 20px rgba(0,229,204,0.3), 0 0 40px rgba(0,229,204,0.1);
+        }
+        .package-includes .duration-card:hover .duration-label {
+            text-shadow: 0 0 24px rgba(0,229,204,0.5), 0 0 48px rgba(0,229,204,0.2);
+        }
+        .package-includes .duration-card .duration-price {
+            font-variant-numeric: tabular-nums;
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        .package-includes .duration-card .duration-price .price-amount {
+            color: #fff;
+            text-shadow: 0 0 16px rgba(255,255,255,0.2), 0 0 32px rgba(0,229,204,0.15);
+        }
+        .package-includes .duration-card:hover .duration-price .price-amount {
+            text-shadow: 0 0 20px rgba(255,255,255,0.3), 0 0 40px rgba(0,229,204,0.25);
+        }
+        .package-includes .duration-card .duration-price .unit {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #00e5cc;
+            margin-left: 0.15rem;
+            text-shadow: 0 0 12px rgba(0,229,204,0.4), 0 0 24px rgba(0,229,204,0.15);
+        }
+        .package-includes .duration-card:hover .duration-price .unit {
+            text-shadow: 0 0 16px rgba(0,229,204,0.6), 0 0 32px rgba(0,229,204,0.25);
+        }
+        .package-includes .duration-card .duration-copy {
+            font-family: Georgia, "Noto Serif TC", "Noto Serif SC", serif;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            margin-top: 0.75rem;
+            margin-bottom: 0;
+        }
+        /* 報價但書：左線＋文字，霓虹青點綴 */
+        .package-includes .package-disclaimer {
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid rgba(0,229,204,0.45);
+            text-align: left;
+        }
+        .package-includes .package-disclaimer .disclaimer-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            color: rgba(0,229,204,0.85);
+            margin-bottom: 0.35rem;
+            font-weight: 600;
+        }
+        .package-includes .package-disclaimer .disclaimer-text {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        .package-includes .package-disclaimer .disclaimer-tip {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.55;
+            margin-bottom: 0;
+        }
+        /* 服務項目：房間介紹 — 深色與包套一致、質感、有層次 */
+        .service-rooms {
+            background: #0d0d12;
+            color: #fff;
+        }
+        .service-rooms .section-head {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .service-rooms .section-head .section-tag {
+            font-size: 0.85rem;
+            letter-spacing: 0.22em;
+            color: rgba(255,138,184,0.9);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .service-rooms .section-head h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.02em;
+        }
+        .service-rooms .section-head h2::after {
+            display: block;
+            width: 40px;
+            height: 2px;
+            margin: 0.6rem auto 0;
+            background: linear-gradient(90deg, #ff8ab8, #00e5cc);
+            content: "";
+        }
+        .service-rooms .room-intro-inner {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        @media (max-width: 991px) {
+            .service-rooms .room-intro-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        .service-rooms .room-intro-copy {
+            padding: 1.75rem 0 1.75rem 1.25rem;
+            border-left: 3px solid rgba(255,138,184,0.5);
+        }
+        .service-rooms .room-intro-copy .room-title {
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            color: rgba(0,229,204,0.9);
+            text-transform: uppercase;
+            margin-bottom: 0.85rem;
+        }
+        .service-rooms .room-intro-copy h3 {
+            font-size: 1.65rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1.35rem;
+            letter-spacing: 0.01em;
+            line-height: 1.4;
+        }
+        .service-rooms .room-intro-copy .room-lead {
+            font-family: Georgia, "Noto Serif TC", "Noto Serif SC", serif;
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: rgba(255,255,255,0.82);
+            margin-bottom: 1.1rem;
+        }
+        .service-rooms .room-intro-copy .room-lead:last-of-type {
+            margin-bottom: 0;
+        }
+        .service-rooms .room-intro-copy .room-options {
+            margin-top: 1.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .service-rooms .room-intro-copy .room-options-title {
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+        .service-rooms .room-intro-copy .room-option-item {
+            font-family: Georgia, "Noto Serif TC", "Noto Serif SC", serif;
+            font-size: 1.08rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.78);
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        .service-rooms .room-intro-copy .room-option-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.65em;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #00e5cc;
+        }
+        .service-rooms .room-intro-copy .room-disclaimer {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.45);
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            line-height: 1.55;
+        }
+        .service-rooms .room-intro-carousel-wrap {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.05);
+        }
+        .service-rooms .room-intro-carousel-wrap::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 10px;
+            pointer-events: none;
+            box-shadow: inset 0 0 60px rgba(0,0,0,0.15);
+        }
+        .service-rooms .room-intro-carousel .room-slide {
+            position: relative;
+            aspect-ratio: 4/3;
+            background: #1a1a1a;
+        }
+        .service-rooms .room-intro-carousel .room-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .service-rooms .room-intro-carousel-wrap .owl-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0.5rem;
+            pointer-events: none;
+        }
+        .service-rooms .room-intro-carousel-wrap .owl-nav button {
+            pointer-events: auto;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.4) !important;
+            border: 1px solid rgba(255,255,255,0.2) !important;
+            color: #fff !important;
+            font-size: 1.25rem !important;
+            line-height: 1 !important;
+            transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .service-rooms .room-intro-carousel-wrap .owl-nav button:hover {
+            background: rgba(0,229,204,0.25) !important;
+            border-color: rgba(0,229,204,0.5) !important;
+            box-shadow: 0 0 20px rgba(0,229,204,0.2);
+        }
+        .service-rooms .room-intro-carousel-wrap .owl-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .service-rooms .room-intro-carousel-wrap .owl-dots .owl-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4) !important;
+            transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .service-rooms .room-intro-carousel-wrap .owl-dots .owl-dot.active {
+            background: #00e5cc !important;
+            transform: scale(1.25);
+            box-shadow: 0 0 12px rgba(0,229,204,0.5);
+        }
     </style>
 </head>
 
@@ -223,88 +655,108 @@
     <!-- Header End -->
 
 
-    <!-- Service Start -->
-    <div class="container-fluid py-5">
+    <!-- 團費包含以下服務內容 Start -->
+    <div class="container-fluid py-5 package-includes">
+        <div class="container py-4">
+            <div class="text-center mb-4">
+                <p class="section-badge text-uppercase mb-2 wow fadeInUp" data-wow-delay="0.1s">Package Includes</p>
+                <h2 class="section-title wow fadeInUp" data-wow-delay="0.15s">團費包含以下服務內容</h2>
+                <p class="section-lead mt-2 wow fadeInUp" data-wow-delay="0.2s">一價全包，讓外人一目了然</p>
+            </div>
+            <div class="includes-grid wow fadeInUp" data-wow-delay="0.25s">
+                <div class="include-group">
+                    <div class="group-label">入境・通訊</div>
+                    <ul class="group-items">
+                        <li>簽證</li>
+                        <li>快速通關</li>
+                        <li>高速網卡</li>
+                    </ul>
+                </div>
+                <div class="include-group">
+                    <div class="group-label">交通</div>
+                    <ul class="group-items">
+                        <li>專車專人機場接送</li>
+                        <li>每日專車接送（8 小時）</li>
+                        <li>專業司機（8 小時）</li>
+                    </ul>
+                </div>
+                <div class="include-group">
+                    <div class="group-label">導遊與行程</div>
+                    <ul class="group-items">
+                        <li>台灣導遊 8 小時（台灣籍，中／越文）
+                            <span class="item-note">接機送機、換錢、三餐安排、光景點與暗黑帶位、看帳單、帶包廂氣氛、協助帶妹等</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="include-group">
+                    <div class="group-label">住宿・其他</div>
+                    <ul class="group-items">
+                        <li>每晚住宿，一房一廳一人一間</li>
+                        <li>鳥飼料一顆</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="duration-cards wow fadeInUp" data-wow-delay="0.3s">
+                <div class="duration-card">
+                    <div class="duration-label">三天兩夜</div>
+                    <div class="duration-price"><span class="price-amount">22,600</span><span class="unit"> / 每人</span></div>
+                    <div class="duration-copy">把三天當一輩子那樣用力玩。<br>結束的時候你會發現，不夠。<br>然後想再來一次。</div>
+                </div>
+                <div class="duration-card">
+                    <div class="duration-label">四天三夜</div>
+                    <div class="duration-price"><span class="price-amount">26,600</span><span class="unit"> / 每人</span></div>
+                    <div class="duration-copy">多一天，就多一點餘裕。<br>可以趕路，也可以停下來發呆。<br>你會記得的，比想像中多。</div>
+                </div>
+                <div class="duration-card">
+                    <div class="duration-label">五天四夜</div>
+                    <div class="duration-price"><span class="price-amount">30,600</span><span class="unit"> / 每人</span></div>
+                    <div class="duration-copy">從早到晚，從暗到亮。<br>想回沖的可以回沖，想曬太陽的就去曬太陽。<br>什麼都不留白。</div>
+                </div>
+            </div>
+            <div class="package-disclaimer mt-4 wow fadeInUp" data-wow-delay="0.5s">
+                <p class="disclaimer-label">備註</p>
+                <p class="disclaimer-text">以上費用不含機票、晚餐費用、娛樂費用、房間清潔打掃費用與我方未舉列之小費。</p>
+                <p class="disclaimer-tip">建議一天準備 NT$15,000～20,000，行程可調整與彈性選擇，歡迎先電話討論。</p>
+            </div>
+        </div>
+    </div>
+    <!-- 團費包含以下服務內容 End -->
+
+
+    <!-- 服務項目：香郎津桃包套服務 — 關於住宿 Start -->
+    <div class="container-fluid py-5 service-rooms">
         <div class="container py-5">
-            <div class="text-center">
-                <div class="title wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="title-center">
-                        <h5>服務項目</h5>
-                        <h1>香郎津桃包套服務</h1>
-                    </div>
-                </div>
+            <div class="section-head wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-tag">服務項目</p>
+                <h2>香郎津桃包套服務</h2>
             </div>
-            <div class="service-item service-item-left">
-                <div class="row g-0 align-items-center">
-                    <div class="col-md-5">
-                        <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.2s">
-                            <img class="img-fluid rounded-circle" src="img/service-1.jpg" alt="">
-                        </div>
+            <div class="room-intro-inner wow fadeInUp" data-wow-delay="0.2s">
+                <div class="room-intro-copy">
+                    <p class="room-title">關於住宿</p>
+                    <h3>一房一廳，一人一間。<br>留給自己的空間，只給懂得的人。</h3>
+                    <p class="room-lead">包套住宿專為重視隱私與品質的您安排。每位團員獨立一房一廳，不與他人共室，出入單純、動線清楚，適合高級商務人士與講究行程節奏的旅人。</p>
+                    <p class="room-lead">房型隱密性高，可安心帶伴侶回房休息；無需與陌生人同層、同梯，減少不必要的打照面。日間外出、夜間回房，都像回到自己的落腳處——安靜、自在、完全屬於你。</p>
+                    <div class="room-options">
+                        <p class="room-options-title">房型亦可依需求升級</p>
+                        <p class="room-option-item">兩房一廳：「乾溼分離」，動線更從容，適合想多一點餘裕的您。</p>
+                        <p class="room-option-item">三房一廳：空間與節奏都放開，像在異鄉也有一個小據點；不吵不鬧，剛剛好的那種。</p>
+                        <p class="room-option-item">四房一廳：最高規格，留白與熱鬧都可兼得——多人派對、各自回房，動靜皆宜。</p>
                     </div>
-                    <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">簽證服務</h3>
-                            <p class="mb-4">快速通關及越南簽證服務，讓您輕鬆入境越南，無需繁瑣手續。專業團隊協助辦理，確保簽證快速核發，節省您的寶貴時間，讓旅程從一開始就順暢無阻。</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="contact.html">了解更多 <i
-                                    class="fa fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
+                    <p class="room-disclaimer">* 圖片僅供參考，房間配置與景觀隨樓層及房型而異。</p>
                 </div>
-            </div>
-            <div class="service-item service-item-right">
-                <div class="row g-0 align-items-center">
-                    <div class="col-md-5 order-md-1 text-md-end">
-                        <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.2s">
-                            <img class="img-fluid rounded-circle" src="img/service-2.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">專屬包車</h3>
-                            <p class="mb-4">頂級包車服務，讓您享受最舒適的旅遊體驗。專業司機、豪華座駕，無論是機場接送、市區觀光還是長途旅行，都能為您提供最貼心的服務。24小時待命，隨時為您的行程提供最便捷的交通解決方案，讓您專注享受旅程，無需擔心交通問題。</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="contact.html">了解更多 <i
-                                    class="fa fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="service-item service-item-left">
-                <div class="row g-0 align-items-center">
-                    <div class="col-md-5">
-                        <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.2s">
-                            <img class="img-fluid rounded-circle" src="img/service-3.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">頂級隱私住宿</h3>
-                            <p class="mb-4">多種房型可供您選擇，而且絕對隱私，老司機懂的都懂。從豪華套房到特色主題房，每一間都經過精心設計，確保您的隱私與舒適。無論是商務洽談還是私人聚會，都能提供最安全、最隱密的環境，讓您安心享受每一刻。</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="hotel.html">了解更多 <i
-                                    class="fa fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="service-item service-item-right">
-                <div class="row g-0 align-items-center">
-                    <div class="col-md-5 order-md-1 text-md-end">
-                        <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.2s">
-                            <img class="img-fluid rounded-circle" src="img/service-4.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">暗黑行程</h3>
-                            <p class="mb-4">特色 KTV、龍宮 VILLA、奧黛聖地、高速吸引口爆店、專屬伴遊、土嗨酒吧、潮流夜店、越式洗頭 / 按摩，多樣化選擇供您體驗。專業導遊帶您探索越南最精彩的夜生活，從傳統到現代，從低調到高調，滿足您各種需求，讓您的越南之旅充滿驚喜與刺激。</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="ktv.html">了解更多 <i
-                                    class="fa fa-arrow-right ms-1"></i></a>
-                        </div>
+                <div class="room-intro-carousel-wrap">
+                    <div class="owl-carousel room-intro-carousel">
+                        <div class="room-slide"><img src="img/住宿圖片/住1.jpg" alt="包套住宿房型一"></div>
+                        <div class="room-slide"><img src="img/住宿圖片/住2.jpg" alt="包套住宿房型二"></div>
+                        <div class="room-slide"><img src="img/住宿圖片/住3.jpg" alt="包套住宿房型三"></div>
+                        <div class="room-slide"><img src="img/住宿圖片/住4.jpg" alt="包套住宿房型四"></div>
+                        <div class="room-slide"><img src="img/住宿圖片/住5.jpg" alt="包套住宿房型五"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Service End -->
+    <!-- 服務項目：香郎津桃包套服務 — 關於住宿 End -->
 
 
     <!-- 顧客分享 Start -->
@@ -441,6 +893,23 @@
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
     <script src="js/dropdown-submenu.js"></script>
+    <script>
+        $(function () {
+            if ($('.room-intro-carousel').length) {
+                $('.room-intro-carousel').owlCarousel({
+                    items: 1,
+                    loop: true,
+                    autoplay: true,
+                    autoplayTimeout: 4500,
+                    autoplayHoverPause: true,
+                    smartSpeed: 600,
+                    nav: true,
+                    navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+                    dots: true,
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

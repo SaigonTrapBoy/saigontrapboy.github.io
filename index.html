@@ -776,6 +776,321 @@
             color: #E41779 !important;
         }
         
+        /* 老闆介紹 · 香郎津桃 - 文青＋有趣＋特效 */
+        @keyframes boss-photo-float {
+            0%, 100% { transform: rotate(-2deg) translateY(0); }
+            50% { transform: rotate(-2deg) translateY(-8px); }
+        }
+        @keyframes boss-tag-in {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes boss-timeline-dot {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(228, 23, 121, 0.25); }
+            50% { box-shadow: 0 0 0 6px rgba(228, 23, 121, 0.15), 0 0 12px rgba(228, 23, 121, 0.3); }
+        }
+        @keyframes boss-heart-shine {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+        .boss-intro {
+            padding: 4rem 0;
+            font-family: Georgia, "Noto Serif TC", "Noto Serif SC", "Times New Roman", serif;
+        }
+        .boss-intro .boss-intro-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 2.5rem;
+        }
+        /* 照片框：經典 Polaroid 風格，略放大 */
+        .boss-intro .boss-photo-wrap {
+            flex-shrink: 0;
+            width: 288px;
+            padding: 14px 14px 56px 14px;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12), 0 12px 40px rgba(0,0,0,0.08);
+            transform: rotate(-2deg);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            animation: boss-photo-float 5s ease-in-out infinite;
+        }
+        .boss-intro .boss-photo-wrap:hover {
+            animation: none;
+            transform: rotate(0deg) translateY(-6px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.18), 0 20px 50px rgba(0,0,0,0.12);
+        }
+        .boss-intro .boss-photo-polaroid {
+            border-radius: 2px;
+            overflow: visible;
+        }
+        .boss-intro .boss-photo-polaroid img {
+            display: block;
+            width: 100%;
+            height: 288px;
+            object-fit: cover;
+        }
+        .boss-intro .boss-photo-caption {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+            font-style: italic;
+            letter-spacing: 0.03em;
+            color: #666;
+        }
+        .boss-intro .boss-copy { flex: 1; min-width: 280px; }
+        .boss-intro .boss-title {
+            font-size: 0.92rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+            opacity: 0.9;
+        }
+        .boss-intro .boss-name { font-size: 2.1rem; font-weight: 700; margin-bottom: 0.65rem; }
+        .boss-intro .boss-name-gradient {
+            background: linear-gradient(135deg, #E41779 0%, #ff6b9d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .content-section.package-tour .boss-intro .boss-name-gradient {
+            background: linear-gradient(135deg, #ff8ab8 0%, #ffb3d4 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        .boss-intro .boss-lead {
+            font-size: 1.18rem;
+            line-height: 1.7;
+            margin: 0 0 1rem 0;
+            padding-left: 1.1rem;
+            border-left: 4px solid #E41779;
+            font-style: italic;
+            opacity: 0.95;
+        }
+        .content-section.package-tour .boss-intro .boss-lead { border-left-color: rgba(228, 23, 121, 0.8); }
+        /* 三心文案：放心、安心、開心 */
+        .boss-intro .boss-three-hearts {
+            margin-bottom: 1.35rem;
+        }
+        .boss-intro .boss-heart-item {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin: 0.4rem 0;
+            padding-left: 0.5rem;
+        }
+        .boss-intro .boss-heart-dot {
+            display: inline-block;
+            min-width: 3.2em;
+            font-weight: 700;
+            color: #E41779;
+            animation: boss-heart-shine 3s ease-in-out infinite;
+        }
+        .boss-intro .boss-heart-item.boss-heart-2 .boss-heart-dot { animation-delay: 0.5s; }
+        .boss-intro .boss-heart-item.boss-heart-3 .boss-heart-dot { animation-delay: 1s; }
+        .content-section.package-tour .boss-intro .boss-heart-dot { color: #ff9ec4; }
+        /* AKA：Cypherpunk 風格（霓虹青 #00e5cc ＋ 終端／monospace／資料感） */
+        .boss-intro .boss-aka-box {
+            margin-bottom: 1.35rem;
+            padding: 1.35rem 1.5rem;
+            background: #0a0a0e;
+            border: 1px solid rgba(0, 229, 204, 0.2);
+            border-left: 3px solid #00e5cc;
+            box-shadow: 0 0 24px rgba(0, 229, 204, 0.1), 0 0 48px rgba(0, 229, 204, 0.04), inset 0 1px 0 rgba(255,255,255,0.02);
+            font-family: "JetBrains Mono", "Fira Code", "Consolas", "Monaco", "SF Mono", monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .boss-intro .boss-aka-box::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 3px);
+            pointer-events: none;
+        }
+        .content-section.package-tour .boss-intro .boss-aka-box {
+            background: rgba(5, 5, 10, 0.85);
+            border-left-color: #00e5cc;
+            box-shadow: 0 0 28px rgba(0, 229, 204, 0.12), 0 0 56px rgba(0, 229, 204, 0.06), inset 0 1px 0 rgba(255,255,255,0.03);
+        }
+        .content-section.free-travel .boss-intro .boss-aka-box {
+            background: #ffffff;
+            border: 1px solid rgba(0, 229, 204, 0.25);
+            border-left: 3px solid #00e5cc;
+            box-shadow: 0 0 20px rgba(0, 229, 204, 0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+        }
+        .content-section.free-travel .boss-intro .boss-aka-box::after {
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 229, 204, 0.03) 2px, rgba(0, 229, 204, 0.03) 3px);
+        }
+        .boss-intro .boss-aka-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.9rem;
+            color: #00e5cc;
+            text-shadow: 0 0 14px rgba(0, 229, 204, 0.5);
+        }
+        .boss-intro .boss-aka-label::before {
+            content: "> ";
+            opacity: 0.9;
+        }
+        .boss-intro .boss-aka-label::after {
+            content: "_";
+            animation: boss-cursor-blink 1s step-end infinite;
+            color: #00e5cc;
+        }
+        @keyframes boss-cursor-blink {
+            50% { opacity: 0; }
+        }
+        .boss-intro .boss-aka-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.75rem;
+        }
+        .boss-intro .boss-aka-tags span {
+            display: inline-block;
+            padding: 0.35rem 0.6rem 0.35rem 0.5rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            border-radius: 0;
+            background: rgba(0, 229, 204, 0.04);
+            color: rgba(0, 229, 204, 0.95);
+            border: 1px solid rgba(0, 229, 204, 0.2);
+            border-left: 2px solid #00e5cc;
+            transition: all 0.25s ease;
+            animation: boss-tag-in 0.5s ease backwards;
+            box-shadow: 0 0 0 0 rgba(0, 229, 204, 0);
+        }
+        .boss-intro .boss-aka-tags span::before {
+            content: "· ";
+            color: #00e5cc;
+            text-shadow: 0 0 8px rgba(0, 229, 204, 0.4);
+        }
+        .boss-intro .boss-aka-tags span:hover {
+            background: rgba(0, 229, 204, 0.1);
+            border-left-color: #00ffdd;
+            box-shadow: 0 0 18px rgba(0, 229, 204, 0.22);
+            color: #00ffdd;
+        }
+        .boss-intro .boss-aka-tags span:nth-child(1) { animation-delay: 0.05s; }
+        .boss-intro .boss-aka-tags span:nth-child(2) { animation-delay: 0.1s; }
+        .boss-intro .boss-aka-tags span:nth-child(3) { animation-delay: 0.15s; }
+        .boss-intro .boss-aka-tags span:nth-child(4) { animation-delay: 0.2s; }
+        .boss-intro .boss-aka-tags span:nth-child(5) { animation-delay: 0.25s; }
+        .boss-intro .boss-aka-tags span:nth-child(6) { animation-delay: 0.3s; }
+        .boss-intro .boss-aka-tags span:nth-child(7) { animation-delay: 0.35s; }
+        .boss-intro .boss-aka-tags span:nth-child(8) { animation-delay: 0.4s; }
+        .boss-intro .boss-aka-tags span:nth-child(9) { animation-delay: 0.45s; }
+        .boss-intro .boss-aka-tags span:nth-child(10) { animation-delay: 0.5s; }
+        .boss-intro .boss-aka-tags .boss-aka-hobby {
+            background: rgba(255, 176, 0, 0.06);
+            border-left-color: #ffb000;
+            color: rgba(255, 176, 0, 0.95);
+        }
+        .boss-intro .boss-aka-tags .boss-aka-hobby::before {
+            content: "// ";
+            color: #ffb000;
+            text-shadow: 0 0 8px rgba(255, 176, 0, 0.35);
+        }
+        .boss-intro .boss-aka-tags .boss-aka-hobby:hover {
+            box-shadow: 0 0 14px rgba(255, 176, 0, 0.2);
+            border-left-color: #ffc933;
+            color: #ffc933;
+        }
+        .content-section.free-travel .boss-intro .boss-aka-tags span {
+            background: rgba(0, 229, 204, 0.06);
+            color: #1a1a2e;
+            border-color: rgba(0, 229, 204, 0.25);
+        }
+        .content-section.free-travel .boss-intro .boss-aka-tags span:hover {
+            background: rgba(0, 229, 204, 0.12);
+            color: #0d0d12;
+        }
+        .content-section.free-travel .boss-intro .boss-aka-tags .boss-aka-hobby {
+            background: rgba(255, 176, 0, 0.08);
+            color: #996600;
+        }
+        .content-section.free-travel .boss-intro .boss-aka-tags .boss-aka-hobby:hover {
+            color: #b8860b;
+        }
+        /* 經歷時間軸 - 加強視覺 */
+        .boss-intro .boss-exp-title { font-size: 0.9rem; letter-spacing: 0.2em; margin-bottom: 0.75rem; opacity: 0.85; }
+        .boss-intro .boss-exp-list { list-style: none; padding: 0; margin: 0; font-size: 1.05rem; line-height: 1.5; }
+        .boss-intro .boss-exp-timeline {
+            position: relative;
+            padding-left: 2.25rem;
+        }
+        .boss-intro .boss-exp-timeline::before {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 0.6rem;
+            bottom: 0.6rem;
+            width: 3px;
+            background: linear-gradient(180deg, #E41779 0%, rgba(228, 23, 121, 0.5) 50%, rgba(228, 23, 121, 0.25) 100%);
+            border-radius: 2px;
+        }
+        .boss-intro .boss-exp-timeline li {
+            position: relative;
+            padding-left: 0;
+            margin-bottom: 0.85rem;
+        }
+        .boss-intro .boss-exp-timeline li:last-child { margin-bottom: 0; }
+        .boss-intro .boss-exp-timeline li::before {
+            content: "";
+            position: absolute;
+            left: -2.25rem;
+            top: 0.5rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #E41779;
+            box-shadow: 0 0 0 4px rgba(228, 23, 121, 0.25);
+            animation: boss-timeline-dot 2.5s ease-in-out infinite;
+        }
+        .boss-intro .boss-exp-timeline li:nth-child(2)::before { animation-delay: 0.3s; }
+        .boss-intro .boss-exp-timeline li:nth-child(3)::before { animation-delay: 0.6s; }
+        .boss-intro .boss-exp-timeline li:nth-child(4)::before { animation-delay: 0.9s; }
+        .boss-intro .boss-exp-text {
+            display: inline-block;
+            padding: 0.35rem 0.75rem 0.35rem 0;
+            border-radius: 6px;
+            transition: background 0.25s ease, padding-left 0.25s ease;
+        }
+        .boss-intro .boss-exp-timeline li:hover .boss-exp-text {
+            background: rgba(228, 23, 121, 0.08);
+            padding-left: 0.5rem;
+        }
+        .content-section.package-tour .boss-intro .boss-exp-timeline li:hover .boss-exp-text {
+            background: rgba(255,255,255,0.08);
+        }
+        .content-section.package-tour .boss-intro { background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.92); }
+        .content-section.package-tour .boss-intro .boss-title { color: rgba(228, 23, 121, 0.95); }
+        .content-section.package-tour .boss-intro .boss-name { -webkit-text-fill-color: transparent; }
+        .content-section.package-tour .boss-intro .boss-lead { color: rgba(255,255,255,0.88); }
+        .content-section.package-tour .boss-intro .boss-heart-item { color: rgba(255,255,255,0.88); }
+        .content-section.package-tour .boss-intro .boss-aka-label { color: #00e5cc; }
+        .content-section.package-tour .boss-intro .boss-exp-title { color: rgba(255,255,255,0.8); }
+        .content-section.package-tour .boss-intro .boss-exp-list li { color: rgba(255,255,255,0.88); }
+        .content-section.free-travel .boss-intro { background: linear-gradient(180deg, #f0f4f8 0%, #e8eef5 100%); color: #1a1a2e; }
+        .content-section.free-travel .boss-intro .boss-title { color: #E41779; }
+        .content-section.free-travel .boss-intro .boss-lead { color: #333; }
+        .content-section.free-travel .boss-intro .boss-heart-item { color: #333; }
+        .content-section.free-travel .boss-intro .boss-aka-label { color: #00e5cc; }
+        .content-section.free-travel .boss-intro .boss-exp-list li { color: #333; }
+        @media (max-width: 768px) {
+            .boss-intro .boss-intro-inner { flex-direction: column; align-items: center; text-align: center; }
+            .boss-intro .boss-photo-wrap { width: 220px; padding-bottom: 44px; animation: none; }
+            .boss-intro .boss-photo-wrap:hover { transform: translateY(-4px); }
+            .boss-intro .boss-photo-polaroid img { height: 220px; }
+            .boss-intro .boss-lead { padding-left: 0; border-left: none; border-top: 4px solid #E41779; padding-top: 0.5rem; margin-left: 0; font-size: 1.1rem; }
+            .content-section.package-tour .boss-intro .boss-lead { border-top-color: rgba(228, 23, 121, 0.8); }
+            .boss-intro .boss-three-hearts { text-align: left; display: inline-block; }
+            .boss-intro .boss-aka-tags { justify-content: center; }
+        }
+        
         /* Sticky Contact Bar - 文青風格 · 動態邀請聯繫 */
         .sticky-contact-bar,
         #stickyContactBar,
@@ -1081,11 +1396,11 @@
                 <!-- 包套行程文案（預設顯示） -->
                 <div id="heroCopyPackage" class="hero-copy animated slideInDown">
                     <div class="title mx-5 px-5">
-                        <div class="title-center">
+                    <div class="title-center">
                             <h5>包套行程</h5>
                             <h1 class="display-1">把心交給我們<br>你只管，玩</h1>
-                        </div>
                     </div>
+                </div>
                     <p class="fs-5 mb-5">出國不該是另一場行軍。<br>在這裡，有人為你打點好一切——安全、歡樂、輕鬆，你只需要出現。</p>
                 </div>
                 <!-- 自由行文案（切換時顯示） -->
@@ -1150,6 +1465,41 @@
 
     <!-- Content Section Start - Package Tour (Default) -->
     <div id="packageTourContent" class="content-section package-tour">
+    <!-- 老闆介紹 · 香郎津桃（包套）— 置頂 -->
+    <div class="container-fluid boss-intro">
+        <div class="container">
+            <div class="boss-intro-inner wow fadeInUp" data-wow-delay="0.05s">
+                <div class="boss-photo-wrap boss-photo-polaroid">
+                    <img src="img/team-1.jpg" alt="香郎津桃">
+                    <span class="boss-photo-caption">本業是讓你玩得放心</span>
+                </div>
+                <div class="boss-copy">
+                    <p class="boss-title">老闆介紹</p>
+                    <h2 class="boss-name boss-name-gradient">香郎津桃</h2>
+                    <blockquote class="boss-lead">名號很多，本業是讓你玩得放心、安心、開心。</blockquote>
+                    <div class="boss-three-hearts">
+                        <p class="boss-heart-item boss-heart-1"><span class="boss-heart-dot">放心</span>心可以放著，人帶著就好。</p>
+                        <p class="boss-heart-item boss-heart-2"><span class="boss-heart-dot">安心</span>雷我們踩過了，路我們熟。</p>
+                        <p class="boss-heart-item boss-heart-3"><span class="boss-heart-dot">開心</span>笑到併軌的那種。</p>
+                    </div>
+                    <div class="boss-aka-box">
+                        <p class="boss-aka-label">津桃 AKA 又稱</p>
+                        <div class="boss-aka-tags">
+                            <span>香郎津桃</span><span>西貢夜王PaPa</span><span>西貢龍捲風</span><span>西貢愛神邱比特</span><span>西貢陳四郎</span><span>西貢照妖鏡</span><span>平陽陳不挑</span><span>平陽天外天小公子</span><span>氣球吸吸吐呼吸大法創辦人</span><span class="boss-aka-hobby">嗜好：布朗尼巧克力餅乾</span>
+                        </div>
+                    </div>
+                    <p class="boss-exp-title">經歷</p>
+                    <ul class="boss-exp-list boss-exp-timeline">
+                        <li><span class="boss-exp-text">十年野戰砲兵</span></li>
+                        <li><span class="boss-exp-text">一年美國德州砲兵基地訓練</span></li>
+                        <li><span class="boss-exp-text">前蘋果日報人間事專欄作家</span></li>
+                        <li><span class="boss-exp-text">越南十年暗黑經驗</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- About Start - 包套行程 -->
     <div class="container-fluid bg-secondary">
         <div class="container">
@@ -1191,7 +1541,6 @@
         </div>
     </div>
     <!-- About End -->
-
 
     <!-- Service Start -->
     <div class="container-fluid py-5">
@@ -1429,6 +1778,41 @@
     
     <!-- Content Section Start - Free Travel -->
     <div id="freeTravelContent" class="content-section free-travel" style="display: none;">
+    <!-- 老闆介紹 · 香郎津桃（自由行）— 置頂 -->
+    <div class="container-fluid boss-intro">
+        <div class="container">
+            <div class="boss-intro-inner wow fadeInUp" data-wow-delay="0.05s">
+                <div class="boss-photo-wrap boss-photo-polaroid">
+                    <img src="img/team-1.jpg" alt="香郎津桃">
+                    <span class="boss-photo-caption">本業是讓你玩得放心</span>
+                </div>
+                <div class="boss-copy">
+                    <p class="boss-title">老闆介紹</p>
+                    <h2 class="boss-name boss-name-gradient">香郎津桃</h2>
+                    <blockquote class="boss-lead">名號很多，本業是讓你玩得放心、安心、開心。</blockquote>
+                    <div class="boss-three-hearts">
+                        <p class="boss-heart-item boss-heart-1"><span class="boss-heart-dot">放心</span>心可以放著，人帶著就好。</p>
+                        <p class="boss-heart-item boss-heart-2"><span class="boss-heart-dot">安心</span>雷我們踩過了，路我們熟。</p>
+                        <p class="boss-heart-item boss-heart-3"><span class="boss-heart-dot">開心</span>笑到併軌的那種。</p>
+                    </div>
+                    <div class="boss-aka-box">
+                        <p class="boss-aka-label">津桃 AKA 又稱</p>
+                        <div class="boss-aka-tags">
+                            <span>香郎津桃</span><span>西貢夜王PaPa</span><span>西貢龍捲風</span><span>西貢愛神邱比特</span><span>西貢陳四郎</span><span>西貢照妖鏡</span><span>平陽陳不挑</span><span>平陽天外天小公子</span><span>氣球吸吸吐呼吸大法創辦人</span><span class="boss-aka-hobby">嗜好：布朗尼巧克力餅乾</span>
+                        </div>
+                    </div>
+                    <p class="boss-exp-title">經歷</p>
+                    <ul class="boss-exp-list boss-exp-timeline">
+                        <li><span class="boss-exp-text">十年野戰砲兵</span></li>
+                        <li><span class="boss-exp-text">一年美國德州砲兵基地訓練</span></li>
+                        <li><span class="boss-exp-text">前蘋果日報人間事專欄作家</span></li>
+                        <li><span class="boss-exp-text">越南十年暗黑經驗</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- About Start - Free Travel -->
     <div class="container-fluid bg-secondary">
         <div class="container">
@@ -1470,7 +1854,6 @@
         </div>
     </div>
     <!-- About End -->
-
 
     <!-- Service Start - Free Travel -->
     <div class="container-fluid py-5">
@@ -1780,7 +2163,7 @@
                 <div class="sticky-msg sticky-msg-carousel" id="stickyMsgCarousel">
                     <p class="sticky-msg-main" id="stickyMsgMain">你心裡想過，但還沒問出口的那件事。</p>
                     <p class="sticky-msg-sub" id="stickyMsgSub"><span class="sticky-msg-brand">香郎津桃</span><span class="sticky-msg-dot"> · </span><span class="sticky-msg-line2" id="stickyMsgSubText">我們在聽。一句話就夠。</span></p>
-                </div>
+            </div>
                 <div class="sticky-contact-methods">
                     <a href="https://line.me/ti/p/@yourlineid" target="_blank" rel="noopener" class="sticky-method" title="Line">
                         <span class="sticky-method-icon"><i class="fab fa-line"></i></span>
@@ -1797,8 +2180,8 @@
                     <a href="tel:+84907906455" class="sticky-method" title="電話">
                         <span class="sticky-method-icon"><i class="fas fa-phone-alt"></i></span>
                         <span class="sticky-method-label">電話</span>
-                    </a>
-                </div>
+                </a>
+            </div>
             </div>
             <button class="sticky-contact-close" id="stickyContactClose" title="關閉" aria-label="關閉">
                 <i class="fas fa-times"></i>
@@ -2340,4 +2723,5 @@
     </script>
 </body>
 
+</html>
 </html>
