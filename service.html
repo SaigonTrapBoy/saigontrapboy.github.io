@@ -260,7 +260,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            align-items: stretch;
+            align-items: start;
         }
         @media (max-width: 991px) {
             .package-includes .duration-cards { grid-template-columns: 1fr; }
@@ -346,6 +346,87 @@
             text-align: center;
             margin-top: 0.75rem;
             margin-bottom: 0;
+        }
+        .package-includes .duration-card .duration-trigger {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            color: rgba(0,229,204,0.9);
+            background: transparent;
+            border: 1px solid rgba(0,229,204,0.35);
+            border-radius: 999px;
+            cursor: pointer;
+            transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+        .package-includes .duration-card .duration-trigger:hover {
+            color: #00e5cc;
+            border-color: rgba(0,229,204,0.6);
+            background: rgba(0,229,204,0.08);
+            box-shadow: 0 0 16px rgba(0,229,204,0.15);
+        }
+        .package-includes .duration-card .duration-trigger .trigger-icon {
+            display: inline-block;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .package-includes .duration-card.is-expanded .duration-trigger .trigger-icon {
+            transform: rotate(180deg);
+        }
+        .package-includes .duration-card .duration-highlights {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .package-includes .duration-card.is-expanded .duration-highlights {
+            max-height: 320px;
+        }
+        .package-includes .duration-card .duration-highlights-inner {
+            padding: 1.1rem 0 0.25rem;
+            margin-top: 0.75rem;
+            border-top: 1px solid rgba(0,229,204,0.2);
+            text-align: left;
+        }
+        .package-includes .duration-card .duration-highlights-title {
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            color: rgba(0,229,204,0.7);
+            margin-bottom: 0.65rem;
+            text-transform: uppercase;
+        }
+        .package-includes .duration-card .duration-highlights-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .package-includes .duration-card .duration-highlights-list li {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.8);
+            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 0.25rem;
+        }
+        .package-includes .duration-card .duration-highlights-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #00e5cc;
+        }
+        .package-includes .duration-card .duration-highlights-list li.highlight-plus {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.4rem;
+        }
+        .package-includes .duration-card .duration-highlights-list li.highlight-plus::before {
+            display: none;
         }
         /* 報價但書：左線＋文字，霓虹青點綴 */
         .package-includes .package-disclaimer {
@@ -701,16 +782,62 @@
                     <div class="duration-label">三天兩夜</div>
                     <div class="duration-price"><span class="price-amount">22,600</span><span class="unit"> / 每人</span></div>
                     <div class="duration-copy">把三天當一輩子那樣用力玩。<br>結束的時候你會發現，不夠。<br>然後想再來一次。</div>
+                    <button type="button" class="duration-trigger" aria-expanded="false" aria-controls="highlights-3d">
+                        <span class="trigger-icon"><i class="fa fa-chevron-down"></i></span>
+                        <span>查看行程亮點</span>
+                    </button>
+                    <div class="duration-highlights" id="highlights-3d" role="region">
+                        <div class="duration-highlights-inner">
+                            <p class="duration-highlights-title">行程亮點</p>
+                            <ul class="duration-highlights-list">
+                                <li>正宗越式洗頭</li>
+                                <li>知名奧黛按摩店</li>
+                                <li>頂級禮服 KTV</li>
+                                <li>半套桑拿</li>
+                                <li>道地薄紗 KTV</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="duration-card">
                     <div class="duration-label">四天三夜</div>
                     <div class="duration-price"><span class="price-amount">26,600</span><span class="unit"> / 每人</span></div>
                     <div class="duration-copy">多一天，就多一點餘裕。<br>可以趕路，也可以停下來發呆。<br>你會記得的，比想像中多。</div>
+                    <button type="button" class="duration-trigger" aria-expanded="false" aria-controls="highlights-4d">
+                        <span class="trigger-icon"><i class="fa fa-chevron-down"></i></span>
+                        <span>查看行程亮點</span>
+                    </button>
+                    <div class="duration-highlights" id="highlights-4d" role="region">
+                        <div class="duration-highlights-inner">
+                            <p class="duration-highlights-title">行程亮點</p>
+                            <ul class="duration-highlights-list">
+                                <li class="highlight-plus">含三天行程 ＋</li>
+                                <li>當地伴手禮採買</li>
+                                <li>龍宮</li>
+                                <li>日租情人伴遊</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="duration-card">
                     <div class="duration-label">五天四夜</div>
                     <div class="duration-price"><span class="price-amount">30,600</span><span class="unit"> / 每人</span></div>
                     <div class="duration-copy">從早到晚，從暗到亮。<br>想回沖的可以回沖，想曬太陽的就去曬太陽。<br>什麼都不留白。</div>
+                    <button type="button" class="duration-trigger" aria-expanded="false" aria-controls="highlights-5d">
+                        <span class="trigger-icon"><i class="fa fa-chevron-down"></i></span>
+                        <span>查看行程亮點</span>
+                    </button>
+                    <div class="duration-highlights" id="highlights-5d" role="region">
+                        <div class="duration-highlights-inner">
+                            <p class="duration-highlights-title">行程亮點</p>
+                            <ul class="duration-highlights-list">
+                                <li class="highlight-plus">含四天行程 ＋</li>
+                                <li>土嗨酒吧 or 夜店</li>
+                                <li>輕鬆寫意的日光行程</li>
+                                <li>意猶未盡的行程回沖</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="package-disclaimer mt-4 wow fadeInUp" data-wow-delay="0.5s">
@@ -908,6 +1035,12 @@
                     dots: true,
                 });
             }
+            $('.package-includes .duration-trigger').on('click', function () {
+                var card = $(this).closest('.duration-card');
+                var isExpanded = card.hasClass('is-expanded');
+                card.toggleClass('is-expanded', !isExpanded);
+                $(this).attr('aria-expanded', !isExpanded);
+            });
         });
     </script>
 </body>

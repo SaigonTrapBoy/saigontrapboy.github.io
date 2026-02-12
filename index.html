@@ -1090,6 +1090,338 @@
             .boss-intro .boss-three-hearts { text-align: left; display: inline-block; }
             .boss-intro .boss-aka-tags { justify-content: center; }
         }
+
+        /* 四大主張 - 包套行程專區，吸睛、動效、層次分明 */
+        @keyframes claims-border-glow {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        @keyframes claims-shimmer {
+            0% { transform: translateX(-100%) skewX(-10deg); opacity: 0; }
+            60% { opacity: 0.4; }
+            100% { transform: translateX(200%) skewX(-10deg); opacity: 0; }
+        }
+        @keyframes claims-title-glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.08); }
+        }
+        .package-tour .four-claims {
+            background: linear-gradient(180deg, #0d0d12 0%, #12121a 50%, #0d0d12 100%);
+            color: rgba(255,255,255,0.95);
+            position: relative;
+            overflow: hidden;
+        }
+        /* 四大主張裝飾圖：img/icon 金色線稿風格，大小不一、排列隨興，僅在區塊左右外側 */
+        .package-tour .four-claims .claims-deco {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 16%;
+            max-width: 140px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .package-tour .four-claims .claims-deco-left { left: 0; }
+        .package-tour .four-claims .claims-deco-right { right: 0; left: auto; }
+        .package-tour .four-claims .claims-deco-bottom {
+            top: auto;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 18%;
+            max-width: none;
+        }
+        .package-tour .four-claims .claims-deco-bg {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: none;
+            z-index: -1;
+        }
+        .package-tour .four-claims .container { position: relative; z-index: 1; }
+        /* 金色線稿：用 icon 當 mask，背景金色 */
+        .package-tour .four-claims .claims-deco-img {
+            position: absolute;
+            display: block;
+            width: 80px;
+            height: 80px;
+            max-width: 100%;
+            background-color: #d4af37;
+            -webkit-mask-image: var(--icon);
+            mask-image: var(--icon);
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+        }
+        /* 背景層：僅在左/右欄「垂直空隙」（左欄主 icon 約 0-10%、18-24%、36-44%、54-60%、78-86%、98-100%，空隙 10-18、24-36、44-54、62-78、86-98） */
+        .claims-deco-bg .claims-deco-img:nth-child(1) { top: 14%; left: 3%; width: 26px; height: 26px; transform: rotate(12deg); opacity: 0.38; }
+        .claims-deco-bg .claims-deco-img:nth-child(2) { top: 28%; left: 4%; width: 24px; height: 24px; transform: rotate(-8deg) scaleX(-1); opacity: 0.52; }
+        .claims-deco-bg .claims-deco-img:nth-child(3) { top: 50%; left: 3%; width: 26px; height: 26px; transform: rotate(5deg); opacity: 0.42; }
+        .claims-deco-bg .claims-deco-img:nth-child(4) { top: 14%; right: 3%; left: auto; width: 26px; height: 26px; transform: rotate(-10deg); opacity: 0.48; }
+        .claims-deco-bg .claims-deco-img:nth-child(5) { top: 28%; right: 4%; left: auto; width: 24px; height: 24px; transform: rotate(6deg) scaleX(-1); opacity: 0.45; }
+        .claims-deco-bg .claims-deco-img:nth-child(6) { top: 50%; right: 3%; left: auto; width: 22px; height: 22px; transform: rotate(-4deg); opacity: 0.35; }
+        /* 左側：垂直嚴格分段，每格約 15-16%，避免旋轉後重疊 */
+        .claims-deco-left .claims-deco-img:nth-child(1) { top: 0; left: 0; width: 58px; height: 58px; transform: rotate(-10deg); opacity: 0.9; }
+        .claims-deco-left .claims-deco-img:nth-child(2) { top: 18%; left: 6%; width: 40px; height: 40px; transform: rotate(7deg); opacity: 0.62; }
+        .claims-deco-left .claims-deco-img:nth-child(3) { top: 36%; left: 0; width: 66px; height: 66px; transform: rotate(-3deg); opacity: 0.85; }
+        .claims-deco-left .claims-deco-img:nth-child(4) { top: 56%; left: 6%; width: 36px; height: 36px; transform: rotate(9deg) scaleX(-1); opacity: 0.55; }
+        .claims-deco-left .claims-deco-img:nth-child(5) { bottom: 20%; left: 0; width: 52px; height: 52px; transform: rotate(-6deg) scaleX(-1); opacity: 0.78; }
+        .claims-deco-left .claims-deco-img:nth-child(6) { bottom: 2%; left: 6%; width: 44px; height: 44px; transform: rotate(4deg); opacity: 0.68; }
+        /* 右側：垂直嚴格分段 */
+        .claims-deco-right .claims-deco-img:nth-child(1) { top: 0; right: 0; left: auto; width: 48px; height: 48px; transform: rotate(8deg) scaleX(-1); opacity: 0.72; }
+        .claims-deco-right .claims-deco-img:nth-child(2) { top: 20%; right: 6%; left: auto; width: 60px; height: 60px; transform: rotate(-5deg) scaleX(-1); opacity: 0.88; }
+        .claims-deco-right .claims-deco-img:nth-child(3) { top: 38%; right: 0; left: auto; width: 40px; height: 40px; transform: rotate(11deg); opacity: 0.58; }
+        .claims-deco-right .claims-deco-img:nth-child(4) { top: 58%; right: 6%; left: auto; width: 54px; height: 54px; transform: rotate(-7deg); opacity: 0.82; }
+        .claims-deco-right .claims-deco-img:nth-child(5) { bottom: 20%; right: 0; left: auto; width: 38px; height: 38px; transform: rotate(3deg); opacity: 0.5; }
+        .claims-deco-right .claims-deco-img:nth-child(6) { bottom: 2%; right: 6%; left: auto; width: 64px; height: 64px; transform: rotate(-4deg); opacity: 0.75; }
+        /* 下排：只放「中間區」(left 20%-80%)，避免與左右欄最底部 icon 重疊；同一水平線、橫向間距拉開 */
+        .claims-deco-bottom .claims-deco-img:nth-child(1) { bottom: 8%; left: 20%; width: 38px; height: 38px; transform: rotate(-8deg) scaleX(-1); opacity: 0.6; }
+        .claims-deco-bottom .claims-deco-img:nth-child(2) { bottom: 8%; left: 38%; width: 48px; height: 48px; transform: rotate(5deg); opacity: 0.85; }
+        .claims-deco-bottom .claims-deco-img:nth-child(3) { bottom: 8%; left: 56%; width: 32px; height: 32px; transform: rotate(-2deg); opacity: 0.48; }
+        .claims-deco-bottom .claims-deco-img:nth-child(4) { bottom: 8%; left: 72%; width: 42px; height: 42px; transform: rotate(7deg); opacity: 0.7; }
+        .claims-deco-bottom .claims-deco-img:nth-child(5) { bottom: 8%; right: 20%; left: auto; width: 52px; height: 52px; transform: rotate(-5deg) scaleX(-1); opacity: 0.92; }
+        @media (max-width: 991px) {
+            .package-tour .four-claims .claims-deco { width: 14%; max-width: 88px; }
+            .package-tour .four-claims .claims-deco-img { opacity: 0.82; }
+            .claims-deco-bg .claims-deco-img:nth-child(1) { width: 24px; height: 24px; }
+            .claims-deco-bg .claims-deco-img:nth-child(2) { width: 22px; height: 22px; }
+            .claims-deco-bg .claims-deco-img:nth-child(3) { width: 28px; height: 28px; }
+            .claims-deco-bg .claims-deco-img:nth-child(4) { width: 24px; height: 24px; }
+            .claims-deco-bg .claims-deco-img:nth-child(5) { width: 26px; height: 26px; }
+            .claims-deco-bg .claims-deco-img:nth-child(6) { width: 20px; height: 20px; }
+            .claims-deco-left .claims-deco-img:nth-child(1) { width: 48px; height: 48px; }
+            .claims-deco-left .claims-deco-img:nth-child(2) { width: 36px; height: 36px; }
+            .claims-deco-left .claims-deco-img:nth-child(3) { width: 54px; height: 54px; }
+            .claims-deco-left .claims-deco-img:nth-child(4) { width: 30px; height: 30px; }
+            .claims-deco-left .claims-deco-img:nth-child(5) { width: 44px; height: 44px; }
+            .claims-deco-left .claims-deco-img:nth-child(6) { width: 38px; height: 38px; }
+            .claims-deco-right .claims-deco-img:nth-child(1) { width: 40px; height: 40px; }
+            .claims-deco-right .claims-deco-img:nth-child(2) { width: 52px; height: 52px; }
+            .claims-deco-right .claims-deco-img:nth-child(3) { width: 34px; height: 34px; }
+            .claims-deco-right .claims-deco-img:nth-child(4) { width: 46px; height: 46px; }
+            .claims-deco-right .claims-deco-img:nth-child(5) { width: 32px; height: 32px; }
+            .claims-deco-right .claims-deco-img:nth-child(6) { width: 54px; height: 54px; }
+            .claims-deco-bottom .claims-deco-img:nth-child(1) { width: 34px; height: 34px; }
+            .claims-deco-bottom .claims-deco-img:nth-child(2) { width: 42px; height: 42px; }
+            .claims-deco-bottom .claims-deco-img:nth-child(3) { width: 28px; height: 28px; }
+            .claims-deco-bottom .claims-deco-img:nth-child(4) { width: 36px; height: 36px; }
+            .claims-deco-bottom .claims-deco-img:nth-child(5) { width: 46px; height: 46px; }
+        }
+        @media (max-width: 575px) {
+            .package-tour .four-claims .claims-deco { max-width: 64px; }
+            .package-tour .four-claims .claims-deco-bottom { height: 22%; }
+            .claims-deco-bg .claims-deco-img:nth-child(n) { width: 18px; height: 18px; opacity: 0.4; }
+            .claims-deco-left .claims-deco-img:nth-child(1) { width: 38px; height: 38px; }
+            .claims-deco-left .claims-deco-img:nth-child(2) { width: 28px; height: 28px; }
+            .claims-deco-left .claims-deco-img:nth-child(3) { width: 44px; height: 44px; }
+            .claims-deco-left .claims-deco-img:nth-child(4) { width: 24px; height: 24px; }
+            .claims-deco-left .claims-deco-img:nth-child(5) { width: 34px; height: 34px; }
+            .claims-deco-left .claims-deco-img:nth-child(6) { width: 30px; height: 30px; }
+            .claims-deco-right .claims-deco-img:nth-child(1) { width: 32px; height: 32px; }
+            .claims-deco-right .claims-deco-img:nth-child(2) { width: 42px; height: 42px; }
+            .claims-deco-right .claims-deco-img:nth-child(3) { width: 28px; height: 28px; }
+            .claims-deco-right .claims-deco-img:nth-child(4) { width: 36px; height: 36px; }
+            .claims-deco-right .claims-deco-img:nth-child(5) { width: 26px; height: 26px; }
+            .claims-deco-right .claims-deco-img:nth-child(6) { width: 44px; height: 44px; }
+            .claims-deco-bottom .claims-deco-img:nth-child(1) { width: 28px; height: 28px; }
+            .claims-deco-bottom .claims-deco-img:nth-child(2) { width: 34px; height: 34px; }
+            .claims-deco-bottom .claims-deco-img:nth-child(3) { width: 24px; height: 24px; }
+            .claims-deco-bottom .claims-deco-img:nth-child(4) { width: 30px; height: 30px; }
+            .claims-deco-bottom .claims-deco-img:nth-child(5) { width: 38px; height: 38px; }
+        }
+        .package-tour .four-claims::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ff8ab8 0%, transparent 40%, transparent 60%, #00e5cc 100%);
+            opacity: 0.6;
+            animation: claims-border-glow 3s ease-in-out infinite;
+        }
+        .package-tour .four-claims .claims-head {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .package-tour .four-claims .claims-head .claims-tag {
+            font-size: 0.8rem;
+            letter-spacing: 0.28em;
+            color: #ff8ab8;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .package-tour .four-claims .claims-head h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.04em;
+        }
+        .package-tour .four-claims .claims-head h2::after {
+            display: block;
+            width: 56px;
+            height: 3px;
+            margin: 0.75rem auto 0;
+            background: linear-gradient(90deg, #ff8ab8, #00e5cc);
+            border-radius: 2px;
+            content: "";
+            box-shadow: 0 0 20px rgba(255,138,184,0.4);
+        }
+        .package-tour .four-claims .claims-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.75rem;
+        }
+        @media (max-width: 991px) {
+            .package-tour .four-claims .claims-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 575px) {
+            .package-tour .four-claims .claims-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .package-tour .four-claims .claim-item {
+            position: relative;
+            padding: 1.75rem 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 5px solid #ff8ab8;
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 0 12px 12px 0;
+            transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), border-left-width 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+            overflow: hidden;
+        }
+        .package-tour .four-claims .claim-item::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent);
+            transform: translateX(-100%) skewX(-10deg);
+            pointer-events: none;
+            opacity: 0;
+        }
+        .package-tour .four-claims .claim-item:hover::after {
+            opacity: 1;
+            animation: claims-shimmer 0.7s ease-out forwards;
+        }
+        .package-tour .four-claims .claim-item::before {
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .package-tour .four-claims .claim-item:nth-child(1)::before { content: "01"; color: rgba(255,138,184,0.2); }
+        .package-tour .four-claims .claim-item:nth-child(2)::before { content: "02"; color: rgba(0,229,204,0.2); }
+        .package-tour .four-claims .claim-item:nth-child(3)::before { content: "03"; color: rgba(255,138,184,0.2); }
+        .package-tour .four-claims .claim-item:nth-child(4)::before { content: "04"; color: rgba(0,229,204,0.2); }
+        .package-tour .four-claims .claim-item:hover::before {
+            opacity: 0.5;
+            transform: scale(1.05);
+        }
+        .package-tour .four-claims .claim-item:nth-child(even) {
+            border-left-color: #00e5cc;
+        }
+        .package-tour .four-claims .claim-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(255,255,255,0.09);
+            border-left-width: 6px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.3), 0 0 40px rgba(255,138,184,0.1);
+        }
+        .package-tour .four-claims .claim-item:nth-child(odd):hover {
+            border-left-color: #ff8ab8;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.3), -6px 0 32px rgba(255,138,184,0.2), 0 0 48px rgba(255,138,184,0.08);
+        }
+        .package-tour .four-claims .claim-item:nth-child(even):hover {
+            border-left-color: #00e5cc;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.3), -6px 0 32px rgba(0,229,204,0.2), 0 0 48px rgba(0,229,204,0.08);
+        }
+        /* 大標：九龍霓虹扛棒 — 字體清晰為主，邊緣薄光暈點綴 */
+        .package-tour .four-claims .claim-item .claim-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            line-height: 1.4;
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid transparent;
+            transition: text-shadow 0.3s ease;
+        }
+        .package-tour .four-claims .claim-item:nth-child(odd) .claim-title {
+            color: #ff7aad;
+            border-bottom-color: rgba(255,122,173,0.45);
+            /* 僅邊緣薄光：不蓋住字，像霓虹管輪廓 */
+            text-shadow: 0 0 1px rgba(255,255,255,0.7), 0 0 3px rgba(255,122,173,0.5);
+        }
+        .package-tour .four-claims .claim-item:nth-child(even) .claim-title {
+            color: #00e5cc;
+            border-bottom-color: rgba(0,229,204,0.45);
+            text-shadow: 0 0 1px rgba(255,255,255,0.7), 0 0 3px rgba(0,229,204,0.5);
+        }
+        .package-tour .four-claims .claim-item:nth-child(odd):hover .claim-title {
+            text-shadow: 0 0 2px rgba(255,255,255,0.8), 0 0 5px rgba(255,122,173,0.55);
+        }
+        .package-tour .four-claims .claim-item:nth-child(even):hover .claim-title {
+            text-shadow: 0 0 2px rgba(255,255,255,0.8), 0 0 5px rgba(0,229,204,0.55);
+        }
+        /* 小標：膠囊標籤，一眼辨識 */
+        .package-tour .four-claims .claim-item .claim-sub {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+        }
+        .package-tour .four-claims .claim-item:nth-child(odd) .claim-sub {
+            color: #ff8ab8;
+            background: rgba(255,138,184,0.12);
+            border-color: rgba(255,138,184,0.35);
+        }
+        .package-tour .four-claims .claim-item:nth-child(even) .claim-sub {
+            color: #00e5cc;
+            background: rgba(0,229,204,0.12);
+            border-color: rgba(0,229,204,0.35);
+        }
+        .package-tour .four-claims .claim-item:hover .claim-sub {
+            box-shadow: 0 0 16px rgba(255,138,184,0.2);
+        }
+        .package-tour .four-claims .claim-item:nth-child(even):hover .claim-sub {
+            box-shadow: 0 0 16px rgba(0,229,204,0.2);
+        }
+        /* 內文：引用區塊感，與標題明確分離 */
+        .package-tour .four-claims .claim-item .claim-body {
+            font-family: Georgia, "Noto Serif TC", "Noto Serif SC", serif;
+            font-size: 0.98rem;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.72);
+            padding-left: 1rem;
+            border-left: 2px solid rgba(255,255,255,0.1);
+        }
+        .package-tour .four-claims .claim-item:nth-child(odd) .claim-body {
+            border-left-color: rgba(255,138,184,0.2);
+        }
+        .package-tour .four-claims .claim-item:nth-child(even) .claim-body {
+            border-left-color: rgba(0,229,204,0.2);
+        }
         
         /* Sticky Contact Bar - 文青風格 · 動態邀請聯繫 */
         .sticky-contact-bar,
@@ -1541,6 +1873,71 @@
         </div>
     </div>
     <!-- About End -->
+
+    <!-- 四大主張 Start -->
+    <div class="container-fluid py-5 four-claims">
+        <!-- 四大主張裝飾：打散、多尺寸、背景也塞一些 icon -->
+        <div class="claims-deco claims-deco-bg" aria-hidden="true">
+            <span class="claims-deco-img" style="--icon: url('img/icon/microphone.png')"></span>
+            <span class="claims-deco-img" style="--icon: url('img/icon/glass-with-wine.png')"></span>
+            <span class="claims-deco-img" style="--icon: url('img/icon/ao-dai.png')"></span>
+            <span class="claims-deco-img" style="--icon: url('img/icon/glass-with-wine.png')"></span>
+            <span class="claims-deco-img" style="--icon: url('img/icon/microphone.png')"></span>
+            <span class="claims-deco-img" style="--icon: url('img/icon/ao-dai.png')"></span>
+        </div>
+        <div class="claims-deco claims-deco-left" aria-hidden="true">
+            <span class="claims-deco-img claims-deco-mic" style="--icon: url('img/icon/microphone.png')"></span>
+            <span class="claims-deco-img claims-deco-glass" style="--icon: url('img/icon/glass-with-wine.png')"></span>
+            <span class="claims-deco-img claims-deco-ao-dai" style="--icon: url('img/icon/ao-dai.png')"></span>
+            <span class="claims-deco-img claims-deco-glass" style="--icon: url('img/icon/glass-with-wine.png')"></span>
+            <span class="claims-deco-img claims-deco-mic" style="--icon: url('img/icon/microphone.png')"></span>
+            <span class="claims-deco-img claims-deco-ao-dai" style="--icon: url('img/icon/ao-dai.png')"></span>
+        </div>
+        <div class="claims-deco claims-deco-right" aria-hidden="true">
+            <span class="claims-deco-img claims-deco-ao-dai" style="--icon: url('img/icon/ao-dai.png')"></span>
+            <span class="claims-deco-img claims-deco-mic" style="--icon: url('img/icon/microphone.png')"></span>
+            <span class="claims-deco-img claims-deco-glass" style="--icon: url('img/icon/glass-with-wine.png')"></span>
+            <span class="claims-deco-img claims-deco-ao-dai" style="--icon: url('img/icon/ao-dai.png')"></span>
+            <span class="claims-deco-img claims-deco-glass" style="--icon: url('img/icon/glass-with-wine.png')"></span>
+            <span class="claims-deco-img claims-deco-mic" style="--icon: url('img/icon/microphone.png')"></span>
+        </div>
+        <div class="claims-deco claims-deco-bottom" aria-hidden="true">
+            <span class="claims-deco-img claims-deco-glass" style="--icon: url('img/icon/glass-with-wine.png')"></span>
+            <span class="claims-deco-img claims-deco-mic" style="--icon: url('img/icon/microphone.png')"></span>
+            <span class="claims-deco-img claims-deco-ao-dai" style="--icon: url('img/icon/ao-dai.png')"></span>
+            <span class="claims-deco-img claims-deco-glass" style="--icon: url('img/icon/glass-with-wine.png')"></span>
+            <span class="claims-deco-img claims-deco-mic" style="--icon: url('img/icon/microphone.png')"></span>
+        </div>
+        <div class="container py-4">
+            <div class="claims-head wow fadeInUp" data-wow-delay="0.1s">
+                <p class="claims-tag">Our Promise</p>
+                <h2>津桃團隊給你的四大保證</h2>
+            </div>
+            <div class="claims-grid">
+                <div class="claim-item wow fadeInUp" data-wow-delay="0.15s">
+                    <p class="claim-sub">關於「安全」</p>
+                    <p class="claim-title">把瑣碎留給我們<br>把放鬆留給自己</p>
+                    <p class="claim-body">落地後的食衣住行與安全，由我們全權負責。你只需帶著好奇心出發，剩下的風險與繁瑣，完全不需操心。</p>
+                </div>
+                <div class="claim-item wow fadeInUp" data-wow-delay="0.25s">
+                    <p class="claim-sub">關於「空間」</p>
+                    <p class="claim-title">在陌生的遠方<br>保有熟悉的自在</p>
+                    <p class="claim-body">安排專屬包車與頂級社區住宅，享有絕對自在且隱密的個人空間，在這些地方你可以隨意癱軟、徹夜長談，把酒言歡醉今宵。</p>
+                </div>
+                <div class="claim-item wow fadeInUp" data-wow-delay="0.35s">
+                    <p class="claim-sub">關於「人際」</p>
+                    <p class="claim-title">獨處是種浪漫<br>相逢是種驚喜</p>
+                    <p class="claim-body">一個人不硬湊，一群人更盡興，行程的人數與社交節奏由你決定。想獨旅，我們導遊一對一帶領你暢遊西貢；想併團，我們安排志同道合的旅伴一起狂歡。</p>
+                </div>
+                <div class="claim-item wow fadeInUp" data-wow-delay="0.45s">
+                    <p class="claim-sub">關於「品味」</p>
+                    <p class="claim-title">走千錘百鍊的行程<br>品精挑細選的美食</p>
+                    <p class="claim-body">團隊所有成員親自試錯，我們用挑剔的味蕾與眼光，為你精選道地美食與優質娛樂，從抵達那刻起，你體驗的是經由層層過濾後的最佳選擇。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 四大主張 End -->
 
     <!-- Service Start -->
     <div class="container-fluid py-5">
