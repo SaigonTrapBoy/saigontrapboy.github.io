@@ -501,14 +501,23 @@
                 gap: 2rem;
             }
         }
-        .service-rooms .room-intro-copy {
+        /* 住宿區：粉紅色系（左條、小標） */
+        .service-accommodation-section .room-intro-copy {
             padding: 1.75rem 0 1.75rem 1.25rem;
-            border-left: 3px solid rgba(255,138,184,0.5);
+            border-left: 4px solid rgba(255,138,184,0.6);
+            background: linear-gradient(90deg, rgba(255,138,184,0.06) 0%, transparent 100%);
+            border-radius: 0 8px 8px 0;
+        }
+        .service-accommodation-section .room-intro-copy .room-title {
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            color: rgba(255,138,184,0.95);
+            text-transform: uppercase;
+            margin-bottom: 0.85rem;
         }
         .service-rooms .room-intro-copy .room-title {
             font-size: 0.9rem;
             letter-spacing: 0.2em;
-            color: rgba(0,229,204,0.9);
             text-transform: uppercase;
             margin-bottom: 0.85rem;
         }
@@ -608,9 +617,13 @@
             justify-content: space-between;
             padding: 0 0.5rem;
             pointer-events: none;
+            z-index: 5;
         }
-        .service-rooms .room-intro-carousel-wrap .owl-nav button {
+        /* Owl 產生的導航是 div.owl-prev / div.owl-next，不是 button，需明確設 pointer-events: auto 才能點擊 */
+        .service-rooms .room-intro-carousel-wrap .owl-nav .owl-prev,
+        .service-rooms .room-intro-carousel-wrap .owl-nav .owl-next {
             pointer-events: auto;
+            cursor: pointer;
             width: 48px;
             height: 48px;
             border-radius: 50%;
@@ -619,9 +632,13 @@
             color: #fff !important;
             font-size: 1.25rem !important;
             line-height: 1 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
-        .service-rooms .room-intro-carousel-wrap .owl-nav button:hover {
+        .service-rooms .room-intro-carousel-wrap .owl-nav .owl-prev:hover,
+        .service-rooms .room-intro-carousel-wrap .owl-nav .owl-next:hover {
             background: rgba(0,229,204,0.25) !important;
             border-color: rgba(0,229,204,0.5) !important;
             box-shadow: 0 0 20px rgba(0,229,204,0.2);
@@ -646,6 +663,92 @@
             background: #00e5cc !important;
             transform: scale(1.25);
             box-shadow: 0 0 12px rgba(0,229,204,0.5);
+        }
+        /* 住宿區輪播：按鈕與點點改為粉紅色 */
+        .service-accommodation-section .room-intro-carousel-wrap .owl-nav .owl-prev,
+        .service-accommodation-section .room-intro-carousel-wrap .owl-nav .owl-next {
+            border-color: rgba(255,138,184,0.4) !important;
+            color: #ff8ab8 !important;
+        }
+        .service-accommodation-section .room-intro-carousel-wrap .owl-nav .owl-prev:hover,
+        .service-accommodation-section .room-intro-carousel-wrap .owl-nav .owl-next:hover {
+            background: rgba(255,138,184,0.3) !important;
+            border-color: rgba(255,138,184,0.7) !important;
+            box-shadow: 0 0 20px rgba(255,138,184,0.35);
+        }
+        .service-accommodation-section .room-intro-carousel-wrap .owl-dots .owl-dot.active {
+            background: #ff8ab8 !important;
+            box-shadow: 0 0 12px rgba(255,138,184,0.5);
+        }
+        /* 包車介紹：與住宿同區塊風格，內斂、質感、輕特效 */
+        .service-car-section {
+            padding-top: 2rem !important;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .service-car-inner {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        @media (max-width: 991px) {
+            .service-car-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        /* 包車區與住宿區區分：左條、小標、文案區背景皆用青綠色系 */
+        .service-car-section .room-intro-copy.service-car-copy {
+            padding: 1.75rem 0 1.75rem 1.25rem;
+            border-left: 4px solid #00e5cc;
+            background: linear-gradient(90deg, rgba(0,229,204,0.06) 0%, transparent 100%);
+            border-radius: 0 8px 8px 0;
+        }
+        .service-car-section .room-intro-copy.service-car-copy .room-title {
+            color: #00e5cc;
+        }
+        .service-car-section .room-intro-copy.service-car-copy h3 {
+            color: rgba(255,255,255,0.98);
+        }
+        .service-car-note {
+            font-size: 1rem;
+            font-style: italic;
+            color: rgba(255,255,255,0.65);
+            margin-top: 1rem;
+            margin-bottom: 0;
+            letter-spacing: 0.02em;
+        }
+        .service-car-carousel-wrap {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,0,0,0.06);
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .service-car-carousel-wrap::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 10px;
+            pointer-events: none;
+            box-shadow: inset 0 0 80px rgba(0,0,0,0.12);
+            transition: box-shadow 0.4s ease;
+        }
+        .service-car-carousel-wrap:hover {
+            border-color: rgba(0,229,204,0.2);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 24px rgba(0,229,204,0.06), 0 0 0 1px rgba(0,0,0,0.06);
+        }
+        .service-car-carousel-wrap:hover::before {
+            box-shadow: inset 0 0 60px rgba(0,0,0,0.08);
+        }
+        .service-car-carousel-wrap .room-slide img {
+            transition: transform 0.6s ease;
+        }
+        .service-car-carousel-wrap:hover .room-slide img {
+            transform: scale(1.02);
         }
     </style>
 </head>
@@ -850,12 +953,12 @@
     <!-- 團費包含以下服務內容 End -->
 
 
-    <!-- 服務項目：香郎津桃包套服務 — 關於住宿 Start -->
-    <div class="container-fluid py-5 service-rooms">
+    <!-- 服務項目 — 關於住宿 Start -->
+    <div class="container-fluid py-5 service-rooms service-accommodation-section">
         <div class="container py-5">
             <div class="section-head wow fadeInUp" data-wow-delay="0.1s">
                 <p class="section-tag">服務項目</p>
-                <h2>香郎津桃包套服務</h2>
+                <h2>為你打點好的，都在這裡</h2>
             </div>
             <div class="room-intro-inner wow fadeInUp" data-wow-delay="0.2s">
                 <div class="room-intro-copy">
@@ -883,7 +986,37 @@
             </div>
         </div>
     </div>
-    <!-- 服務項目：香郎津桃包套服務 — 關於住宿 End -->
+    <!-- 服務項目 — 關於住宿 End -->
+
+
+    <!-- 服務項目 — 包車介紹 Start -->
+    <div class="container-fluid py-5 service-rooms service-car-section">
+        <div class="container py-5">
+            <div class="service-car-inner wow fadeInUp" data-wow-delay="0.1s">
+                <div class="room-intro-copy service-car-copy">
+                    <p class="room-title">包車介紹</p>
+                    <h3>專車接送，點到點。<br>不趕、不擠，只載自己人。</h3>
+                    <p class="room-lead">包套行程全程安排專車，不與他人共乘。機場往返、住宿與 KTV 或景點之間，皆有固定車輛與司機配合，動線清楚、時間好掌握。</p>
+                    <p class="room-lead">司機熟悉路況與當地習慣，省去攔車、議價與語言的不安。車內空間留給同團夥伴，隱密、安靜，像在異鄉也有一台屬於自己的移動據點。</p>
+                    <p class="service-car-note">車型可依人數與需求調整，舒適為先。</p>
+                    <p class="room-disclaimer">* 圖片為包車實景，車款與內裝依當次安排為準。</p>
+                </div>
+                <div class="room-intro-carousel-wrap service-car-carousel-wrap">
+                    <div class="owl-carousel room-intro-carousel car-charter-carousel">
+                        <div class="room-slide"><img src="img/包車圖片/S__28934193_0.jpg" alt="包車接送實景一"></div>
+                        <div class="room-slide"><img src="img/包車圖片/S__28934194_0.jpg" alt="包車接送實景二"></div>
+                        <div class="room-slide"><img src="img/包車圖片/S__28934204.jpg" alt="包車接送實景三"></div>
+                        <div class="room-slide"><img src="img/包車圖片/S__28934215_0.jpg" alt="包車接送實景四"></div>
+                        <div class="room-slide"><img src="img/包車圖片/S__28934216_0.jpg" alt="包車接送實景五"></div>
+                        <div class="room-slide"><img src="img/包車圖片/S__28934217_0.jpg" alt="包車接送實景六"></div>
+                        <div class="room-slide"><img src="img/包車圖片/S__28934220_0.jpg" alt="包車接送實景七"></div>
+                        <div class="room-slide"><img src="img/包車圖片/S__28934221_0.jpg" alt="包車接送實景八"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 服務項目 — 包車介紹 End -->
 
 
     <!-- 顧客分享 Start -->
@@ -941,8 +1074,8 @@
                     <h5 class="text-primary text-uppercase mb-3">開始規劃</h5>
                     <h2 class="text-white mb-4">準備好體驗香郎津桃包套行程了嗎？</h2>
                     <p class="text-white-50 mb-4">填寫聯絡方式，我們將為您量身規劃包套行程與報價。</p>
-                    <a href="contact.html" class="btn btn-primary btn-lg me-2 mb-2">聯絡我們</a>
-                    <a href="index.html" class="btn btn-outline-primary btn-lg mb-2">返回首頁</a>
+                    <a href="contact.html" class="btn btn-primary btn-lg me-2 mb-2">聯絡我們 · 啟程</a>
+                    <a href="about.html#team-members" class="btn btn-outline-primary btn-lg mb-2">認識津桃團隊</a>
                 </div>
             </div>
         </div>
@@ -1022,8 +1155,10 @@
     <script src="js/dropdown-submenu.js"></script>
     <script>
         $(function () {
-            if ($('.room-intro-carousel').length) {
-                $('.room-intro-carousel').owlCarousel({
+            $('.room-intro-carousel').each(function () {
+                var $carousel = $(this);
+                var $wrap = $carousel.closest('.room-intro-carousel-wrap');
+                $carousel.owlCarousel({
                     items: 1,
                     loop: true,
                     autoplay: true,
@@ -1034,7 +1169,16 @@
                     navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
                     dots: true,
                 });
-            }
+                // 手動綁定箭頭點擊（避免部分瀏覽器下 Owl 內建綁定失效）
+                $wrap.find('.owl-prev').on('click.roomintro', function (e) {
+                    e.preventDefault();
+                    $carousel.trigger('prev.owl.carousel');
+                });
+                $wrap.find('.owl-next').on('click.roomintro', function (e) {
+                    e.preventDefault();
+                    $carousel.trigger('next.owl.carousel');
+                });
+            });
             $('.package-includes .duration-trigger').on('click', function () {
                 var card = $(this).closest('.duration-card');
                 var isExpanded = card.hasClass('is-expanded');

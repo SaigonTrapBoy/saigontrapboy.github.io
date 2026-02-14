@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Work+Sans:wght@400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@700;900&family=Work+Sans:wght@400;600&display=swap"
         rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
@@ -1111,12 +1111,12 @@
             position: relative;
             overflow: hidden;
         }
-        /* 四大主張裝飾圖：img/icon 金色線稿風格，大小不一、排列隨興，僅在區塊左右外側 */
+        /* 四大主張裝飾：依解析度分佈圖 + 尺寸用 clamp 縮放，避免擠在一起 */
         .package-tour .four-claims .claims-deco {
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 16%;
+            width: clamp(60px, 16vw, 140px);
             max-width: 140px;
             pointer-events: none;
             z-index: 0;
@@ -1129,7 +1129,7 @@
             left: 0;
             right: 0;
             width: 100%;
-            height: 18%;
+            height: clamp(60px, 18vh, 120px);
             max-width: none;
         }
         .package-tour .four-claims .claims-deco-bg {
@@ -1142,13 +1142,10 @@
             z-index: -1;
         }
         .package-tour .four-claims .container { position: relative; z-index: 1; }
-        /* 金色線稿：用 icon 當 mask，背景金色 */
         .package-tour .four-claims .claims-deco-img {
             position: absolute;
             display: block;
-            width: 80px;
-            height: 80px;
-            max-width: 100%;
+            box-sizing: border-box;
             background-color: #d4af37;
             -webkit-mask-image: var(--icon);
             mask-image: var(--icon);
@@ -1159,81 +1156,112 @@
             -webkit-mask-position: center;
             mask-position: center;
         }
-        /* 背景層：僅在左/右欄「垂直空隙」（左欄主 icon 約 0-10%、18-24%、36-44%、54-60%、78-86%、98-100%，空隙 10-18、24-36、44-54、62-78、86-98） */
-        .claims-deco-bg .claims-deco-img:nth-child(1) { top: 14%; left: 3%; width: 26px; height: 26px; transform: rotate(12deg); opacity: 0.38; }
-        .claims-deco-bg .claims-deco-img:nth-child(2) { top: 28%; left: 4%; width: 24px; height: 24px; transform: rotate(-8deg) scaleX(-1); opacity: 0.52; }
-        .claims-deco-bg .claims-deco-img:nth-child(3) { top: 50%; left: 3%; width: 26px; height: 26px; transform: rotate(5deg); opacity: 0.42; }
-        .claims-deco-bg .claims-deco-img:nth-child(4) { top: 14%; right: 3%; left: auto; width: 26px; height: 26px; transform: rotate(-10deg); opacity: 0.48; }
-        .claims-deco-bg .claims-deco-img:nth-child(5) { top: 28%; right: 4%; left: auto; width: 24px; height: 24px; transform: rotate(6deg) scaleX(-1); opacity: 0.45; }
-        .claims-deco-bg .claims-deco-img:nth-child(6) { top: 50%; right: 3%; left: auto; width: 22px; height: 22px; transform: rotate(-4deg); opacity: 0.35; }
-        /* 左側：垂直嚴格分段，每格約 15-16%，避免旋轉後重疊 */
-        .claims-deco-left .claims-deco-img:nth-child(1) { top: 0; left: 0; width: 58px; height: 58px; transform: rotate(-10deg); opacity: 0.9; }
-        .claims-deco-left .claims-deco-img:nth-child(2) { top: 18%; left: 6%; width: 40px; height: 40px; transform: rotate(7deg); opacity: 0.62; }
-        .claims-deco-left .claims-deco-img:nth-child(3) { top: 36%; left: 0; width: 66px; height: 66px; transform: rotate(-3deg); opacity: 0.85; }
-        .claims-deco-left .claims-deco-img:nth-child(4) { top: 56%; left: 6%; width: 36px; height: 36px; transform: rotate(9deg) scaleX(-1); opacity: 0.55; }
-        .claims-deco-left .claims-deco-img:nth-child(5) { bottom: 20%; left: 0; width: 52px; height: 52px; transform: rotate(-6deg) scaleX(-1); opacity: 0.78; }
-        .claims-deco-left .claims-deco-img:nth-child(6) { bottom: 2%; left: 6%; width: 44px; height: 44px; transform: rotate(4deg); opacity: 0.68; }
-        /* 右側：垂直嚴格分段 */
-        .claims-deco-right .claims-deco-img:nth-child(1) { top: 0; right: 0; left: auto; width: 48px; height: 48px; transform: rotate(8deg) scaleX(-1); opacity: 0.72; }
-        .claims-deco-right .claims-deco-img:nth-child(2) { top: 20%; right: 6%; left: auto; width: 60px; height: 60px; transform: rotate(-5deg) scaleX(-1); opacity: 0.88; }
-        .claims-deco-right .claims-deco-img:nth-child(3) { top: 38%; right: 0; left: auto; width: 40px; height: 40px; transform: rotate(11deg); opacity: 0.58; }
-        .claims-deco-right .claims-deco-img:nth-child(4) { top: 58%; right: 6%; left: auto; width: 54px; height: 54px; transform: rotate(-7deg); opacity: 0.82; }
-        .claims-deco-right .claims-deco-img:nth-child(5) { bottom: 20%; right: 0; left: auto; width: 38px; height: 38px; transform: rotate(3deg); opacity: 0.5; }
-        .claims-deco-right .claims-deco-img:nth-child(6) { bottom: 2%; right: 6%; left: auto; width: 64px; height: 64px; transform: rotate(-4deg); opacity: 0.75; }
-        /* 下排：只放「中間區」(left 20%-80%)，避免與左右欄最底部 icon 重疊；同一水平線、橫向間距拉開 */
-        .claims-deco-bottom .claims-deco-img:nth-child(1) { bottom: 8%; left: 20%; width: 38px; height: 38px; transform: rotate(-8deg) scaleX(-1); opacity: 0.6; }
-        .claims-deco-bottom .claims-deco-img:nth-child(2) { bottom: 8%; left: 38%; width: 48px; height: 48px; transform: rotate(5deg); opacity: 0.85; }
-        .claims-deco-bottom .claims-deco-img:nth-child(3) { bottom: 8%; left: 56%; width: 32px; height: 32px; transform: rotate(-2deg); opacity: 0.48; }
-        .claims-deco-bottom .claims-deco-img:nth-child(4) { bottom: 8%; left: 72%; width: 42px; height: 42px; transform: rotate(7deg); opacity: 0.7; }
-        .claims-deco-bottom .claims-deco-img:nth-child(5) { bottom: 8%; right: 20%; left: auto; width: 52px; height: 52px; transform: rotate(-5deg) scaleX(-1); opacity: 0.92; }
+        /* 桌面：尺寸 clamp(min, vw, max) 隨視窗縮放，位置 % 分散 */
+        .claims-deco-bg .claims-deco-img:nth-child(1) { top: 14%; left: 3%; width: clamp(14px, 1.6vw, 26px); height: clamp(14px, 1.6vw, 26px); transform: rotate(12deg); opacity: 0.38; }
+        .claims-deco-bg .claims-deco-img:nth-child(2) { top: 28%; left: 4%; width: clamp(12px, 1.4vw, 24px); height: clamp(12px, 1.4vw, 24px); transform: rotate(-8deg) scaleX(-1); opacity: 0.52; }
+        .claims-deco-bg .claims-deco-img:nth-child(3) { top: 50%; left: 3%; width: clamp(14px, 1.6vw, 26px); height: clamp(14px, 1.6vw, 26px); transform: rotate(5deg); opacity: 0.42; }
+        .claims-deco-bg .claims-deco-img:nth-child(4) { top: 14%; right: 3%; left: auto; width: clamp(14px, 1.6vw, 26px); height: clamp(14px, 1.6vw, 26px); transform: rotate(-10deg); opacity: 0.48; }
+        .claims-deco-bg .claims-deco-img:nth-child(5) { top: 28%; right: 4%; left: auto; width: clamp(12px, 1.4vw, 24px); height: clamp(12px, 1.4vw, 24px); transform: rotate(6deg) scaleX(-1); opacity: 0.45; }
+        .claims-deco-bg .claims-deco-img:nth-child(6) { top: 50%; right: 3%; left: auto; width: clamp(12px, 1.3vw, 22px); height: clamp(12px, 1.3vw, 22px); transform: rotate(-4deg); opacity: 0.35; }
+        .claims-deco-left .claims-deco-img:nth-child(1) { top: 0; left: 0; width: clamp(32px, 4.2vw, 58px); height: clamp(32px, 4.2vw, 58px); transform: rotate(-10deg); opacity: 0.9; }
+        .claims-deco-left .claims-deco-img:nth-child(2) { top: 18%; left: 6%; width: clamp(22px, 2.8vw, 40px); height: clamp(22px, 2.8vw, 40px); transform: rotate(7deg); opacity: 0.62; }
+        .claims-deco-left .claims-deco-img:nth-child(3) { top: 36%; left: 0; width: clamp(36px, 4.8vw, 66px); height: clamp(36px, 4.8vw, 66px); transform: rotate(-3deg); opacity: 0.85; }
+        .claims-deco-left .claims-deco-img:nth-child(4) { top: 56%; left: 6%; width: clamp(20px, 2.4vw, 36px); height: clamp(20px, 2.4vw, 36px); transform: rotate(9deg) scaleX(-1); opacity: 0.55; }
+        .claims-deco-left .claims-deco-img:nth-child(5) { bottom: 20%; left: 0; width: clamp(28px, 3.6vw, 52px); height: clamp(28px, 3.6vw, 52px); transform: rotate(-6deg) scaleX(-1); opacity: 0.78; }
+        .claims-deco-left .claims-deco-img:nth-child(6) { bottom: 2%; left: 6%; width: clamp(24px, 3.2vw, 44px); height: clamp(24px, 3.2vw, 44px); transform: rotate(4deg); opacity: 0.68; }
+        .claims-deco-right .claims-deco-img:nth-child(1) { top: 0; right: 0; left: auto; width: clamp(26px, 3.4vw, 48px); height: clamp(26px, 3.4vw, 48px); transform: rotate(8deg) scaleX(-1); opacity: 0.72; }
+        .claims-deco-right .claims-deco-img:nth-child(2) { top: 20%; right: 6%; left: auto; width: clamp(32px, 4.2vw, 60px); height: clamp(32px, 4.2vw, 60px); transform: rotate(-5deg) scaleX(-1); opacity: 0.88; }
+        .claims-deco-right .claims-deco-img:nth-child(3) { top: 38%; right: 0; left: auto; width: clamp(22px, 2.8vw, 40px); height: clamp(22px, 2.8vw, 40px); transform: rotate(11deg); opacity: 0.58; }
+        .claims-deco-right .claims-deco-img:nth-child(4) { top: 58%; right: 6%; left: auto; width: clamp(30px, 3.8vw, 54px); height: clamp(30px, 3.8vw, 54px); transform: rotate(-7deg); opacity: 0.82; }
+        .claims-deco-right .claims-deco-img:nth-child(5) { bottom: 20%; right: 0; left: auto; width: clamp(22px, 2.6vw, 38px); height: clamp(22px, 2.6vw, 38px); transform: rotate(3deg); opacity: 0.5; }
+        .claims-deco-right .claims-deco-img:nth-child(6) { bottom: 2%; right: 6%; left: auto; width: clamp(36px, 4.4vw, 64px); height: clamp(36px, 4.4vw, 64px); transform: rotate(-4deg); opacity: 0.75; }
+        .claims-deco-bottom .claims-deco-img:nth-child(1) { bottom: 8%; left: 20%; width: clamp(22px, 2.8vw, 38px); height: clamp(22px, 2.8vw, 38px); transform: rotate(-8deg) scaleX(-1); opacity: 0.6; }
+        .claims-deco-bottom .claims-deco-img:nth-child(2) { bottom: 8%; left: 38%; width: clamp(28px, 3.6vw, 48px); height: clamp(28px, 3.6vw, 48px); transform: rotate(5deg); opacity: 0.85; }
+        .claims-deco-bottom .claims-deco-img:nth-child(3) { bottom: 8%; left: 56%; width: clamp(18px, 2.4vw, 32px); height: clamp(18px, 2.4vw, 32px); transform: rotate(-2deg); opacity: 0.48; }
+        .claims-deco-bottom .claims-deco-img:nth-child(4) { bottom: 8%; left: 72%; width: clamp(24px, 3vw, 42px); height: clamp(24px, 3vw, 42px); transform: rotate(7deg); opacity: 0.7; }
+        .claims-deco-bottom .claims-deco-img:nth-child(5) { bottom: 8%; right: 20%; left: auto; width: clamp(28px, 3.6vw, 52px); height: clamp(28px, 3.6vw, 52px); transform: rotate(-5deg) scaleX(-1); opacity: 0.92; }
+        /* 平板 992px 以下：專用分佈圖 — 欄寬縮小、左右各 3 顆、垂直拉開，下排 3 顆 */
         @media (max-width: 991px) {
-            .package-tour .four-claims .claims-deco { width: 14%; max-width: 88px; }
+            .package-tour .four-claims .claims-deco-bg { display: none; }
+            .package-tour .four-claims .claims-deco { width: clamp(48px, 12vw, 72px); max-width: 72px; }
             .package-tour .four-claims .claims-deco-img { opacity: 0.82; }
-            .claims-deco-bg .claims-deco-img:nth-child(1) { width: 24px; height: 24px; }
-            .claims-deco-bg .claims-deco-img:nth-child(2) { width: 22px; height: 22px; }
-            .claims-deco-bg .claims-deco-img:nth-child(3) { width: 28px; height: 28px; }
-            .claims-deco-bg .claims-deco-img:nth-child(4) { width: 24px; height: 24px; }
-            .claims-deco-bg .claims-deco-img:nth-child(5) { width: 26px; height: 26px; }
-            .claims-deco-bg .claims-deco-img:nth-child(6) { width: 20px; height: 20px; }
-            .claims-deco-left .claims-deco-img:nth-child(1) { width: 48px; height: 48px; }
-            .claims-deco-left .claims-deco-img:nth-child(2) { width: 36px; height: 36px; }
-            .claims-deco-left .claims-deco-img:nth-child(3) { width: 54px; height: 54px; }
-            .claims-deco-left .claims-deco-img:nth-child(4) { width: 30px; height: 30px; }
-            .claims-deco-left .claims-deco-img:nth-child(5) { width: 44px; height: 44px; }
-            .claims-deco-left .claims-deco-img:nth-child(6) { width: 38px; height: 38px; }
-            .claims-deco-right .claims-deco-img:nth-child(1) { width: 40px; height: 40px; }
-            .claims-deco-right .claims-deco-img:nth-child(2) { width: 52px; height: 52px; }
-            .claims-deco-right .claims-deco-img:nth-child(3) { width: 34px; height: 34px; }
-            .claims-deco-right .claims-deco-img:nth-child(4) { width: 46px; height: 46px; }
-            .claims-deco-right .claims-deco-img:nth-child(5) { width: 32px; height: 32px; }
-            .claims-deco-right .claims-deco-img:nth-child(6) { width: 54px; height: 54px; }
-            .claims-deco-bottom .claims-deco-img:nth-child(1) { width: 34px; height: 34px; }
-            .claims-deco-bottom .claims-deco-img:nth-child(2) { width: 42px; height: 42px; }
-            .claims-deco-bottom .claims-deco-img:nth-child(3) { width: 28px; height: 28px; }
-            .claims-deco-bottom .claims-deco-img:nth-child(4) { width: 36px; height: 36px; }
-            .claims-deco-bottom .claims-deco-img:nth-child(5) { width: 46px; height: 46px; }
+            .claims-deco-left .claims-deco-img:nth-child(2),
+            .claims-deco-left .claims-deco-img:nth-child(4),
+            .claims-deco-left .claims-deco-img:nth-child(6) { display: none; }
+            .claims-deco-left .claims-deco-img:nth-child(1) { top: 4%; left: 0; width: clamp(28px, 7vw, 44px); height: clamp(28px, 7vw, 44px); }
+            .claims-deco-left .claims-deco-img:nth-child(3) { top: 44%; left: 0; width: clamp(32px, 8vw, 48px); height: clamp(32px, 8vw, 48px); transform: rotate(-3deg); }
+            .claims-deco-left .claims-deco-img:nth-child(5) { bottom: 4%; left: 0; width: clamp(26px, 6.5vw, 40px); height: clamp(26px, 6.5vw, 40px); transform: rotate(-6deg) scaleX(-1); }
+            .claims-deco-right .claims-deco-img:nth-child(1),
+            .claims-deco-right .claims-deco-img:nth-child(3),
+            .claims-deco-right .claims-deco-img:nth-child(5) { display: none; }
+            .claims-deco-right .claims-deco-img:nth-child(2) { top: 10%; right: 0; left: auto; width: clamp(32px, 8vw, 48px); height: clamp(32px, 8vw, 48px); transform: rotate(-5deg) scaleX(-1); }
+            .claims-deco-right .claims-deco-img:nth-child(4) { top: 50%; right: 0; left: auto; width: clamp(28px, 7vw, 42px); height: clamp(28px, 7vw, 42px); transform: rotate(-7deg); }
+            .claims-deco-right .claims-deco-img:nth-child(6) { bottom: 4%; right: 0; left: auto; width: clamp(32px, 8vw, 48px); height: clamp(32px, 8vw, 48px); transform: rotate(-4deg); }
+            .claims-deco-bottom .claims-deco-img:nth-child(2),
+            .claims-deco-bottom .claims-deco-img:nth-child(4) { display: none; }
+            .claims-deco-bottom .claims-deco-img:nth-child(1) { bottom: 12%; left: 14%; width: clamp(24px, 5vw, 36px); height: clamp(24px, 5vw, 36px); transform: rotate(-8deg) scaleX(-1); }
+            .claims-deco-bottom .claims-deco-img:nth-child(3) { bottom: 12%; left: 50%; width: clamp(22px, 4.5vw, 32px); height: clamp(22px, 4.5vw, 32px); transform: translateX(-50%) rotate(-2deg); }
+            .claims-deco-bottom .claims-deco-img:nth-child(5) { bottom: 12%; right: 14%; left: auto; width: clamp(24px, 5vw, 36px); height: clamp(24px, 5vw, 36px); transform: rotate(-5deg) scaleX(-1); }
         }
-        @media (max-width: 575px) {
-            .package-tour .four-claims .claims-deco { max-width: 64px; }
-            .package-tour .four-claims .claims-deco-bottom { height: 22%; }
-            .claims-deco-bg .claims-deco-img:nth-child(n) { width: 18px; height: 18px; opacity: 0.4; }
-            .claims-deco-left .claims-deco-img:nth-child(1) { width: 38px; height: 38px; }
-            .claims-deco-left .claims-deco-img:nth-child(2) { width: 28px; height: 28px; }
-            .claims-deco-left .claims-deco-img:nth-child(3) { width: 44px; height: 44px; }
-            .claims-deco-left .claims-deco-img:nth-child(4) { width: 24px; height: 24px; }
-            .claims-deco-left .claims-deco-img:nth-child(5) { width: 34px; height: 34px; }
-            .claims-deco-left .claims-deco-img:nth-child(6) { width: 30px; height: 30px; }
-            .claims-deco-right .claims-deco-img:nth-child(1) { width: 32px; height: 32px; }
-            .claims-deco-right .claims-deco-img:nth-child(2) { width: 42px; height: 42px; }
-            .claims-deco-right .claims-deco-img:nth-child(3) { width: 28px; height: 28px; }
-            .claims-deco-right .claims-deco-img:nth-child(4) { width: 36px; height: 36px; }
-            .claims-deco-right .claims-deco-img:nth-child(5) { width: 26px; height: 26px; }
-            .claims-deco-right .claims-deco-img:nth-child(6) { width: 44px; height: 44px; }
-            .claims-deco-bottom .claims-deco-img:nth-child(1) { width: 28px; height: 28px; }
-            .claims-deco-bottom .claims-deco-img:nth-child(2) { width: 34px; height: 34px; }
-            .claims-deco-bottom .claims-deco-img:nth-child(3) { width: 24px; height: 24px; }
-            .claims-deco-bottom .claims-deco-img:nth-child(4) { width: 30px; height: 30px; }
-            .claims-deco-bottom .claims-deco-img:nth-child(5) { width: 38px; height: 38px; }
+        /* 手機：固定 px 分佈圖，唯一規則＝絕不重疊。左/右欄底部 icon 高於下排，下排只在「安全區」內排開 */
+        /* 斷點一：768px 以下 */
+        @media (max-width: 767px) {
+            .package-tour .four-claims .claims-deco-left,
+            .package-tour .four-claims .claims-deco-right { display: block; width: 70px; max-width: none; }
+            .package-tour .four-claims .claims-deco-left { left: 0; }
+            .package-tour .four-claims .claims-deco-right { right: 0; left: auto; }
+            .package-tour .four-claims .claims-deco-bottom { height: 88px; }
+            .claims-deco-left .claims-deco-img:nth-child(2),
+            .claims-deco-left .claims-deco-img:nth-child(3),
+            .claims-deco-left .claims-deco-img:nth-child(4),
+            .claims-deco-left .claims-deco-img:nth-child(6) { display: none; }
+            .claims-deco-left .claims-deco-img:nth-child(1) { top: 64px; left: 0; width: 44px; height: 44px; transform: rotate(-10deg); opacity: 0.75; }
+            .claims-deco-left .claims-deco-img:nth-child(5) { bottom: 102px; left: 0; width: 42px; height: 42px; transform: rotate(-6deg) scaleX(-1); opacity: 0.7; }
+            .claims-deco-right .claims-deco-img:nth-child(1),
+            .claims-deco-right .claims-deco-img:nth-child(3),
+            .claims-deco-right .claims-deco-img:nth-child(5),
+            .claims-deco-right .claims-deco-img:nth-child(6) { display: none; }
+            .claims-deco-right .claims-deco-img:nth-child(2) { top: 80px; right: 0; left: auto; width: 44px; height: 44px; transform: rotate(-5deg) scaleX(-1); opacity: 0.75; }
+            .claims-deco-right .claims-deco-img:nth-child(4) { bottom: 102px; right: 0; left: auto; width: 42px; height: 42px; transform: rotate(-7deg); opacity: 0.7; }
+            .claims-deco-bottom .claims-deco-img:nth-child(2),
+            .claims-deco-bottom .claims-deco-img:nth-child(4) { display: block; }
+            /* 下排：僅在安全區 [70, 寬-70] 內，固定間距不重疊 */
+            .claims-deco-bottom .claims-deco-img:nth-child(1) { bottom: 14px; left: 72px; width: 36px; height: 36px; transform: rotate(-8deg) scaleX(-1); }
+            .claims-deco-bottom .claims-deco-img:nth-child(2) { bottom: 14px; left: 126px; width: 34px; height: 34px; transform: rotate(5deg); }
+            .claims-deco-bottom .claims-deco-img:nth-child(3) { bottom: 14px; left: 50%; width: 38px; height: 38px; transform: translateX(-50%) rotate(-2deg); }
+            .claims-deco-bottom .claims-deco-img:nth-child(4) { bottom: 14px; left: 246px; width: 34px; height: 34px; transform: rotate(7deg); }
+            .claims-deco-bottom .claims-deco-img:nth-child(5) { bottom: 14px; right: 72px; left: auto; width: 36px; height: 36px; transform: rotate(-5deg) scaleX(-1); }
+        }
+        /* 斷點二：430px 以下 — iPhone 12 Pro 390×844。左/右欄底 icon 高於 strip，下排只在安全區 [56, 寬-56] */
+        @media (max-width: 430px) {
+            .package-tour .four-claims .claims-deco-left,
+            .package-tour .four-claims .claims-deco-right { width: 56px; }
+            .package-tour .four-claims .claims-deco-bottom { height: 72px; }
+            .claims-deco-left .claims-deco-img:nth-child(1) { top: 52px; width: 40px; height: 40px; }
+            .claims-deco-left .claims-deco-img:nth-child(5) { bottom: 96px; width: 38px; height: 38px; }
+            .claims-deco-right .claims-deco-img:nth-child(2) { top: 68px; width: 40px; height: 40px; }
+            .claims-deco-right .claims-deco-img:nth-child(4) { bottom: 96px; width: 38px; height: 38px; }
+            /* 下排 5 顆：安全區 56～334（390-56），固定 px 間距 ≥24px */
+            .claims-deco-bottom .claims-deco-img:nth-child(1) { bottom: 12px; left: 60px; width: 32px; height: 32px; transform: rotate(-8deg) scaleX(-1); }
+            .claims-deco-bottom .claims-deco-img:nth-child(2) { bottom: 12px; left: 116px; width: 30px; height: 30px; transform: rotate(5deg); }
+            .claims-deco-bottom .claims-deco-img:nth-child(3) { bottom: 12px; left: 50%; width: 34px; height: 34px; transform: translateX(-50%) rotate(-2deg); }
+            .claims-deco-bottom .claims-deco-img:nth-child(4) { bottom: 12px; left: 244px; width: 30px; height: 30px; transform: rotate(7deg); }
+            .claims-deco-bottom .claims-deco-img:nth-child(5) { bottom: 12px; right: 60px; left: auto; width: 32px; height: 32px; transform: rotate(-5deg) scaleX(-1); }
+        }
+        /* 斷點三：390px 以下 — 小機。安全區 [48, 寬-48] */
+        @media (max-width: 390px) {
+            .package-tour .four-claims .claims-deco-left,
+            .package-tour .four-claims .claims-deco-right { width: 48px; }
+            .package-tour .four-claims .claims-deco-bottom { height: 64px; }
+            .claims-deco-left .claims-deco-img:nth-child(1) { top: 44px; width: 36px; height: 36px; }
+            .claims-deco-left .claims-deco-img:nth-child(5) { bottom: 88px; width: 34px; height: 34px; }
+            .claims-deco-right .claims-deco-img:nth-child(2) { top: 56px; width: 36px; height: 36px; }
+            .claims-deco-right .claims-deco-img:nth-child(4) { bottom: 88px; width: 34px; height: 34px; }
+            .claims-deco-bottom .claims-deco-img:nth-child(1) { bottom: 10px; left: 52px; width: 28px; height: 28px; transform: rotate(-8deg) scaleX(-1); }
+            .claims-deco-bottom .claims-deco-img:nth-child(2) { bottom: 10px; left: 106px; width: 26px; height: 26px; transform: rotate(5deg); }
+            .claims-deco-bottom .claims-deco-img:nth-child(3) { bottom: 10px; left: 50%; width: 30px; height: 30px; transform: translateX(-50%) rotate(-2deg); }
+            .claims-deco-bottom .claims-deco-img:nth-child(4) { bottom: 10px; left: 222px; width: 26px; height: 26px; transform: rotate(7deg); }
+            .claims-deco-bottom .claims-deco-img:nth-child(5) { bottom: 10px; right: 52px; left: auto; width: 28px; height: 28px; transform: rotate(-5deg) scaleX(-1); }
         }
         .package-tour .four-claims::before {
             content: "";
@@ -1593,9 +1621,308 @@
             border-color: rgba(255, 255, 255, 0.25) !important;
         }
         .sticky-contact-close i { display: block !important; }
-        /* 確保 back-to-top 按鈕不會被遮擋 */
+        /* 確保 back-to-top 按鈕不會被遮擋：桌面在 sticky 下層，小解析度浮在 sticky 上方，依直式解析度留足間距 */
         .back-to-top {
             z-index: 9989 !important;
+        }
+        /* 小螢幕：用 max(固定px, vh) 適應不同直式高度，避免被 sticky bar 遮住 */
+        @media (max-width: 991px) {
+            .back-to-top {
+                bottom: max(155px, 18vh) !important;
+                z-index: 9991 !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: max(170px, 19vh) !important;
+                z-index: 9991 !important;
+            }
+        }
+        @media (max-width: 576px) {
+            .back-to-top {
+                bottom: max(185px, 20vh) !important;
+                z-index: 9991 !important;
+            }
+        }
+        /* 390×844、430×932 等：sticky 可能較高，再加大間距 */
+        @media (max-width: 480px) {
+            .back-to-top {
+                bottom: max(195px, 22vh) !important;
+                z-index: 9991 !important;
+            }
+        }
+        @media (max-width: 380px) {
+            .back-to-top {
+                bottom: max(200px, 24vh) !important;
+            }
+        }
+        /* 預定流程：呼吸燈條（橫式由左至右、直式由上至下）＋從容留白 */
+        @keyframes booking-flow-breathe-h {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(400%); }
+        }
+        @keyframes booking-flow-breathe-v {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(400%); }
+        }
+        .booking-flow-section {
+            background: #0a0a0f;
+            color: rgba(255,255,255,0.92);
+            padding: 2rem 0 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .booking-flow-section .booking-flow-title {
+            text-align: center;
+            padding: 1.5rem 1rem 2rem;
+            margin-bottom: 0;
+            position: relative;
+        }
+        .booking-flow-section .booking-flow-title .tag {
+            font-size: 0.9rem;
+            letter-spacing: 0.3em;
+            color: rgba(212,175,55,0.95);
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+        .booking-flow-section .booking-flow-title h2 {
+            font-size: 2.35rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.04em;
+        }
+        .booking-flow-section .booking-flow-title h2::after {
+            display: block;
+            width: 64px;
+            height: 3px;
+            margin: 0.75rem auto 0;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            content: "";
+        }
+        .booking-flow-band-wrap {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto 2.5rem;
+        }
+        /* 帶狀：橫式呼吸光由左至右、底層漸層＋流動光 */
+        .booking-flow-band {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 3.5rem;
+            height: 5px;
+            border-radius: 3px;
+            overflow: hidden;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(212,175,55,0.1) 15%,
+                rgba(212,175,55,0.28) 40%,
+                rgba(212,175,55,0.28) 60%,
+                rgba(212,175,55,0.1) 85%,
+                transparent 100%);
+        }
+        .booking-flow-band::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(212,175,55,0.25) 30%,
+                rgba(212,175,55,0.55) 50%,
+                rgba(212,175,55,0.25) 70%,
+                transparent 100%);
+            border-radius: 3px;
+            animation: booking-flow-breathe-h 4.5s ease-in-out infinite;
+        }
+        .booking-flow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 0 1rem 2rem;
+        }
+        .booking-flow-step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 0.5rem;
+            background: transparent;
+            border: none;
+        }
+        /* 數字：無方框，以數字為準置中，下方文案對齊數字 */
+        .booking-flow-step-num {
+            margin: 0 auto 1.85rem;
+            color: #d4af37;
+            font-family: "Noto Serif TC", "Noto Serif SC", "Source Han Serif TC", "Songti TC", "STSong", "SimSun", serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-shadow: 0 0 24px rgba(212,175,55,0.5),
+                         0 0 48px rgba(212,175,55,0.2);
+        }
+        /* 以數字為置中基準：整塊右移約半個頓號寬，數字就會在欄位中央 */
+        .booking-flow-step-num .num-inner {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: center;
+            line-height: 1;
+            gap: 0;
+            margin-left: 1.15em;
+        }
+        .booking-flow-step-num .num-n {
+            display: block;
+        }
+        /* 頓號：再靠左、靠上一點點，與數字底對齊、墨感 */
+        .booking-flow-step-num .num-dot {
+            display: block;
+            font-family: "Ma Shan Zheng", "ZCOOL XiaoWei", "Noto Serif TC", serif;
+            font-size: 2.45em;
+            font-weight: 400;
+            line-height: 0;
+            margin-left: -0.03em;
+            padding-bottom: 0;
+            vertical-align: bottom;
+            position: relative;
+            top: 0.06em;
+            opacity: 0.98;
+            /* 墨感：筆觸暈開＋圓點底部墨滴 */
+            text-shadow: 0 0 8px rgba(212,175,55,0.6),
+                         0 0 18px rgba(180,140,40,0.35),
+                         0 2px 6px rgba(0,0,0,0.45),
+                         0 3px 10px rgba(0,0,0,0.25),
+                         1px 2px 2px rgba(0,0,0,0.4);
+        }
+        .booking-flow-step:hover .booking-flow-step-num {
+            text-shadow: 0 0 28px rgba(212,175,55,0.65),
+                         0 0 56px rgba(212,175,55,0.3);
+        }
+        .booking-flow-step-content {
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .booking-flow-step-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.03em;
+        }
+        .booking-flow-step-desc {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.78);
+            margin: 0;
+        }
+        .booking-flow-step a.booking-flow-cta {
+            display: inline-block;
+            margin-top: 0.85rem;
+            padding: 0.5rem 1.25rem;
+            font-size: 1rem;
+            color: #d4af37;
+            border: 1px solid rgba(212,175,55,0.6);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .booking-flow-step a.booking-flow-cta:hover {
+            background: rgba(212,175,55,0.25);
+            color: #fff;
+            box-shadow: 0 0 16px rgba(212,175,55,0.2);
+        }
+        /* 手機：直式、元素間距拉開、區塊不放大 */
+        @media (max-width: 767px) {
+            .booking-flow-section { padding: 2rem 0 2.5rem; }
+            .booking-flow-section .booking-flow-title { padding: 1rem 1rem 1.5rem; }
+            .booking-flow-section .booking-flow-title h2 { font-size: 1.85rem; }
+            .booking-flow-band-wrap {
+                max-width: 100%;
+                padding-left: 0;
+                min-height: 1px;
+                margin-bottom: 2rem;
+            }
+            .booking-flow-band {
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: auto;
+                width: 5px;
+                height: 100%;
+                min-height: 0;
+                margin-left: 1rem;
+                background: linear-gradient(180deg,
+                    transparent 0%,
+                    rgba(212,175,55,0.1) 15%,
+                    rgba(212,175,55,0.28) 40%,
+                    rgba(212,175,55,0.28) 60%,
+                    rgba(212,175,55,0.1) 85%,
+                    transparent 100%);
+            }
+            .booking-flow-band::after {
+                width: 100%;
+                height: 28%;
+                left: 0;
+                top: 0;
+                background: linear-gradient(180deg,
+                    transparent 0%,
+                    rgba(212,175,55,0.25) 30%,
+                    rgba(212,175,55,0.55) 50%,
+                    rgba(212,175,55,0.25) 70%,
+                    transparent 100%);
+                animation: booking-flow-breathe-v 4.5s ease-in-out infinite;
+            }
+            .booking-flow-steps {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                max-width: 100%;
+                padding: 0 1rem 2rem 0.5rem;
+                padding-left: 4.25rem;
+            }
+            .booking-flow-step {
+                display: grid;
+                grid-template-columns: 4.5rem 1fr;
+                grid-template-rows: auto auto;
+                align-items: start;
+                text-align: left;
+                gap: 0 1.25rem;
+                padding: 2rem 0;
+                min-height: 0;
+            }
+            .booking-flow-step:last-child { padding-bottom: 0; }
+            .booking-flow-step-num {
+                grid-column: 1;
+                grid-row: 1 / -1;
+                margin: 0;
+                padding: 0.5rem 0.65rem;
+                font-size: 2rem;
+            }
+            .booking-flow-step-num .num-dot {
+                font-size: 2.45em;
+            }
+            .booking-flow-step-content {
+                grid-column: 2;
+                grid-row: 1 / -1;
+                min-width: 0;
+            }
+            .booking-flow-step-title { font-size: 1.15rem; margin-bottom: 0.45rem; }
+            .booking-flow-step-desc { font-size: 0.95rem; line-height: 1.8; }
         }
         .navbar-logo-symbol { flex-shrink: 0; display: block; }
         .navbar-logo-text { object-fit: contain; vertical-align: middle; }
@@ -1943,7 +2270,7 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center">
-                <div class="title wow fadeInUp" data-wow-delay="0.1s">
+                <div class="title wow fadeInUp" data-wow-delay="0.05s" data-wow-duration="0.4s">
                     <div class="title-center">
                         <h5>服務項目</h5>
                         <h1>香郎津桃包套服務</h1>
@@ -1953,12 +2280,12 @@
             <div class="service-item service-item-left">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5">
-                        <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.08s" data-wow-duration="0.4s">
                             <img class="img-fluid rounded-circle" src="img/service-1.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.5s">
+                        <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.4s">
                             <h3 class="text-uppercase">簽證服務</h3>
                             <p class="mb-4">快速通關及越南簽證服務，讓您輕鬆入境越南，無需繁瑣手續。專業團隊協助辦理，確保簽證快速核發，節省您的寶貴時間，讓旅程從一開始就順暢無阻。</p>
                             <a class="btn btn-outline-primary border-2 px-4" href="contact.html">了解更多 <i
@@ -1970,12 +2297,12 @@
             <div class="service-item service-item-right">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5 order-md-1 text-md-end">
-                        <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.08s" data-wow-duration="0.4s">
                             <img class="img-fluid rounded-circle" src="img/service-2.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.5s">
+                        <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.2s" data-wow-duration="0.4s">
                             <h3 class="text-uppercase">專屬包車</h3>
                             <p class="mb-4">頂級包車服務，讓您享受最舒適的旅遊體驗。專業司機、豪華座駕，無論是機場接送、市區觀光還是長途旅行，都能為您提供最貼心的服務。24小時待命，隨時為您的行程提供最便捷的交通解決方案，讓您專注享受旅程，無需擔心交通問題。</p>
                             <a class="btn btn-outline-primary border-2 px-4" href="contact.html">了解更多 <i
@@ -1987,12 +2314,12 @@
             <div class="service-item service-item-left">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5">
-                        <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.08s" data-wow-duration="0.4s">
                             <img class="img-fluid rounded-circle" src="img/service-3.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.5s">
+                        <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.4s">
                             <h3 class="text-uppercase">頂級隱私住宿</h3>
                             <p class="mb-4">多種房型可供您選擇，而且絕對隱私，老司機懂的都懂。從豪華套房到特色主題房，每一間都經過精心設計，確保您的隱私與舒適。無論是商務洽談還是私人聚會，都能提供最安全、最隱密的環境，讓您安心享受每一刻。</p>
                             <a class="btn btn-outline-primary border-2 px-4" href="hotel.html">了解更多 <i
@@ -2004,12 +2331,12 @@
             <div class="service-item service-item-right">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5 order-md-1 text-md-end">
-                        <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.08s" data-wow-duration="0.4s">
                             <img class="img-fluid rounded-circle" src="img/service-4.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.5s">
+                        <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.2s" data-wow-duration="0.4s">
                             <h3 class="text-uppercase">暗黑行程</h3>
                             <p class="mb-4">特色 KTV、龍宮 VILLA、奧黛聖地、高速吸引口爆店、專屬伴遊、土嗨酒吧、潮流夜店、越式洗頭 / 按摩，多樣化選擇供您體驗。專業導遊帶您探索越南最精彩的夜生活，從傳統到現代，從低調到高調，滿足您各種需求，讓您的越南之旅充滿驚喜與刺激。</p>
                             <a class="btn btn-outline-primary border-2 px-4" href="ktv.html">了解更多 <i
@@ -2022,6 +2349,50 @@
     </div>
     <!-- Service End -->
 
+    <!-- 預定流程 Start -->
+    <section class="booking-flow-section">
+        <div class="container py-5">
+            <div class="booking-flow-title wow fadeInUp" data-wow-delay="0.1s">
+                <p class="tag">How it works</p>
+                <h2>預定流程</h2>
+            </div>
+            <div class="booking-flow-band-wrap">
+                <div class="booking-flow-band" aria-hidden="true"></div>
+                <div class="booking-flow-steps wow fadeInUp" data-wow-delay="0.2s">
+                <div class="booking-flow-step">
+                    <div class="booking-flow-step-num"><span class="num-inner"><span class="num-n">壹</span><span class="num-dot" aria-hidden="true">、</span></span></div>
+                    <div class="booking-flow-step-content">
+                        <p class="booking-flow-step-title">選定你的節奏</p>
+                        <p class="booking-flow-step-desc">先想好這三件事：打算玩幾天、幾個人一起出發、希望何時啟程。天數與人數會影響包套報價，出發日則關係到機票與檔期，想清楚後下一步就簡單了。</p>
+                    </div>
+                </div>
+                <div class="booking-flow-step">
+                    <div class="booking-flow-step-num"><span class="num-inner"><span class="num-n">貳</span><span class="num-dot" aria-hidden="true">、</span></span></div>
+                    <div class="booking-flow-step-content">
+                        <p class="booking-flow-step-title">說一聲就好</p>
+                        <p class="booking-flow-step-desc">透過 Line、WhatsApp 或聯絡頁面告訴我們你的想法，不需填長表單。專人會與你對接，確認需求並初步報價，有疑問也可以一次問清楚。</p>
+                        <a href="contact.html" class="booking-flow-cta">聯絡我們 · 啟程</a>
+                    </div>
+                </div>
+                <div class="booking-flow-step">
+                    <div class="booking-flow-step-num"><span class="num-inner"><span class="num-n">參</span><span class="num-dot" aria-hidden="true">、</span></span></div>
+                    <div class="booking-flow-step-content">
+                        <p class="booking-flow-step-title">進群，一起敲定</p>
+                        <p class="booking-flow-step-desc">確認成行意願後，我們會邀你加入私密群組。行程細節、住宿偏好、想去的點，都在群裡一起討論與微調，直到你滿意為止。</p>
+                    </div>
+                </div>
+                <div class="booking-flow-step">
+                    <div class="booking-flow-step-num"><span class="num-inner"><span class="num-n">肆</span><span class="num-dot" aria-hidden="true">、</span></span></div>
+                    <div class="booking-flow-step-content">
+                        <p class="booking-flow-step-title">訂金與機票</p>
+                        <p class="booking-flow-step-desc">付訂金保留名額，接著訂好機票，行前我們會再確認一次。剩下的，就是帶著期待出發——其餘交給我們。</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- 預定流程 End -->
 
     <!-- Banner Start -->
     <div class="container-fluid py-5 bg-secondary">
@@ -2266,7 +2637,7 @@
             <div class="service-item service-item-left">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5">
-                        <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.08s" data-wow-duration="0.4s">
                             <img class="img-fluid rounded-circle" src="img/service-1.jpg" alt="">
                         </div>
                     </div>
@@ -2283,7 +2654,7 @@
             <div class="service-item service-item-right">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5 order-md-1 text-md-end">
-                        <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.08s" data-wow-duration="0.4s">
                             <img class="img-fluid rounded-circle" src="img/service-2.jpg" alt="">
                         </div>
                     </div>
@@ -2300,7 +2671,7 @@
             <div class="service-item service-item-left">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5">
-                        <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.08s" data-wow-duration="0.4s">
                             <img class="img-fluid rounded-circle" src="img/service-3.jpg" alt="">
                         </div>
                     </div>
@@ -2317,7 +2688,7 @@
             <div class="service-item service-item-right">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5 order-md-1 text-md-end">
-                        <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.08s" data-wow-duration="0.4s">
                             <img class="img-fluid rounded-circle" src="img/service-4.jpg" alt="">
                         </div>
                     </div>
@@ -2527,7 +2898,6 @@
         </div>
     </div>
     <!-- Testimonial End -->
-
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn footer-block" data-wow-delay="0.1s">

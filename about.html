@@ -111,6 +111,151 @@
                 margin-left: 1rem;
             }
         }
+        /* 團隊成員介紹：全黑底、霓虹特效，可擴充 */
+        .team-members-section {
+            background: #0d0d0d;
+            color: rgba(255,255,255,0.9);
+        }
+        .team-members-section .title-center h1 {
+            color: #fff;
+            text-shadow: 0 0 20px rgba(228, 23, 121, 0.15);
+        }
+        .team-members-section .title-center h5 {
+            color: rgba(228, 23, 121, 0.95);
+            text-shadow: 0 0 12px rgba(228, 23, 121, 0.3);
+        }
+        .team-member-card {
+            background: linear-gradient(145deg, #16161a 0%, #12121a 100%);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            height: 100%;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.06);
+            position: relative;
+            overflow: visible;
+            transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .team-member-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #e41779, rgba(228, 23, 121, 0.5));
+            box-shadow: 0 0 12px rgba(228, 23, 121, 0);
+            transition: height 0.35s ease, box-shadow 0.35s ease;
+        }
+        .team-member-card:hover {
+            border-color: rgba(228, 23, 121, 0.35);
+            transform: translateY(-6px);
+            box-shadow:
+                0 20px 48px rgba(0,0,0,0.4),
+                0 0 20px rgba(228, 23, 121, 0.08),
+                0 0 40px rgba(228, 23, 121, 0.04);
+        }
+        .team-member-card:hover::before {
+            height: 100%;
+            box-shadow: 0 0 12px rgba(228, 23, 121, 0.6), 0 0 24px rgba(228, 23, 121, 0.25);
+        }
+        .team-member-photo-wrap {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1.25rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid rgba(228, 23, 121, 0.4);
+            box-shadow:
+                0 0 0 1px rgba(255,255,255,0.05),
+                0 0 16px rgba(228, 23, 121, 0.1),
+                0 8px 32px rgba(0,0,0,0.5);
+            transition: border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+        .team-member-card:hover .team-member-photo-wrap {
+            border-color: rgba(228, 23, 121, 0.75);
+            box-shadow:
+                0 0 12px rgba(228, 23, 121, 0.5),
+                0 0 24px rgba(228, 23, 121, 0.25),
+                0 0 36px rgba(228, 23, 121, 0.12),
+                0 8px 32px rgba(0,0,0,0.5);
+        }
+        .team-member-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .team-member-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #fff;
+            margin-bottom: 0.75rem;
+            transition: text-shadow 0.35s ease;
+        }
+        .team-member-card:hover .team-member-name {
+            text-shadow: 0 0 12px rgba(228, 23, 121, 0.4), 0 0 24px rgba(228, 23, 121, 0.15);
+        }
+        .team-member-bio {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+        }
+        /* 主打卡：橫式、大圓照 + 霓虹常駐微光 */
+        .team-member-card.team-member-featured {
+            text-align: left;
+            padding: 2rem 2.5rem;
+            border-color: rgba(228, 23, 121, 0.12);
+            box-shadow: 0 0 24px rgba(228, 23, 121, 0.06);
+        }
+        .team-member-featured::before {
+            height: 100%;
+            box-shadow: 0 0 10px rgba(228, 23, 121, 0.35), 0 0 20px rgba(228, 23, 121, 0.15);
+        }
+        .team-member-featured:hover::before {
+            box-shadow: 0 0 14px rgba(228, 23, 121, 0.6), 0 0 28px rgba(228, 23, 121, 0.3);
+        }
+        .team-member-featured .team-member-inner {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .team-member-featured .team-member-photo-wrap {
+            width: 200px;
+            height: 200px;
+            margin: 0;
+            flex-shrink: 0;
+            border-color: rgba(228, 23, 121, 0.5);
+            box-shadow:
+                0 0 20px rgba(228, 23, 121, 0.2),
+                0 0 40px rgba(228, 23, 121, 0.08),
+                0 8px 32px rgba(0,0,0,0.5);
+        }
+        .team-member-featured:hover .team-member-photo-wrap {
+            box-shadow:
+                0 0 16px rgba(228, 23, 121, 0.5),
+                0 0 32px rgba(228, 23, 121, 0.25),
+                0 0 48px rgba(228, 23, 121, 0.12),
+                0 8px 32px rgba(0,0,0,0.5);
+        }
+        .team-member-featured .team-member-content { flex: 1; min-width: 240px; }
+        .team-member-featured .team-member-name {
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(228, 23, 121, 0.12);
+        }
+        .team-member-featured:hover .team-member-name {
+            text-shadow: 0 0 16px rgba(228, 23, 121, 0.45), 0 0 32px rgba(228, 23, 121, 0.2);
+        }
+        .team-member-featured .team-member-bio {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+        }
+        @media (max-width: 767px) {
+            .team-member-featured .team-member-inner { flex-direction: column; text-align: center; }
+            .team-member-featured .team-member-photo-wrap { margin: 0 auto; }
+        }
     </style>
 </head>
 
@@ -247,6 +392,65 @@
         </div>
     </div>
     <!-- About End -->
+
+
+    <!-- 團隊成員介紹 Start：圓框照片 + 名字 + 個人簡介，可擴充 -->
+    <div id="team-members" class="container-fluid py-5 team-members-section">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <div class="title wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="title-center">
+                        <h5>Team</h5>
+                        <h1>團隊成員介紹</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- 主打卡：橫式、大圓照，其餘直式可擴充 -->
+                <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-member-card team-member-featured">
+                        <div class="team-member-inner">
+                            <div class="team-member-photo-wrap">
+                                <img src="img/about.png" alt="津桃哥">
+                            </div>
+                            <div class="team-member-content">
+                                <h5 class="team-member-name">津桃哥</h5>
+                                <p class="team-member-bio">專職越南旅遊與簽證快通，定居越南多年。負責行程規劃、在地支援與客戶對接。想來越南體驗暗黑或日光旅遊，歡迎各位老闆同好私訊。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-member-card">
+                        <div class="team-member-photo-wrap">
+                            <img src="img/about.png" alt="成員二">
+                        </div>
+                        <h5 class="team-member-name">成員二</h5>
+                        <p class="team-member-bio">負責簽證與入境相關事務，協助客戶快速通關。 placeholder 簡介文字，之後可替換。</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-member-card">
+                        <div class="team-member-photo-wrap">
+                            <img src="img/about.png" alt="成員三">
+                        </div>
+                        <h5 class="team-member-name">成員三</h5>
+                        <p class="team-member-bio">負責包車與住宿安排，確保行程順暢。 placeholder 簡介文字，之後可替換。</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="team-member-card">
+                        <div class="team-member-photo-wrap">
+                            <img src="img/about.png" alt="成員四">
+                        </div>
+                        <h5 class="team-member-name">成員四</h5>
+                        <p class="team-member-bio">負責在地接待與活動協調。 placeholder 簡介文字，之後可替換。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 團隊成員介紹 End -->
 
 
     <!-- Banner Start -->
