@@ -111,6 +111,15 @@
                 margin-left: 1rem;
             }
         }
+        /* 聯絡頁引言：亮一點＋呼吸燈更明顯 */
+        .contact-intro-lead {
+            color: rgba(255, 255, 255, 0.95) !important;
+            animation: contact-lead-breathe 3s ease-in-out infinite;
+        }
+        @keyframes contact-lead-breathe {
+            0%, 100% { opacity: 0.82; text-shadow: 0 0 16px rgba(255, 255, 255, 0.2); }
+            50% { opacity: 1; text-shadow: 0 0 32px rgba(255, 255, 255, 0.45), 0 0 48px rgba(255, 255, 255, 0.2); }
+        }
     </style>
 </head>
 
@@ -162,14 +171,6 @@
                             <a href="guide.html" class="dropdown-item">新手指南</a>
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="team.html" class="dropdown-item">Our Models</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
-                        </div>
-                    </div>
                     <a href="contact.html" class="nav-item nav-link active">Contact</a>
                     <a href="#" class="nav-item nav-link d-lg-none" data-bs-toggle="modal" data-bs-target="#searchModal">
                         <i class="fas fa-search me-1"></i>搜尋
@@ -186,12 +187,12 @@
 
         <div class="page-header pb-5">
             <div class="container text-center py-5">
-                <h1 class="display-4 text-uppercase mb-3 animated slideInDown">Contact</h1>
+                <h1 class="display-4 text-uppercase mb-3 animated slideInDown">聯絡我們</h1>
+                <p class="lead text-white-50 mb-0 animated slideInDown">一句話就夠。我們在聽。</p>
                 <nav aria-label="breadcrumb animated slideInDown">
-                    <ol class="breadcrumb justify-content-center text-uppercase mb-0">
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-primary active" aria-current="page">Contact</li>
+                    <ol class="breadcrumb justify-content-center text-uppercase mb-0 mt-3">
+                        <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
+                        <li class="breadcrumb-item text-primary active" aria-current="page">聯絡我們</li>
                     </ol>
                 </nav>
             </div>
@@ -207,71 +208,73 @@
                 <div class="col-lg-6">
                     <div class="title wow fadeInUp" data-wow-delay="0.1s">
                         <div class="title-left">
-                            <h5>Contact</h5>
-                            <h1>Please Contact Us</h1>
+                            <h5>香郎津桃</h5>
+                            <h1>想問就問，我們在聽</h1>
                         </div>
                     </div>
-                    <h4 class="lh-base mb-4">Receive messages instantly with our PHP and Ajax contact form - available
-                        in the <a href="https://htmlcodex.com/downloading/?item=3631">Pro Version</a> only.</h4>
+                    <p class="lh-base mb-4 contact-intro-lead">你心裡想過、但還沒問出口的那件事，直接說就好。不需填長表單，選一個你習慣的方式，專人會與你對接。</p>
                     <table class="table table-dark mb-0 wow fadeInUp" data-wow-delay="0.3s">
                         <tr>
-                            <td>PHONE</td>
-                            <td>+0123456789</td>
+                            <td class="text-uppercase text-muted" style="width: 38%;">Line</td>
+                            <td><a href="https://line.me/ti/p/@yourlineid" target="_blank" rel="noopener" class="text-white text-decoration-none">加好友聊聊</a> <i class="fab fa-line ms-1 text-primary"></i></td>
                         </tr>
                         <tr>
-                            <td>E-MAIL</td>
-                            <td>info@example.com</td>
+                            <td class="text-uppercase text-muted">WhatsApp</td>
+                            <td><a href="https://wa.me/84901234567" target="_blank" rel="noopener" class="text-white text-decoration-none">+84 901 234 567</a> <i class="fab fa-whatsapp ms-1 text-success"></i></td>
                         </tr>
                         <tr>
-                            <td>ADDRESS</td>
-                            <td>123 Street, New York, USA</td>
+                            <td class="text-uppercase text-muted">Email</td>
+                            <td><a href="mailto:keinchen0314@gmail.com" class="text-white text-decoration-none">keinchen0314@gmail.com</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-uppercase text-muted">電話</td>
+                            <td><a href="tel:+84907906455" class="text-white text-decoration-none">+84 907 906 455</a></td>
                         </tr>
                         <tr class="border-dark">
-                            <td>FOLLOW US</td>
+                            <td class="text-uppercase text-muted">社群</td>
                             <td>
-                                <a class="me-1" href="#!"><i class="fab fa-x-twitter"></i></a>
-                                <a class="me-1" href="#!"><i class="fab fa-facebook-f"></i></a>
-                                <a class="me-1" href="#!"><i class="fab fa-youtube"></i></a>
-                                <a class="me-1" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="me-2 text-white-50" href="#!" title="X"><i class="fab fa-x-twitter"></i></a>
+                                <a class="me-2 text-white-50" href="#!" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a class="me-2 text-white-50" href="#!" title="YouTube"><i class="fab fa-youtube"></i></a>
                             </td>
                         </tr>
                     </table>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <p class="text-muted mb-3">也可以留下你的訊息，我們會盡快回覆。</p>
                     <form>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control bg-secondary border-0" id="name"
-                                        placeholder="Your Name">
-                                    <label for="name">Your Name</label>
+                                        placeholder="你的名字">
+                                    <label for="name">你的名字</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="email" class="form-control bg-secondary border-0" id="email"
-                                        placeholder="Your Email">
-                                    <label for="email">Your Email</label>
+                                        placeholder="你的 Email 或 Line ID">
+                                    <label for="email">Email 或 Line ID</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control bg-secondary border-0" id="subject"
-                                        placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                        placeholder="想問什麼（選填）">
+                                    <label for="subject">想問什麼（選填）</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <textarea class="form-control bg-secondary border-0"
-                                        placeholder="Leave a message here" id="message"
+                                        placeholder="一句話就夠。我們在聽。" id="message"
                                         style="height: 150px"></textarea>
-                                    <label for="message">Message</label>
+                                    <label for="message">想說的話</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-outline-primary border-2 w-100 py-3" type="submit">Send
-                                    Message</button>
+                                <button class="btn btn-outline-primary border-2 w-100 py-3" type="submit">送出 · 等我們回你</button>
                             </div>
                         </div>
                     </form>
@@ -282,12 +285,18 @@
     <!-- Contact End -->
 
 
-    <!-- Google Map Start -->
+    <!-- 據點說明 · 香郎津桃 -->
+    <div class="container-fluid bg-dark py-4 wow fadeIn" data-wow-delay="0.3s">
+        <div class="container text-center">
+            <p class="text-white-50 mb-0">我們在越南胡志明市、平陽一帶。預約或成行後，會給你確切的碰面方式與據點。</p>
+        </div>
+    </div>
+    <!-- Google Map Start（胡志明市） -->
     <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.3s">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501726.533411614!2d106.341782!3d10.823099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529292e8d3dd1%3A0xf15f5aad773c112b!2z6Z2O5bKh5biC!5e0!3m2!1szh-TW!2stw!4v1640000000000!5m2!1szh-TW!2stw"
             frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"
-            style="width: 100%; height: 500px; filter: grayscale(100%) invert(92%) contrast(83%); border: 0;"></iframe>
+            style="width: 100%; height: 400px; filter: grayscale(100%) invert(92%) contrast(83%); border: 0;"></iframe>
     </div>
     <!-- Google Map End -->
 
