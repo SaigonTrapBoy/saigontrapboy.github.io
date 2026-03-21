@@ -114,6 +114,69 @@
                 display: none;
             }
         }
+        /* KTV 主題區塊：標題、簡介、主打(2 單位)、4 個(各 1 單位) */
+        .ktv-theme-block {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            scroll-margin-top: 100px;
+        }
+        .ktv-theme-block:last-of-type { border-bottom: 0; }
+        .ktv-theme-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+        .ktv-theme-intro {
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 1.5rem;
+            max-width: 720px;
+        }
+        .ktv-featured-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ktv-featured-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+        }
+        .ktv-featured-card .ktv-card-img-wrap {
+            height: 200px;
+            overflow: hidden;
+        }
+        @media (min-width: 992px) {
+            .ktv-featured-card .ktv-card-img-wrap { height: 260px; }
+        }
+        .ktv-featured-card .ktv-card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .ktv-unit-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .ktv-unit-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .ktv-unit-card .ktv-card-img-wrap {
+            height: 140px;
+            overflow: hidden;
+        }
+        .ktv-unit-card .ktv-card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 
@@ -151,13 +214,10 @@
                             <li class="dropdown-submenu">
                                 <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="ktv.html" class="dropdown-item">所有主題</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a href="ktv-types/chinese.html" class="dropdown-item">華人主題</a></li>
-                                    <li><a href="ktv-types/korean.html" class="dropdown-item">韓主題</a></li>
-                                    <li><a href="ktv-types/dress.html" class="dropdown-item">禮服主題</a></li>
-                                    <li><a href="ktv-types/sheer.html" class="dropdown-item">薄紗主題</a></li>
-                                    <li><a href="ktv-types/nude.html" class="dropdown-item">裸主題</a></li>
+                                    <li><a href="ktv.html#ktv-dress" class="dropdown-item">禮服 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-sheer" class="dropdown-item">薄紗 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-vietnamese" class="dropdown-item">越式 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-korean" class="dropdown-item">韓式 KTV</a></li>
                                 </ul>
                             </li>
                             <a href="hotel.html" class="dropdown-item">飯店選擇</a>
@@ -195,110 +255,254 @@
     <!-- Header End -->
 
 
-    <!-- Themes Section Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row g-4">
-                <!-- 華人主題 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card bg-secondary border-0 h-100 theme-card" style="transition: transform 0.3s; overflow: hidden;">
-                        <div class="card-img-wrapper position-relative overflow-hidden" style="height: 300px;">
-                            <img src="img/service-1.jpg" class="card-img-top h-100 w-100 theme-img" alt="華人主題" style="object-fit: cover; transition: transform 0.5s ease;">
-                            <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.5; transition: opacity 0.3s;"></div>
-                            <div class="position-absolute top-50 start-50 translate-middle text-center w-100" style="z-index: 2;">
-                                <h3 class="text-white mb-3">華人</h3>
-                                <p class="text-white-50 mb-0">東方韻味，典雅風情</p>
+    <!-- Themes Section Start：四主題由上而下，每區標題+簡介+主打(2單位)+4個(各1單位) -->
+    <div class="container-fluid py-5 bg-dark">
+        <div class="container py-4">
+
+            <!-- 1. 禮服 KTV -->
+            <section id="ktv-dress" class="ktv-theme-block wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="ktv-theme-title">禮服 KTV</h2>
+                <p class="ktv-theme-intro">禮服主題 KTV 主打優雅華麗的氛圍，從晚禮服到正式套裝，提供尊貴且高質感的包廂體驗，適合追求儀式感與品味的您。</p>
+                <!-- 主打 KTV：佔 2 個單元版位（全寬） -->
+                <div class="row g-3 mb-3">
+                    <div class="col-12">
+                        <a href="ktv-types/dress.html" class="text-decoration-none text-reset d-block h-100">
+                            <div class="ktv-featured-card h-100">
+                                <div class="ktv-card-img-wrap">
+                                    <img src="img/service-3.jpg" alt="禮服 KTV 主打">
+                                </div>
+                                <div class="card-body p-3">
+                                    <h5 class="text-white mb-1">禮服 KTV 精選店</h5>
+                                    <p class="text-white-50 small mb-0">主打禮服主題，環境與服務皆為頂規，預約制包廂。</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <p class="text-white-50 mb-4">體驗傳統東方美學，感受優雅典範的獨特魅力</p>
-                            <a href="ktv-types/chinese.html" class="btn btn-primary w-100">
-                                <i class="fas fa-arrow-right me-2"></i>探索主題
-                            </a>
+                        </a>
+                    </div>
+                </div>
+                <!-- 其他 KTV：6 個，大螢幕每列 3（lg+），手機每列 2 -->
+                <div class="row g-3">
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-3.jpg" alt="禮服 KTV A"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">禮服 A 館</h6></div>
                         </div>
                     </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-3.jpg" alt="禮服 KTV B"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">禮服 B 館</h6></div>
                         </div>
-
-                <!-- 韓主題 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card bg-secondary border-0 h-100 theme-card" style="transition: transform 0.3s; overflow: hidden;">
-                        <div class="card-img-wrapper position-relative overflow-hidden" style="height: 300px;">
-                            <img src="img/service-2.jpg" class="card-img-top h-100 w-100 theme-img" alt="韓主題" style="object-fit: cover; transition: transform 0.5s ease;">
-                            <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.5; transition: opacity 0.3s;"></div>
-                            <div class="position-absolute top-50 start-50 translate-middle text-center w-100" style="z-index: 2;">
-                                <h3 class="text-white mb-3">韓</h3>
-                                <p class="text-white-50 mb-0">韓式風格，時尚魅力</p>
-                            </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-3.jpg" alt="禮服 KTV C"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">禮服 C 館</h6></div>
                         </div>
-                        <div class="card-body p-4">
-                            <p class="text-white-50 mb-4">感受韓式流行文化，體驗現代時尚的獨特風采</p>
-                            <a href="ktv-types/korean.html" class="btn btn-primary w-100">
-                                <i class="fas fa-arrow-right me-2"></i>探索主題
-                            </a>
-                                    </div>
-                                </div>
-                                    </div>
-
-                <!-- 禮服主題 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card bg-secondary border-0 h-100 theme-card" style="transition: transform 0.3s; overflow: hidden;">
-                        <div class="card-img-wrapper position-relative overflow-hidden" style="height: 300px;">
-                            <img src="img/service-3.jpg" class="card-img-top h-100 w-100 theme-img" alt="禮服主題" style="object-fit: cover; transition: transform 0.5s ease;">
-                            <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.5; transition: opacity 0.3s;"></div>
-                            <div class="position-absolute top-50 start-50 translate-middle text-center w-100" style="z-index: 2;">
-                                <h3 class="text-white mb-3">禮服</h3>
-                                <p class="text-white-50 mb-0">優雅華麗，尊貴體驗</p>
-                            </div>
-                                        </div>
-                        <div class="card-body p-4">
-                            <p class="text-white-50 mb-4">享受高貴典雅的禮服主題，感受奢華尊貴的氛圍</p>
-                            <a href="ktv-types/dress.html" class="btn btn-primary w-100">
-                                <i class="fas fa-arrow-right me-2"></i>探索主題
-                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                <!-- 薄紗主題 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card bg-secondary border-0 h-100 theme-card" style="transition: transform 0.3s; overflow: hidden;">
-                        <div class="card-img-wrapper position-relative overflow-hidden" style="height: 300px;">
-                            <img src="img/service-4.jpg" class="card-img-top h-100 w-100 theme-img" alt="薄紗主題" style="object-fit: cover; transition: transform 0.5s ease;">
-                            <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.5; transition: opacity 0.3s;"></div>
-                            <div class="position-absolute top-50 start-50 translate-middle text-center w-100" style="z-index: 2;">
-                                <h3 class="text-white mb-3">薄紗</h3>
-                                <p class="text-white-50 mb-0">若隱若現，神秘誘惑</p>
-                            </div>
-                                    </div>
-                        <div class="card-body p-4">
-                            <p class="text-white-50 mb-4">體驗薄紗的朦朧美感，感受神秘誘人的獨特魅力</p>
-                            <a href="ktv-types/sheer.html" class="btn btn-primary w-100">
-                                <i class="fas fa-arrow-right me-2"></i>探索主題
-                            </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                <!-- 裸主題 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card bg-secondary border-0 h-100 theme-card" style="transition: transform 0.3s; overflow: hidden;">
-                        <div class="card-img-wrapper position-relative overflow-hidden" style="height: 300px;">
-                            <img src="img/carousel-1.jpg" class="card-img-top h-100 w-100 theme-img" alt="裸主題" style="object-fit: cover; transition: transform 0.5s ease;">
-                            <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.5; transition: opacity 0.3s;"></div>
-                            <div class="position-absolute top-50 start-50 translate-middle text-center w-100" style="z-index: 2;">
-                                <h3 class="text-white mb-3">裸</h3>
-                                <p class="text-white-50 mb-0">自然純粹，原始魅力</p>
-                            </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-3.jpg" alt="禮服 KTV D"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">禮服 D 館</h6></div>
                         </div>
-                        <div class="card-body p-4">
-                            <p class="text-white-50 mb-4">回歸自然本質，體驗最純粹的原始魅力與美感</p>
-                            <a href="ktv-types/nude.html" class="btn btn-primary w-100">
-                                <i class="fas fa-arrow-right me-2"></i>探索主題
-                            </a>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-3.jpg" alt="禮服 KTV E"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">禮服 E 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-3.jpg" alt="禮服 KTV F"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">禮服 F 館</h6></div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- 2. 薄紗 KTV -->
+            <section id="ktv-sheer" class="ktv-theme-block wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="ktv-theme-title">薄紗 KTV</h2>
+                <p class="ktv-theme-intro">薄紗主題 KTV 以若隱若現的朦朧美感為特色，包廂氛圍神秘而誘人，適合喜歡低調奢華與氛圍感的賓客。</p>
+                <!-- 主打 KTV：佔 2 個單元版位（全寬） -->
+                <div class="row g-3 mb-3">
+                    <div class="col-12">
+                        <a href="ktv-types/sheer.html" class="text-decoration-none text-reset d-block h-100">
+                            <div class="ktv-featured-card h-100">
+                                <div class="ktv-card-img-wrap">
+                                    <img src="img/service-4.jpg" alt="薄紗 KTV 主打">
+                                </div>
+                                <div class="card-body p-3">
+                                    <h5 class="text-white mb-1">薄紗 KTV 精選店</h5>
+                                    <p class="text-white-50 small mb-0">薄紗主題旗艦店，燈光與氛圍一流，預約制。</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- 其他 KTV：6 個，大螢幕每列 3（lg+），手機每列 2 -->
+                <div class="row g-3">
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-4.jpg" alt="薄紗 KTV A"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">薄紗 A 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-4.jpg" alt="薄紗 KTV B"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">薄紗 B 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-4.jpg" alt="薄紗 KTV C"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">薄紗 C 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-4.jpg" alt="薄紗 KTV D"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">薄紗 D 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-4.jpg" alt="薄紗 KTV E"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">薄紗 E 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-4.jpg" alt="薄紗 KTV F"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">薄紗 F 館</h6></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 越式 KTV -->
+            <section id="ktv-vietnamese" class="ktv-theme-block wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="ktv-theme-title">越式 KTV</h2>
+                <p class="ktv-theme-intro">越式 KTV 呈現越南在地娛樂文化，從裝潢、音樂到服務都充滿道地風情，適合想體驗本地氛圍的旅客。</p>
+                <!-- 主打 KTV：佔 2 個單元版位（全寬） -->
+                <div class="row g-3 mb-3">
+                    <div class="col-12">
+                        <a href="ktv-types/vietnamese.html" class="text-decoration-none text-reset d-block h-100">
+                            <div class="ktv-featured-card h-100">
+                                <div class="ktv-card-img-wrap">
+                                    <img src="img/service-1.jpg" alt="越式 KTV 主打">
+                                </div>
+                                <div class="card-body p-3">
+                                    <h5 class="text-white mb-1">越式 KTV 精選店</h5>
+                                    <p class="text-white-50 small mb-0">在地越式風格旗艦店，道地氛圍與服務。</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- 其他 KTV：6 個，大螢幕每列 3（lg+），手機每列 2 -->
+                <div class="row g-3">
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-1.jpg" alt="越式 KTV A"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">越式 A 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-1.jpg" alt="越式 KTV B"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">越式 B 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-1.jpg" alt="越式 KTV C"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">越式 C 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-1.jpg" alt="越式 KTV D"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">越式 D 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-1.jpg" alt="越式 KTV E"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">越式 E 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-1.jpg" alt="越式 KTV F"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">越式 F 館</h6></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 韓式 KTV -->
+            <section id="ktv-korean" class="ktv-theme-block wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="ktv-theme-title">韓式 KTV</h2>
+                <p class="ktv-theme-intro">韓式 KTV 結合韓流流行文化與現代時尚，包廂風格年輕有型，音樂與氛圍都充滿韓式魅力，適合喜歡 K-POP 與時尚感的您。</p>
+                <!-- 主打 KTV：佔 2 個單元版位（全寬） -->
+                <div class="row g-3 mb-3">
+                    <div class="col-12">
+                        <a href="ktv-types/korean.html" class="text-decoration-none text-reset d-block h-100">
+                            <div class="ktv-featured-card h-100">
+                                <div class="ktv-card-img-wrap">
+                                    <img src="img/service-2.jpg" alt="韓式 KTV 主打">
+                                </div>
+                                <div class="card-body p-3">
+                                    <h5 class="text-white mb-1">韓式 KTV 精選店</h5>
+                                    <p class="text-white-50 small mb-0">韓風旗艦店，設備與氛圍一流，預約制。</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- 其他 KTV：6 個，大螢幕每列 3（lg+），手機每列 2 -->
+                <div class="row g-3">
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-2.jpg" alt="韓式 KTV A"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">韓式 A 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-2.jpg" alt="韓式 KTV B"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">韓式 B 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-2.jpg" alt="韓式 KTV C"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">韓式 C 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-2.jpg" alt="韓式 KTV D"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">韓式 D 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-2.jpg" alt="韓式 KTV E"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">韓式 E 館</h6></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="ktv-unit-card h-100">
+                            <div class="ktv-card-img-wrap"><img src="img/service-2.jpg" alt="韓式 KTV F"></div>
+                            <div class="card-body p-2"><h6 class="text-white mb-0 small">韓式 F 館</h6></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </div>
     <!-- Themes Section End -->

@@ -133,6 +133,86 @@
             z-index: 2;
             height: 100vh;
         }
+        /* 自由行 Hero：標題區改為「左右線 + 中央膠囊」，不再用 h5 偽元素（避免與標語層疊、::after 被蓋掉） */
+        #heroCopyFree .title .title-center {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            overflow: visible;
+            text-transform: none;
+            box-sizing: border-box;
+        }
+        #heroCopyFree .hero-free-travel-head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: min(920px, calc(100vw - 2.5rem));
+            margin: 0 auto 0.85rem;
+            gap: clamp(0.65rem, 2.5vw, 1.35rem);
+        }
+        #heroCopyFree .hero-free-travel-line {
+            flex: 1 1 auto;
+            min-width: 1.25rem;
+            height: 0;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.88);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+            pointer-events: none;
+            align-self: center;
+        }
+        #heroCopyFree .hero-free-fee-tagline {
+            flex: 0 1 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-width: min(100%, calc(100vw - 5rem));
+            box-sizing: border-box;
+            padding: 0.5rem 1.15rem 0.55rem;
+            margin: 0;
+            border-radius: 999px;
+            border: 2px solid rgba(255, 214, 232, 0.95);
+            background: linear-gradient(135deg, #e41779 0%, #b80f5c 55%, #9d0d4f 100%);
+            box-shadow:
+                0 0 0 1px rgba(0, 0, 0, 0.15) inset,
+                0 6px 24px rgba(228, 23, 121, 0.55),
+                0 2px 8px rgba(0, 0, 0, 0.35);
+        }
+        #heroCopyFree .hero-free-travel-kicker {
+            font-size: clamp(0.7rem, 1.8vw, 0.95rem);
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.92) !important;
+            line-height: 1.2;
+            margin-bottom: 0.2rem;
+        }
+        #heroCopyFree .hero-free-fee-tagline .hero-free-fee-row {
+            font-size: clamp(0.78rem, 2vw, 1.02rem);
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            line-height: 1.35;
+            color: #fff !important;
+            text-transform: none;
+        }
+        #heroCopyFree .hero-free-fee-tagline .hero-free-fee-highlight {
+            color: #fff6a8 !important;
+            font-weight: 900;
+            text-shadow: 0 0 12px rgba(255, 246, 168, 0.45);
+        }
+        /* 自由行服務區：電腦版避免一句話被斷在怪位置，改為清楚兩行 */
+        .content-section.free-travel .home-ft-services-lead {
+            max-width: 40rem;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            line-height: 1.7;
+        }
+        .content-section.free-travel .home-ft-services-lead .home-ft-services-lead__line {
+            display: block;
+        }
         
         /* Content Section Toggle Styles */
         /* 確保 content-section 規則不影響搜尋 modal */
@@ -208,6 +288,120 @@
         }
         .content-section.free-travel .service-img::before {
             border-color: rgba(0, 0, 0, 0.1) !important;
+        }
+        /* Home 自由行 · 服務區塊（視差背景 + 免服務費標示） */
+        .content-section.free-travel .home-ft-services-parallax-wrap {
+            position: relative;
+            overflow: hidden;
+            background: #fafbfc;
+        }
+        .content-section.free-travel .home-ft-services-parallax-wrap::before {
+            content: "";
+            position: absolute;
+            left: -10%;
+            right: -10%;
+            top: -20%;
+            bottom: -20%;
+            background:
+                radial-gradient(ellipse 55% 40% at 20% 25%, rgba(228, 23, 121, 0.06) 0%, transparent 55%),
+                radial-gradient(ellipse 50% 45% at 85% 70%, rgba(26, 26, 46, 0.04) 0%, transparent 50%);
+            transform: translate3d(0, var(--home-ft-bg-y, 0px), 0);
+            will-change: transform;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .content-section.free-travel .home-ft-services-parallax-wrap .container {
+            position: relative;
+            z-index: 1;
+        }
+        /* 自由行 · 強調免服務費（主視覺條 + 小標） */
+        .content-section.free-travel .home-ft-no-fee-ribbon {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.65rem 1.25rem;
+            padding: 1rem 1.35rem;
+            margin-bottom: 1.1rem;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(228, 23, 121, 0.14) 0%, rgba(228, 23, 121, 0.05) 55%, rgba(255, 255, 255, 0.92) 100%);
+            border: 2px solid rgba(228, 23, 121, 0.5);
+            box-shadow: 0 8px 28px rgba(228, 23, 121, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+        }
+        .content-section.free-travel .home-ft-no-fee-ribbon .home-ft-no-fee-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: clamp(1.15rem, 2.8vw, 1.5rem);
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: #9d0d4f !important;
+            line-height: 1.25;
+        }
+        .content-section.free-travel .home-ft-no-fee-ribbon .home-ft-no-fee-main i {
+            font-size: 1.15em;
+            color: #e41779;
+        }
+        .content-section.free-travel .home-ft-no-fee-ribbon .home-ft-no-fee-sub {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #333 !important;
+            letter-spacing: 0.02em;
+            border-left: 3px solid rgba(228, 23, 121, 0.45);
+            padding-left: 1rem;
+            margin-left: 0.15rem;
+        }
+        @media (max-width: 575.98px) {
+            .content-section.free-travel .home-ft-no-fee-ribbon .home-ft-no-fee-sub {
+                border-left: none;
+                padding-left: 0;
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+        .content-section.free-travel .home-ft-no-fee-badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #9d0d4f !important;
+            border: 1px dashed rgba(228, 23, 121, 0.55);
+            padding: 0.4rem 0.95rem;
+            border-radius: 999px;
+            background: rgba(228, 23, 121, 0.08);
+            margin-bottom: 0.65rem;
+        }
+        .content-section.free-travel .home-ft-services-no-fee-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #9d0d4f !important;
+            background: rgba(228, 23, 121, 0.1);
+            border: 1px solid rgba(228, 23, 121, 0.35);
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            margin-bottom: 0.75rem;
+        }
+        .content-section.free-travel .home-ft-service-meta {
+            font-size: 0.8rem;
+            color: #555 !important;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        .content-section.free-travel .home-ft-parallax-img {
+            will-change: transform;
+            transition: transform 0.2s ease-out;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .content-section.free-travel .home-ft-services-parallax-wrap::before {
+                transform: none !important;
+            }
+            .content-section.free-travel .home-ft-parallax-img {
+                transform: none !important;
+                transition: none;
+            }
         }
         @media (max-width: 767.98px) {
             .content-section.free-travel .service-item.service-item-left,
@@ -347,24 +541,73 @@
             justify-content: center;
             margin-top: 20px;
             position: relative;
+            max-width: 100%;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            box-sizing: border-box;
         }
         /* 標題和說明 */
         .toggle-title {
             text-align: center;
             margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.95);
+            max-width: min(100%, 22rem);
+            margin-left: auto;
+            margin-right: auto;
         }
         .toggle-title h4 {
-            font-size: 1.5rem;
+            font-size: clamp(1.15rem, 4vw, 1.5rem);
             font-weight: 600;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
             margin-bottom: 8px;
+            line-height: 1.3;
+            word-break: keep-all;
         }
-        .toggle-description {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.85);
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-            margin: 0;
+        /* 與下方開關共用節奏：同一週期、50% 同拍（--toggle-pulse-ms） */
+        .trip-toggle-pulse-sync {
+            --toggle-pulse-ms: 1.35s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100%;
+        }
+        .trip-toggle-pulse-sync:hover .toggle-flash-hint,
+        .trip-toggle-pulse-sync:hover .day-night-toggle-touch {
+            animation-play-state: paused;
+        }
+        /* 開關上方：短句閃爍引導 */
+        .toggle-flash-hint {
+            margin: 0 auto 12px;
+            padding: 0 10px;
+            max-width: min(19rem, 100%);
+            box-sizing: border-box;
+            text-align: center;
+            font-size: clamp(0.78rem, 3.4vw, 0.92rem);
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            line-height: 1.4;
+            color: #fff !important;
+            word-break: keep-all;
+            text-shadow:
+                0 0 14px rgba(228, 23, 121, 0.95),
+                0 2px 10px rgba(0, 0, 0, 0.55);
+            animation: toggleFlashText var(--toggle-pulse-ms, 1.35s) ease-in-out infinite;
+        }
+        @keyframes toggleFlashText {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(0.98);
+                filter: brightness(0.92);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+                filter: brightness(1.12);
+                text-shadow:
+                    0 0 22px rgba(255, 255, 255, 0.85),
+                    0 0 14px rgba(228, 23, 121, 1),
+                    0 2px 10px rgba(0, 0, 0, 0.55);
+            }
         }
         /* 切換說明資訊 */
         .toggle-info {
@@ -401,6 +644,19 @@
                 transform: translateY(0);
             }
         }
+        /* 加大可點區域；輕跳與閃字同拍：0/100 休息、50% 同時強調 */
+        .day-night-toggle-touch {
+            display: inline-block;
+            padding: 12px 10px;
+            margin: 0 auto 2px;
+            max-width: 100%;
+            box-sizing: border-box;
+            animation: toggleWrapBob var(--toggle-pulse-ms, 1.35s) ease-in-out infinite;
+        }
+        @keyframes toggleWrapBob {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-6px) scale(1.032); }
+        }
         .day-night-toggle {
             position: relative;
             width: 200px;
@@ -408,24 +664,116 @@
             border-radius: 70px;
             background: linear-gradient(135deg, #87CEEB 0%, #E0F6FF 100%);
             cursor: pointer;
-            transition: all 0.5s ease;
+            transition: box-shadow 0.35s ease, transform 0.35s ease, background 0.5s ease;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            animation: initialPulse 3s ease-in-out;
+            flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* 短注意力：進入後數秒內軌道內緣呼吸 + 光澤橫掃（不外擴、不被 overflow 裁掉） */
+        .day-night-toggle.toggle-attn-pulse {
+            animation: toggleInsetGlow 2s ease-in-out 3;
+        }
+        @keyframes toggleInsetGlow {
+            0%, 100% {
+                box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0), 0 4px 15px rgba(0, 0, 0, 0.22);
+            }
+            50% {
+                box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.35), 0 5px 20px rgba(0, 0, 0, 0.3);
+            }
+        }
+        .day-night-toggle.toggle-attn-shine::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(
+                100deg,
+                transparent 35%,
+                rgba(255, 255, 255, 0.38) 50%,
+                transparent 65%
+            );
+            background-size: 220% 100%;
+            background-position: 100% 0;
+            pointer-events: none;
+            z-index: 12;
+            animation: toggleShineSweep 1.05s ease-out 2;
+        }
+        @keyframes toggleShineSweep {
+            0% { background-position: 100% 0; opacity: 0.9; }
+            100% { background-position: -80% 0; opacity: 0; }
+        }
+        /* 滑塊「握點」— 像可拖曳的拇指 */
+        .toggle-slider::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            margin-left: -2px;
+            margin-top: -2px;
+            background: rgba(0, 0, 0, 0.22);
+            box-shadow: 0 -7px 0 rgba(0, 0, 0, 0.2), 0 7px 0 rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+            z-index: 21;
+        }
+        .day-night-toggle.night .toggle-slider::after {
+            background: rgba(255, 255, 255, 0.45);
+            box-shadow: 0 -7px 0 rgba(255, 255, 255, 0.35), 0 7px 0 rgba(255, 255, 255, 0.35);
         }
         .day-night-toggle:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(255, 255, 255, 0.35);
         }
         .day-night-toggle:active {
             transform: scale(0.98);
         }
-        @keyframes initialPulse {
-            0%, 100% {
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        .day-night-toggle:focus {
+            outline: none;
+        }
+        .day-night-toggle:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 4px;
+            box-shadow: 0 0 0 4px rgba(228, 23, 121, 0.65), 0 6px 22px rgba(0, 0, 0, 0.35);
+        }
+        /* 首次進入頁面：滑塊輕推再回彈，模擬「可以切過去」— 由 JS 加 class，尊重 reduced-motion */
+        @keyframes toggleSliderPeekNight {
+            0%, 100% { transform: translateX(130px); }
+            40% { transform: translateX(78px); }
+            65% { transform: translateX(118px); }
+            82% { transform: translateX(130px); }
+        }
+        @keyframes toggleSliderPeekDay {
+            0%, 100% { transform: translateX(0); }
+            40% { transform: translateX(52px); }
+            65% { transform: translateX(12px); }
+            82% { transform: translateX(0); }
+        }
+        .day-night-toggle.toggle-hint-demo.night .toggle-slider {
+            animation: toggleSliderPeekNight 1.45s cubic-bezier(0.45, 0, 0.2, 1) 1 both;
+        }
+        .day-night-toggle.toggle-hint-demo:not(.night) .toggle-slider {
+            animation: toggleSliderPeekDay 1.45s cubic-bezier(0.45, 0, 0.2, 1) 1 both;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .day-night-toggle.toggle-hint-demo .toggle-slider {
+                animation: none !important;
             }
-            50% {
-                box-shadow: 0 4px 25px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+            .day-night-toggle.toggle-attn-pulse {
+                animation: none !important;
+            }
+            .day-night-toggle.toggle-attn-shine::before {
+                animation: none !important;
+                opacity: 0 !important;
+            }
+            .toggle-flash-hint {
+                animation: none !important;
+                opacity: 0.9;
+            }
+            .day-night-toggle-touch {
+                animation: none !important;
             }
         }
         .day-night-toggle.night {
@@ -584,22 +932,33 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 16px;
             pointer-events: none;
             z-index: 1;
+            box-sizing: border-box;
+            gap: 4px;
         }
         .toggle-label {
-            font-size: 1.2rem;
+            font-size: clamp(0.95rem, 3.5vw, 1.2rem);
             font-weight: 600;
             color: rgba(255, 255, 255, 0.8);
             transition: opacity 0.3s ease, visibility 0.3s ease, color 0.5s ease;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             opacity: 1;
             visibility: visible;
+            max-width: 42%;
+            line-height: 1.2;
+            text-align: center;
+            word-break: keep-all;
+            flex-shrink: 1;
         }
         .toggle-label.active {
             color: #fff;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .toggle-labels .toggle-label {
+            pointer-events: auto;
+            cursor: pointer;
         }
         /* 自由行文字顏色為深藍色，無陰影 */
         #freeTravelLabel {
@@ -621,13 +980,18 @@
             visibility: hidden;
         }
         @media (max-width: 768px) {
+            .day-night-toggle-touch {
+                padding: 14px 12px;
+            }
             .day-night-toggle {
                 width: 180px;
                 height: 60px;
             }
             .toggle-slider {
-                width: 46px;
-                height: 46px;
+                width: 50px;
+                height: 50px;
+                top: 5px;
+                left: 5px;
             }
             .day-night-toggle.night .toggle-slider {
                 transform: translateX(110px);
@@ -635,21 +999,27 @@
             .toggle-icon {
                 font-size: 32px;
             }
-            .toggle-slider {
-                width: 50px;
-                height: 50px;
-            }
-            .day-night-toggle.night .toggle-slider {
-                transform: translateX(110px);
-            }
             .toggle-label {
-                font-size: 1.1rem;
+                font-size: clamp(0.88rem, 3.2vw, 1.05rem);
+                padding: 0 2px;
             }
             .bird {
                 font-size: 16px;
             }
             .heart {
                 font-size: 14px;
+            }
+            @keyframes toggleSliderPeekNight {
+                0%, 100% { transform: translateX(110px); }
+                40% { transform: translateX(62px); }
+                65% { transform: translateX(100px); }
+                82% { transform: translateX(110px); }
+            }
+            @keyframes toggleSliderPeekDay {
+                0%, 100% { transform: translateX(0); }
+                40% { transform: translateX(46px); }
+                65% { transform: translateX(8px); }
+                82% { transform: translateX(0); }
             }
         }
         /* 確保搜尋 Modal 的 z-index 足夠高且不受 content-section 影響 */
@@ -2013,13 +2383,10 @@
                             <li class="dropdown-submenu">
                                 <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="ktv.html" class="dropdown-item">所有主題</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a href="ktv-types/chinese.html" class="dropdown-item">華人主題</a></li>
-                                    <li><a href="ktv-types/korean.html" class="dropdown-item">韓主題</a></li>
-                                    <li><a href="ktv-types/dress.html" class="dropdown-item">禮服主題</a></li>
-                                    <li><a href="ktv-types/sheer.html" class="dropdown-item">薄紗主題</a></li>
-                                    <li><a href="ktv-types/nude.html" class="dropdown-item">裸主題</a></li>
+                                    <li><a href="ktv.html#ktv-dress" class="dropdown-item">禮服 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-sheer" class="dropdown-item">薄紗 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-vietnamese" class="dropdown-item">越式 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-korean" class="dropdown-item">韓式 KTV</a></li>
                                 </ul>
                             </li>
                             <a href="hotel.html" class="dropdown-item">飯店選擇</a>
@@ -2058,7 +2425,14 @@
                 <div id="heroCopyFree" class="hero-copy animated slideInDown" style="display: none;">
                     <div class="title mx-5 px-5">
                         <div class="title-center">
-                            <h5>自由行</h5>
+                            <div class="hero-free-travel-head" role="note">
+                                <span class="hero-free-travel-line" aria-hidden="true"></span>
+                                <div class="hero-free-fee-tagline">
+                                    <span class="hero-free-travel-kicker">自由行</span>
+                                    <span class="hero-free-fee-row"><span class="hero-free-fee-highlight">免服務費</span> · 代辦諮詢不加價</span>
+                                </div>
+                                <span class="hero-free-travel-line" aria-hidden="true"></span>
+                            </div>
                             <h1 class="display-1">你的節奏，你決定<br>想停就停，想走就走</h1>
                         </div>
                     </div>
@@ -2066,10 +2440,12 @@
                 </div>
                 <div class="trip-toggle-container animated slideInDown">
                     <div class="toggle-title">
-                        <h4 class="mb-2">選擇您的旅遊方式</h4>
-                        <p class="toggle-description">點擊下方按鈕切換查看不同服務內容</p>
+                        <h4 class="mb-0">選擇您的旅遊方式</h4>
                     </div>
-                    <div class="day-night-toggle" id="dayNightToggle">
+                    <div class="trip-toggle-pulse-sync">
+                    <p class="toggle-flash-hint" id="toggleFlashHint" aria-live="polite">點擊切換 · 兩種不同體驗</p>
+                    <div class="day-night-toggle-touch" id="dayNightToggleTouch">
+                    <div class="day-night-toggle" id="dayNightToggle" role="switch" aria-checked="true" aria-label="切換包套行程與自由行" tabindex="0">
                         <!-- 背景動畫 - 鳥飛（白天/自由行） -->
                         <div class="toggle-bg-animation">
                             <i class="fas fa-dove bird bird1"></i>
@@ -2096,6 +2472,8 @@
                             <i class="fas fa-suitcase-rolling toggle-icon backpack-icon"></i>
                             <i class="fas fa-user-tie toggle-icon waiter-icon"></i>
                         </div>
+                    </div>
+                    </div>
                     </div>
                     <div class="toggle-info">
                         <div class="toggle-info-item active" id="packageInfo">
@@ -2395,7 +2773,7 @@
     <!-- 老闆介紹 · 香郎津桃（自由行）— 置頂 -->
     <div class="container-fluid boss-intro">
         <div class="container">
-            <div class="boss-intro-inner wow fadeInUp" data-wow-delay="0.05s">
+            <div class="boss-intro-inner wow fadeInUp" data-wow-delay="0.05s" data-wow-duration="0.4s">
                 <div class="boss-photo-wrap boss-photo-polaroid">
                     <img src="img/team-1.jpg" alt="香郎津桃">
                     <span class="boss-photo-caption">本業是讓你玩得放心</span>
@@ -2433,66 +2811,76 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-7 pb-0 pb-lg-5 py-5">
                     <div class="pb-0 pb-lg-5 py-5">
-                        <div class="title wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="title wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="0.4s">
                             <div class="title-left">
                                 <h5>自由行</h5>
                                 <h1>自由探索越南</h1>
                             </div>
                         </div>
-                        <p class="mb-4 wow fadeInUp" data-wow-delay="0.2s">自由行讓您完全掌控自己的旅程，按照自己的節奏探索越南的每一個角落。從胡志明市的繁華街道到河內的古老文化，從下龍灣的壯麗景色到會安的寧靜古鎮，自由行讓您深度體驗越南的多元魅力。</p>
-                        <ul class="list-group list-group-flush mb-5 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="home-ft-no-fee-ribbon wow fadeInUp" data-wow-delay="0.12s" data-wow-duration="0.4s" role="note">
+                            <span class="home-ft-no-fee-main"><i class="fa fa-check-circle" aria-hidden="true"></i> 免服務費</span>
+                            <span class="home-ft-no-fee-sub">代辦與諮詢<strong class="text-primary">不加價、不抽成</strong> · 僅收實際項目費用 · 明碼標價</span>
+                        </div>
+                        <p class="home-ft-no-fee-badge wow fadeInUp" data-wow-delay="0.15s" data-wow-duration="0.4s">核心承諾：諮詢與代辦全程免服務費</p>
+                        <p class="mb-4 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.4s">我們不抽成、不加價，只做你旅程裡可靠的那一雙手。由在地專業團隊協助簽證、交通、住宿、換匯與地陪，每一項服務透明報價、無隱藏費用；依你的節奏出發，深度體驗越南。</p>
+                        <ul class="list-group list-group-flush mb-5 wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="0.4s">
                             <li class="list-group-item bg-dark text-body border-secondary ps-0">
-                                <i class="fa fa-check-circle text-primary me-1"></i> 彈性行程安排，自由選擇景點與時間
+                                <i class="fa fa-check-circle text-primary me-1"></i> <strong>免服務費</strong>：簽證、包車、住宿、換匯、地陪等代辦與諮詢皆不加價抽成
                             </li>
                             <li class="list-group-item bg-dark text-body border-secondary ps-0">
-                                <i class="fa fa-check-circle text-primary me-1"></i> 提供完整旅遊資訊與地圖導覽
+                                <i class="fa fa-check-circle text-primary me-1"></i> 明碼標價，行程與項目可自由選擇
                             </li>
                             <li class="list-group-item bg-dark text-body border-secondary ps-0">
-                                <i class="fa fa-check-circle text-primary me-1"></i> 24小時客服支援，隨時協助解決問題
+                                <i class="fa fa-check-circle text-primary me-1"></i> 專人對接，簽證、包車、飯店、換匯一次搞定
                             </li>
                         </ul>
-                        <div class="row wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="row wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.4s">
                             <div class="col-6">
-                                <a href="#!" class="btn btn-outline-primary border-2 py-3 w-100">規劃行程</a>
+                                <a href="free-travel.html" class="btn btn-outline-primary border-2 py-3 w-100">服務總覽</a>
                             </div>
                             <div class="col-6">
-                                <a href="#!" class="btn btn-primary py-3 w-100">聯絡我們</a>
+                                <a href="contact.html" class="btn btn-primary py-3 w-100">聯絡我們</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.5s">
-                    <img class="img-fluid" src="img/about.png" alt="">
+                <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.5s" data-wow-duration="0.4s">
+                    <img class="img-fluid" src="img/about.png" alt="自由行">
                 </div>
             </div>
         </div>
     </div>
     <!-- About End -->
 
-    <!-- Service Start - Free Travel -->
-    <div class="container-fluid py-5">
+    <!-- Service Start - Free Travel（六項服務 + 輕量視差） -->
+    <div id="homeFtServicesParallax" class="container-fluid py-5 home-ft-services-parallax-wrap">
         <div class="container py-5">
-            <div class="text-center">
-                <div class="title wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center mb-4 mb-md-5">
+                <div class="title wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="0.4s">
                     <div class="title-center">
                         <h5>服務項目</h5>
                         <h1>自由行服務</h1>
                     </div>
                 </div>
+                <p class="home-ft-services-no-fee-pill wow fadeInUp" data-wow-delay="0.12s" data-wow-duration="0.4s"><i class="fa fa-gift" aria-hidden="true"></i> 全項目代辦／諮詢 <strong>免服務費</strong></p>
+                <p class="text-muted home-ft-services-lead wow fadeInUp" data-wow-delay="0.15s" data-wow-duration="0.4s">
+                    <span class="home-ft-services-lead__line">與自由行專頁相同服務內容；<strong class="text-primary">免服務費、不加價</strong>，</span>
+                    <span class="home-ft-services-lead__line">僅依實際項目報價，透明收費。</span>
+                </p>
             </div>
             <div class="service-item service-item-left">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5">
                         <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.08s" data-wow-duration="0.4s">
-                            <img class="img-fluid rounded-circle" src="img/service-1.jpg" alt="">
+                            <img class="img-fluid rounded-circle home-ft-parallax-img" src="img/service-1.jpg" alt="簽證與快速通關代辦">
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">簽證代辦</h3>
-                            <p class="mb-4">協助辦理越南簽證，讓您輕鬆入境。我們提供完整的簽證申請服務，包括文件準備、申請流程指導，確保您的簽證能夠順利核發，讓自由行從一開始就順暢無阻。</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="contact.html">了解更多 <i
-                                    class="fa fa-arrow-right ms-1"></i></a>
+                        <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.4s">
+                            <h3>簽證與快速通關代辦</h3>
+                            <p class="home-ft-service-meta">依類型報價 · 約 NT$ 1,200 起 · 免服務費</p>
+                            <p class="mb-4">代辦越南簽證與機場快速通關，文件準備與流程指導，讓入境從第一步就順暢、省時省心。</p>
+                            <a class="btn btn-outline-primary border-2 px-4" href="contact.html">詢價／預約 <i class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -2501,15 +2889,15 @@
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5 order-md-1 text-md-end">
                         <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.08s" data-wow-duration="0.4s">
-                            <img class="img-fluid rounded-circle" src="img/service-2.jpg" alt="">
+                            <img class="img-fluid rounded-circle home-ft-parallax-img" src="img/service-2.jpg" alt="交通安排">
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">交通安排</h3>
-                            <p class="mb-4">提供機場接送、租車服務、交通卡辦理等服務，讓您在越南自由移動更加便利。無論是市區觀光還是跨城市旅行，我們都能為您安排最適合的交通方式，讓您的自由行更加輕鬆自在。</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="contact.html">了解更多 <i
-                                    class="fa fa-arrow-right ms-1"></i></a>
+                        <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.2s" data-wow-duration="0.4s">
+                            <h3>交通安排</h3>
+                            <p class="home-ft-service-meta">4／7／16／29 人座包車 · 依車型／時數報價 · 免服務費</p>
+                            <p class="mb-4">機場接送、市區與跨城包車派遣，專車專用、時間彈性，人數多寡皆可配合。</p>
+                            <a class="btn btn-outline-primary border-2 px-4" href="contact.html">詢價／預約 <i class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -2518,15 +2906,15 @@
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5">
                         <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.08s" data-wow-duration="0.4s">
-                            <img class="img-fluid rounded-circle" src="img/service-3.jpg" alt="">
+                            <img class="img-fluid rounded-circle home-ft-parallax-img" src="img/service-3.jpg" alt="住宿推薦">
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">住宿推薦</h3>
-                            <p class="mb-4">提供多種住宿選擇，從經濟型旅館到豪華酒店，根據您的預算和需求推薦最適合的住宿地點。我們與多家優質飯店合作，為您爭取最優惠的價格，讓您的自由行住宿更加舒適且經濟實惠。</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="hotel.html">了解更多 <i
-                                    class="fa fa-arrow-right ms-1"></i></a>
+                        <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.4s">
+                            <h3>住宿推薦</h3>
+                            <p class="home-ft-service-meta">房價依飯店報價 · 代訂免服務費</p>
+                            <p class="mb-4">飯店、民宿代訂；若有特殊需求（如可帶妹飯店），可一併推薦與代訂。</p>
+                            <a class="btn btn-outline-primary border-2 px-4" href="contact.html">詢價／預約 <i class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -2535,15 +2923,50 @@
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5 order-md-1 text-md-end">
                         <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.08s" data-wow-duration="0.4s">
-                            <img class="img-fluid rounded-circle" src="img/service-4.jpg" alt="">
+                            <img class="img-fluid rounded-circle home-ft-parallax-img" src="img/service-4.jpg" alt="越南盾換匯">
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.5s">
-                            <h3 class="text-uppercase">旅遊資訊</h3>
-                            <p class="mb-4">提供完整的越南旅遊資訊，包括景點介紹、美食推薦、購物指南、文化體驗等。我們為您準備詳細的地圖和路線規劃建議，讓您能夠輕鬆探索越南的各個角落，體驗最地道的越南風情。</p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="guide.html">了解更多 <i
-                                    class="fa fa-arrow-right ms-1"></i></a>
+                        <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.2s" data-wow-duration="0.4s">
+                            <h3>越南盾換匯</h3>
+                            <p class="home-ft-service-meta">台幣轉帳換匯 · 依當日匯率 · 免手續費</p>
+                            <p class="mb-4">匯率透明，可配合行程取件或到地交付，讓現金準備更安心。</p>
+                            <a class="btn btn-outline-primary border-2 px-4" href="contact.html">詢價／預約 <i class="fa fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="service-item service-item-left">
+                <div class="row g-0 align-items-center">
+                    <div class="col-md-5">
+                        <div class="service-img p-5 wow fadeInRight" data-wow-delay="0.08s" data-wow-duration="0.4s">
+                            <img class="img-fluid rounded-circle home-ft-parallax-img" src="img/service-1.jpg" alt="導遊／地陪派遣">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="service-text px-5 px-md-0 py-md-5 wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.4s">
+                            <h3>導遊／地陪派遣</h3>
+                            <p class="home-ft-service-meta">娛樂場所陪伴、就診陪伴等 · 依時數報價 · 免服務費</p>
+                            <p class="mb-4">在地導遊或地陪派遣，時數與項目可依需求安排，專業且彈性。</p>
+                            <a class="btn btn-outline-primary border-2 px-4" href="contact.html">詢價／預約 <i class="fa fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="service-item service-item-right">
+                <div class="row g-0 align-items-center">
+                    <div class="col-md-5 order-md-1 text-md-end">
+                        <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.08s" data-wow-duration="0.4s">
+                            <img class="img-fluid rounded-circle home-ft-parallax-img" src="img/service-2.jpg" alt="旅遊顧問">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.2s" data-wow-duration="0.4s">
+                            <h3>旅遊顧問</h3>
+                            <p class="home-ft-service-meta">NT$ 800／天 · 明碼標價</p>
+                            <p class="mb-4">行程規劃、景點與餐廳建議、疑難解答，以日計費，隨時可諮詢。</p>
+                            <a class="btn btn-outline-primary border-2 px-4 me-2" href="free-travel.html">查看自由行專頁 <i class="fa fa-arrow-right ms-1"></i></a>
+                            <a class="btn btn-primary px-4" href="contact.html">聯絡我們</a>
                         </div>
                     </div>
                 </div>
@@ -3022,12 +3445,63 @@
             dayNightToggle.classList.add('night');
             packageLabel.classList.add('active');
             freeTravelLabel.classList.remove('active');
+            function syncToggleAria() {
+                var onPackage = dayNightToggle.classList.contains('night');
+                dayNightToggle.setAttribute('aria-checked', onPackage ? 'true' : 'false');
+            }
+            syncToggleAria();
+            /* 僅中斷進場一次性動畫；閃爍與輕跳保持循環，切換模式後仍持續 */
+            function markToggleSettled() {
+                dayNightToggle.classList.remove('toggle-attn-pulse', 'toggle-attn-shine', 'toggle-hint-demo');
+            }
+            /* 鍵盤也可切換 */
+            dayNightToggle.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    dayNightToggle.click();
+                }
+            });
+            /**
+             * 短注意力／手機優先：無加字，用光澤橫掃 + 軌道內光呼吸 + 滑塊預演位移（同一 session 只播一次）
+             * 窄螢幕延遲較短，更快抓住第一眼。
+             */
+            function runToggleIntroIfNeeded() {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                try {
+                    if (sessionStorage.getItem('toggleIntroPlayed') === '1') return;
+                } catch (err) {}
+                var narrow = window.matchMedia('(max-width: 768px)').matches;
+                var base = narrow ? 420 : 900;
+                window.setTimeout(function () {
+                    dayNightToggle.classList.add('toggle-attn-shine');
+                    window.setTimeout(function () {
+                        dayNightToggle.classList.remove('toggle-attn-shine');
+                    }, 2600);
+                }, base);
+                window.setTimeout(function () {
+                    dayNightToggle.classList.add('toggle-attn-pulse');
+                    window.setTimeout(function () {
+                        dayNightToggle.classList.remove('toggle-attn-pulse');
+                    }, 6800);
+                }, base + (narrow ? 60 : 120));
+                window.setTimeout(function () {
+                    dayNightToggle.classList.add('toggle-hint-demo');
+                    window.setTimeout(function () {
+                        dayNightToggle.classList.remove('toggle-hint-demo');
+                        try {
+                            sessionStorage.setItem('toggleIntroPlayed', '1');
+                        } catch (e2) {}
+                    }, 1750);
+                }, base + (narrow ? 320 : 720));
+            }
+            runToggleIntroIfNeeded();
             
             // 切換到自由行（白天模式）
             function switchToFreeTravel() {
                 dayNightToggle.classList.remove('night');
                 freeTravelLabel.classList.add('active');
                 packageLabel.classList.remove('active');
+                syncToggleAria();
                 
                 // 切換背景圖片（淡入淡出效果）
                 heroBackground.style.opacity = '0';
@@ -3041,6 +3515,18 @@
                 // 切換內容區塊
                 packageTourContent.style.display = 'none';
                 freeTravelContent.style.display = 'block';
+                // 自由行區塊剛顯示時重新計算滾動視差（否則首次 load 時區塊為 hidden，版面為 0，需捲動或重整才會更新）
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () {
+                        if (typeof window.refreshHomeFtParallax === 'function') {
+                            window.refreshHomeFtParallax();
+                        }
+                        // 與包套相同節奏重新套用 WOW（自由行區原為 hidden，進場動畫需重算）
+                        if (typeof window.resetWowIn === 'function') {
+                            window.resetWowIn(freeTravelContent);
+                        }
+                    });
+                });
                 // 切換 hero 文案為自由行
                 const heroCopyPackage = document.getElementById('heroCopyPackage');
                 const heroCopyFree = document.getElementById('heroCopyFree');
@@ -3067,6 +3553,7 @@
                 dayNightToggle.classList.add('night');
                 packageLabel.classList.add('active');
                 freeTravelLabel.classList.remove('active');
+                syncToggleAria();
                 
                 // 切換背景圖片（淡入淡出效果）
                 heroBackground.style.opacity = '0';
@@ -3103,6 +3590,7 @@
             
             // 點擊 toggle switch
             dayNightToggle.addEventListener('click', function() {
+                markToggleSettled();
                 if (dayNightToggle.classList.contains('night')) {
                     // 目前是夜晚（包套行程），切換到白天（自由行）
                     switchToFreeTravel();
@@ -3116,12 +3604,14 @@
             freeTravelLabel.addEventListener('click', function(e) {
                 e.stopPropagation();
                 if (!dayNightToggle.classList.contains('night')) return;
+                markToggleSettled();
                 switchToFreeTravel();
             });
             
             packageLabel.addEventListener('click', function(e) {
                 e.stopPropagation();
                 if (dayNightToggle.classList.contains('night')) return;
+                markToggleSettled();
                 switchToPackageTour();
             });
         });
@@ -3293,7 +3783,58 @@
         setTimeout(initStickyContactBar, 100);
         setTimeout(initStickyContactBar, 500);
     </script>
+    <!-- Home 自由行服務區：輕量滾動視差（僅當區塊在視窗內時計算，幅度小、偏專業） -->
+    <script>
+    (function () {
+        var wrap = document.getElementById('homeFtServicesParallax');
+        if (!wrap) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var imgs = wrap.querySelectorAll('.home-ft-parallax-img');
+        var ticking = false;
+        function update() {
+            ticking = false;
+            var rect = wrap.getBoundingClientRect();
+            var vh = window.innerHeight;
+            if (rect.bottom < 0 || rect.top > vh) return;
+            var denom = vh + rect.height;
+            var t = denom > 0 ? (vh - rect.top) / denom : 0;
+            t = Math.max(0, Math.min(1, t));
+            var bgShift = (t - 0.5) * 18;
+            wrap.style.setProperty('--home-ft-bg-y', bgShift + 'px');
+            var imgBase = (t - 0.5) * 12;
+            imgs.forEach(function (img, i) {
+                var dir = (i % 2 === 0) ? 1 : -1;
+                img.style.transform = 'translate3d(0,' + (imgBase * dir) + 'px,0)';
+            });
+        }
+        function onScroll() {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(update);
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+        // 供「自由行」切換後呼叫：區塊從 display:none 顯示後需依實際版面重算
+        window.refreshHomeFtParallax = function () {
+            ticking = false;
+            update();
+        };
+        // 區塊進入視窗時再算一次（涵蓋其他顯示路徑）
+        if (typeof IntersectionObserver !== 'undefined') {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        ticking = false;
+                        requestAnimationFrame(update);
+                    }
+                });
+            }, { root: null, threshold: 0, rootMargin: '0px' });
+            io.observe(wrap);
+        }
+        update();
+    })();
+    </script>
 </body>
 
-</html>
 </html>

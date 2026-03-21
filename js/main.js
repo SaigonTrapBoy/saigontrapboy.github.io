@@ -12,8 +12,44 @@
     spinner();
     
     
-    // Initiate the wowjs
-    new WOW().init();
+    // Initiate the wowjs（掛在 window 供首頁「自由行」切換後重置動畫）
+    window.wowInstance = new WOW();
+    window.wowInstance.init();
+
+    /**
+     * 當區塊曾為 display:none 時，WOW 可能已誤判或已播過；重置後再 doSync 可重新套用與包套相同的進場節奏。
+     */
+    window.resetWowIn = function (container) {
+        if (!container) return;
+        var wow = window.wowInstance;
+        if (!wow || typeof wow.doSync !== 'function') return;
+        var cfg = wow.config;
+        var animateClass = cfg.animateClass || 'animated';
+        wow.all = wow.all.filter(function (el) {
+            return !container.contains(el);
+        });
+        wow.boxes = wow.boxes.filter(function (el) {
+            return !container.contains(el);
+        });
+        var nodes = container.querySelectorAll('.' + cfg.boxClass);
+        for (var i = 0; i < nodes.length; i++) {
+            var box = nodes[i];
+            var re = new RegExp('\\s*' + animateClass + '\\s*', 'g');
+            box.className = box.className.replace(re, ' ').replace(/\s+/g, ' ').trim();
+            box.style.visibility = '';
+            box.style.animationName = '';
+            box.style.webkitAnimationName = '';
+            box.style.MozAnimationName = '';
+            box.style.animationDuration = '';
+            box.style.webkitAnimationDuration = '';
+            box.style.animationDelay = '';
+            box.style.webkitAnimationDelay = '';
+        }
+        wow.doSync(container);
+        if (typeof wow.scrollHandler === 'function') {
+            wow.scrollHandler();
+        }
+    };
 
 
     // Sticky Navbar

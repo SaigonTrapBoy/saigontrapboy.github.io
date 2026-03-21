@@ -20,6 +20,69 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <style>
+        /* 服務指南子選單（與香郎津桃包套服務頁一致） */
+        .dropdown-submenu { position: relative; }
+        .dropdown-submenu > .dropdown-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin: 0;
+            min-width: 200px;
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+            z-index: 1000;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .dropdown-submenu:hover > .dropdown-menu,
+        .dropdown-submenu > .dropdown-menu:hover {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown-submenu > a::after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+        .dropdown-submenu:hover > a::after { border-left-color: #fff; }
+        .dropdown-submenu::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+            z-index: 1001;
+            background: transparent;
+        }
+        .dropdown-menu.show .dropdown-submenu > .dropdown-menu {
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .dropdown-menu.show .dropdown-submenu:hover > .dropdown-menu {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        @media (max-width: 991px) {
+            .dropdown-submenu > .dropdown-menu {
+                position: static;
+                float: none;
+                margin-left: 1rem;
+            }
+        }
         /* 自由行專頁 - 明亮風格 */
         .page-header-light {
             padding-top: 180px;
@@ -41,18 +104,63 @@
         .ft-section h1, .ft-section h2, .ft-section h5 { color: #1a1a2e; }
         .ft-section-alt h1, .ft-section-alt h2, .ft-section-alt h5 { color: #1a1a2e; }
         .ft-section .text-primary, .ft-section-alt .text-primary { color: #E41779 !important; }
+        /* 自由行 Intro 內文關鍵字 highlight */
+        .ft-intro-lead { line-height: 1.85; }
+        .ft-intro-lead .ft-intro-highlight {
+            color: #c4126a;
+            font-weight: 600;
+            padding: 0 0.15em;
+            border-bottom: 1px solid rgba(228, 23, 121, 0.35);
+        }
         .ft-card {
             background: #fff;
-            border-radius: 16px;
-            border: 1px solid #e9ecef;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            border: 1px solid rgba(228, 23, 121, 0.15);
+            overflow: visible;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(228, 23, 121, 0.06);
+        }
+        /* 頂部飾條（與主視覺粉色一致） */
+        .ft-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 12px 12px 0 0;
+            background: linear-gradient(90deg, transparent 0%, #E41779 50%, transparent 100%);
+            box-shadow: 0 0 12px rgba(228, 23, 121, 0.3);
+        }
+        /* 光帶僅在 hover 時出現並掃過 */
+        .ft-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(228, 23, 121, 0.08), transparent);
+            pointer-events: none;
+            border-radius: 12px;
+            opacity: 0;
+            transition: left 0.55s ease, opacity 0.2s ease;
         }
         .ft-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-            border-color: rgba(228, 23, 121, 0.2);
+            transform: translateY(-6px) scale(1.015);
+            border-color: rgba(228, 23, 121, 0.4);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(228, 23, 121, 0.12), 0 0 24px rgba(228, 23, 121, 0.1);
+        }
+        .ft-card:hover::before {
+            box-shadow: 0 0 16px rgba(228, 23, 121, 0.45), 0 0 28px rgba(228, 23, 121, 0.15);
+        }
+        .ft-card:hover::after {
+            opacity: 1;
+            left: 100%;
         }
         .ft-card .card-icon {
             width: 64px;
@@ -65,6 +173,36 @@
             justify-content: center;
             font-size: 1.5rem;
             margin: 0 auto 1rem;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+        }
+        .ft-card:hover .card-icon {
+            transform: scale(1.08);
+            box-shadow: 0 8px 24px rgba(228, 23, 121, 0.35);
+        }
+        .ft-card .ft-card-price {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #b80f5c;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.02em;
+        }
+        .ft-card .ft-card-desc {
+            min-height: 3.6em;
+            flex: 1;
+        }
+        .ft-card .ft-card-footer {
+            margin-top: auto;
+            padding-top: 1rem;
+            min-height: 52px;
+            display: flex;
+            align-items: flex-end;
+        }
+        .ft-card .ft-card-footer .btn {
+            transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+        .ft-card:hover .ft-card-footer .btn {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(228, 23, 121, 0.25);
         }
         .ft-cta {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -128,7 +266,15 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">服務指南</a>
                         <div class="dropdown-menu m-0">
-                            <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
+                            <li class="dropdown-submenu">
+                                <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="ktv.html#ktv-dress" class="dropdown-item">禮服 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-sheer" class="dropdown-item">薄紗 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-vietnamese" class="dropdown-item">越式 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-korean" class="dropdown-item">韓式 KTV</a></li>
+                                </ul>
+                            </li>
                             <a href="hotel.html" class="dropdown-item">飯店選擇</a>
                             <a href="restaurant.html" class="dropdown-item">餐廳推薦</a>
                             <a href="guide.html" class="dropdown-item">新手指南</a>
@@ -164,7 +310,7 @@
                 <div class="col-lg-8 text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="text-primary text-uppercase mb-3">自由探索越南</h5>
                     <h2 class="mb-4">完全掌控你的旅程</h2>
-                    <p class="fs-5 text-muted">自由行讓您按照自己的節奏探索越南的每一個角落。從胡志明市的繁華街道到河內的古老文化，從下龍灣的壯麗景色到會安的寧靜古鎮，我們提供簽證代辦、交通安排、住宿推薦與完整旅遊資訊，讓您深度體驗越南的多元魅力。</p>
+                    <p class="fs-5 text-muted ft-intro-lead">我們不抽成、不加價——<span class="ft-intro-highlight">免服務費</span>，只做你旅程裡最可靠的那一雙手。想去一般人進不去的地方？由在地專業導遊<span class="ft-intro-highlight">精選推薦</span>，從隱藏版據點到行家才懂的場所，<span class="ft-intro-highlight">自由選擇</span>、不強迫推銷。每一項服務<span class="ft-intro-highlight">明碼標價</span>，沒有隱藏費用，讓你算得清楚、玩得安心。<br class="d-none d-md-inline"><br class="d-none d-md-inline">依你的需求，我們可以協助：<span class="ft-intro-highlight">可帶妹飯店</span>推薦、<span class="ft-intro-highlight">多人座包車</span>交通安排、<span class="ft-intro-highlight">越南盾換匯</span>、娛樂場所<span class="ft-intro-highlight">陪伴導覽</span>、甚至<span class="ft-intro-highlight">就診陪伴</span>——該有的支援一次到位，節奏由你掌控。</p>
                 </div>
             </div>
         </div>
@@ -177,37 +323,69 @@
                 <h5 class="text-primary text-uppercase mb-2">服務項目</h5>
                 <h2>自由行服務</h2>
             </div>
+            <p class="text-center text-muted mb-4">所有項目明碼標價，透明收費、無隱藏費用。</p>
             <div class="row g-4">
-                <div class="col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-12 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="ft-card p-4 h-100">
                         <div class="card-icon"><i class="fas fa-stamp"></i></div>
-                        <h5 class="mb-3">簽證代辦</h5>
-                        <p class="text-muted mb-0">協助辦理越南簽證與快通，文件準備與流程指導，讓入境從一開始就順暢無阻。</p>
-                        <a href="contact.html" class="btn btn-outline-primary border-2 mt-3 btn-sm">了解更多</a>
+                        <h5 class="mb-2">簽證與快速通關代辦</h5>
+                        <p class="ft-card-price">依類型報價 · 約 NT$ 1,200 起</p>
+                        <p class="text-muted mb-0 small ft-card-desc">代辦越南簽證與機場快速通關，文件準備與流程指導，入境順暢、省時省心。</p>
+                        <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-12 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.15s">
                     <div class="ft-card p-4 h-100">
                         <div class="card-icon"><i class="fas fa-car"></i></div>
-                        <h5 class="mb-3">交通安排</h5>
-                        <p class="text-muted mb-0">機場接送、租車、交通卡辦理，市區觀光到跨城市旅行，為您安排最適合的交通方式。</p>
-                        <a href="contact.html" class="btn btn-outline-primary border-2 mt-3 btn-sm">了解更多</a>
+                        <h5 class="mb-2">交通安排</h5>
+                        <p class="ft-card-price">4／7／16／29 人座 · 依車型／時數報價</p>
+                        <p class="text-muted mb-0 small ft-card-desc">機場接送、市區與跨城包車派遣，專車專用、時間彈性，人數多寡皆可配合。</p>
+                        <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-12 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="ft-card p-4 h-100">
                         <div class="card-icon"><i class="fas fa-hotel"></i></div>
-                        <h5 class="mb-3">住宿推薦</h5>
-                        <p class="text-muted mb-0">從經濟旅館到豪華酒店，依預算與需求推薦，與優質飯店合作爭取優惠價格。</p>
-                        <a href="hotel.html" class="btn btn-outline-primary border-2 mt-3 btn-sm">了解更多</a>
+                        <h5 class="mb-2">住宿推薦</h5>
+                        <p class="ft-card-price">房價依飯店報價 · 代訂免服務費</p>
+                        <p class="text-muted mb-0 small ft-card-desc">飯店、民宿代訂；若有特殊需求（如可帶妹飯店），可一併推薦、代訂。</p>
+                        <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="col-12 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.25s">
                     <div class="ft-card p-4 h-100">
-                        <div class="card-icon"><i class="fas fa-map-marked-alt"></i></div>
-                        <h5 class="mb-3">旅遊資訊</h5>
-                        <p class="text-muted mb-0">景點、美食、購物、文化體驗，地圖與路線規劃建議，輕鬆探索越南各地。</p>
-                        <a href="guide.html" class="btn btn-outline-primary border-2 mt-3 btn-sm">了解更多</a>
+                        <div class="card-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <h5 class="mb-2">越南盾換匯</h5>
+                        <p class="ft-card-price">台幣轉帳換匯 · 依當日匯率</p>
+                        <p class="text-muted mb-0 small ft-card-desc">台幣轉帳即可換越南盾，匯率透明、免手續費，可配合行程取件或到地交付。</p>
+                        <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="ft-card p-4 h-100">
+                        <div class="card-icon"><i class="fas fa-user-tie"></i></div>
+                        <h5 class="mb-2">導遊／地陪派遣</h5>
+                        <p class="ft-card-price">娛樂場所陪伴、就診陪伴等 · 依時數報價</p>
+                        <p class="text-muted mb-0 small ft-card-desc">在地導遊或地陪派遣，含娛樂場所陪伴、就診陪伴等，時數與項目可依需求安排。</p>
+                        <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.35s">
+                    <div class="ft-card p-4 h-100">
+                        <div class="card-icon"><i class="fas fa-headset"></i></div>
+                        <h5 class="mb-2">旅遊顧問</h5>
+                        <p class="ft-card-price">NT$ 800／天</p>
+                        <p class="text-muted mb-0 small ft-card-desc">行程規劃、景點與餐廳建議、疑難解答，以日計費、明碼標價，隨時可諮詢。</p>
+                        <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="ft-card p-4 h-100">
+                        <div class="card-icon"><i class="fas fa-question-circle"></i></div>
+                        <h5 class="mb-2">其他疑難雜症</h5>
+                        <p class="ft-card-price">另洽報價</p>
+                        <p class="text-muted mb-0 small ft-card-desc">上述未列之需求或特殊安排，歡迎來訊說明，我們另予報價、專案處理。</p>
+                        <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">諮詢</a></div>
                     </div>
                 </div>
             </div>
