@@ -9,31 +9,31 @@
     display: none;
     right: 45px;
     bottom: 45px;
-    z-index: 99;
+    z-index: 1025;
 }
 /* 小解析度／直式：置頂按鈕浮在 sticky 上方，用 max(px, vh) 適應 390×844、430×932 等各種高度 */
 @media (max-width: 991px) {
     .back-to-top {
         bottom: max(155px, 18vh);
-        z-index: 9991;
+        z-index: 1025;
     }
 }
 @media (max-width: 768px) {
     .back-to-top {
         bottom: max(170px, 19vh);
-        z-index: 9991;
+        z-index: 1025;
     }
 }
 @media (max-width: 576px) {
     .back-to-top {
         bottom: max(185px, 20vh);
-        z-index: 9991;
+        z-index: 1025;
     }
 }
 @media (max-width: 480px) {
     .back-to-top {
         bottom: max(195px, 22vh);
-        z-index: 9991;
+        z-index: 1025;
     }
 }
 @media (max-width: 380px) {
@@ -101,7 +101,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 9;
+    z-index: 1035;
     transition: .5s;
 }
 
@@ -253,6 +253,7 @@
     height: 0;
     top: 9px;
     border-bottom: 1px solid var(--bs-white);
+    pointer-events: none;
 }
 
 .title .title-left h5::after,
@@ -295,6 +296,7 @@
     border: 3rem solid rgba(0, 0, 0, .5);
     border-radius: 300px;
     z-index: 1;
+    pointer-events: none;
 }
 
 .service-item.service-item-left {

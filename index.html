@@ -132,6 +132,13 @@
             position: relative;
             z-index: 2;
             height: 100vh;
+            /* 避免整塊 100vh 透明區攔截下方包套內容的點擊（與 vh／層疊異常時） */
+            pointer-events: none;
+        }
+        .header-hero-container .carousel-caption .hero-copy,
+        .header-hero-container .carousel-caption .trip-toggle-container,
+        .header-hero-container .carousel-caption .toggle-info {
+            pointer-events: auto;
         }
         /* 自由行 Hero：標題區改為「左右線 + 中央膠囊」，不再用 h5 偽元素（避免與標語層疊、::after 被蓋掉） */
         #heroCopyFree .title .title-center {
@@ -582,27 +589,29 @@
             max-width: min(19rem, 100%);
             box-sizing: border-box;
             text-align: center;
-            font-size: clamp(0.78rem, 3.4vw, 0.92rem);
+            font-size: clamp(0.95rem, 3.9vw, 1.12rem);
             font-weight: 800;
             letter-spacing: 0.06em;
-            line-height: 1.4;
+            line-height: 1.35;
             color: #fff !important;
             word-break: keep-all;
             text-shadow:
                 0 0 14px rgba(228, 23, 121, 0.95),
                 0 2px 10px rgba(0, 0, 0, 0.55);
-            animation: toggleFlashText var(--toggle-pulse-ms, 1.35s) ease-in-out infinite;
+            will-change: opacity, transform, filter;
+            transform: translateZ(0);
+            animation: toggleFlashText var(--toggle-pulse-ms, 1.35s) cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
         @keyframes toggleFlashText {
             0%, 100% {
-                opacity: 0.5;
-                transform: scale(0.98);
-                filter: brightness(0.92);
+                opacity: 0.62;
+                transform: translate3d(0, 0, 0) scale(0.995);
+                filter: brightness(0.96);
             }
             50% {
                 opacity: 1;
-                transform: scale(1);
-                filter: brightness(1.12);
+                transform: translate3d(0, -1px, 0) scale(1.01);
+                filter: brightness(1.06);
                 text-shadow:
                     0 0 22px rgba(255, 255, 255, 0.85),
                     0 0 14px rgba(228, 23, 121, 1),
@@ -651,11 +660,13 @@
             margin: 0 auto 2px;
             max-width: 100%;
             box-sizing: border-box;
-            animation: toggleWrapBob var(--toggle-pulse-ms, 1.35s) ease-in-out infinite;
+            will-change: transform;
+            transform: translateZ(0);
+            animation: toggleWrapBob var(--toggle-pulse-ms, 1.35s) cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
         @keyframes toggleWrapBob {
             0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-6px) scale(1.032); }
+            50% { transform: translateY(-4px) scale(1.015); }
         }
         .day-night-toggle {
             position: relative;
@@ -1146,7 +1157,7 @@
             color: #E41779 !important;
         }
         
-        /* 老闆介紹 · 香郎津桃 - 文青＋有趣＋特效 */
+        /* 創辦人介紹 · 香郎津桃 - 文青＋有趣＋特效 */
         @keyframes boss-photo-float {
             0%, 100% { transform: rotate(-2deg) translateY(0); }
             50% { transform: rotate(-2deg) translateY(-8px); }
@@ -1836,7 +1847,7 @@
             background: linear-gradient(135deg, #1a1a24 0%, #252532 50%, #1e1e2a 100%) !important;
             border-top: 1px solid rgba(228, 23, 121, 0.25) !important;
             box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.35) !important;
-            z-index: 9990 !important;
+            z-index: 1020 !important;
             transform: translateY(0) !important;
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
             display: block !important;
@@ -1993,32 +2004,32 @@
         .sticky-contact-close i { display: block !important; }
         /* 確保 back-to-top 按鈕不會被遮擋：桌面在 sticky 下層，小解析度浮在 sticky 上方，依直式解析度留足間距 */
         .back-to-top {
-            z-index: 9989 !important;
+            z-index: 1025 !important;
         }
         /* 小螢幕：用 max(固定px, vh) 適應不同直式高度，避免被 sticky bar 遮住 */
         @media (max-width: 991px) {
             .back-to-top {
                 bottom: max(155px, 18vh) !important;
-                z-index: 9991 !important;
+                z-index: 1025 !important;
             }
         }
         @media (max-width: 768px) {
             .back-to-top {
                 bottom: max(170px, 19vh) !important;
-                z-index: 9991 !important;
+                z-index: 1025 !important;
             }
         }
         @media (max-width: 576px) {
             .back-to-top {
                 bottom: max(185px, 20vh) !important;
-                z-index: 9991 !important;
+                z-index: 1025 !important;
             }
         }
         /* 390×844、430×932 等：sticky 可能較高，再加大間距 */
         @media (max-width: 480px) {
             .back-to-top {
                 bottom: max(195px, 22vh) !important;
-                z-index: 9991 !important;
+                z-index: 1025 !important;
             }
         }
         @media (max-width: 380px) {
@@ -2297,6 +2308,37 @@
         .navbar-logo-symbol { flex-shrink: 0; display: block; }
         .navbar-logo-text { object-fit: contain; vertical-align: middle; }
         .footer-logo-img { display: inline-block; }
+        /* 頂部區（導覽＋Hero）整塊層級高於底部聯絡條，避免 z-index 穿模 */
+        .site-header-shell {
+            position: relative;
+            z-index: 1030;
+            isolation: isolate;
+        }
+        /* 小螢幕漢堡：collapsing 與 show 同樣要有實底，否則動畫前後一瞬間會穿模 */
+        @media (max-width: 991.98px) {
+            .site-header-shell .navbar-collapse {
+                position: relative;
+                z-index: 5;
+            }
+            /* 展開／收合途中（.collapsing）與完全展開（.show）共用面板樣式 */
+            .site-header-shell .navbar-collapse.collapsing,
+            .site-header-shell .navbar-collapse.collapse.show {
+                margin-top: 0.35rem;
+                padding: 0.5rem 0.75rem 1rem;
+                background: rgba(13, 13, 13, 0.97);
+                border-radius: 0.5rem;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+            }
+            .site-header-shell .navbar-collapse.collapsing {
+                overflow: hidden !important;
+                transition: height 0.18s ease !important;
+            }
+            /* 選單開啟時整個頂區再抬高，避免與底部 fixed 條在過渡期搶層 */
+            .site-header-shell.site-header-shell--nav-open {
+                z-index: 1040;
+            }
+        }
         /* 確保 sticky bar 在所有元素之上 */
         body {
             padding-bottom: 0 !important;
@@ -2360,8 +2402,8 @@
     <!-- Spinner End -->
 
 
-    <!-- Header Start -->
-    <div class="container-fluid p-0">
+    <!-- Header Start：整區 stacking，避免捲回頂／漢堡選單被底部 sticky 壓穿 -->
+    <div class="container-fluid p-0 site-header-shell" id="siteHeaderShell">
         <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
             <a href="index.html" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center gap-2">
                 <img src="img/logo-symbol.svg" alt="" class="navbar-logo-symbol" width="36" height="54">
@@ -2378,7 +2420,7 @@
                     <a href="service.html" class="nav-item nav-link">香郎津桃包套服務</a>
                     <a href="free-travel.html" class="nav-item nav-link">自由行</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">服務指南</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">玩樂與服務指南</a>
                         <div class="dropdown-menu m-0">
                             <li class="dropdown-submenu">
                                 <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
@@ -2419,7 +2461,7 @@
                             <h1 class="display-1">把心交給我們<br>你只管，玩</h1>
                     </div>
                 </div>
-                    <p class="fs-5 mb-5">出國不該是另一場行軍。<br>在這裡，有人為你打點好一切——安全、歡樂、輕鬆，你只需要出現。</p>
+                    <p class="fs-5 mb-5">出國不該是另一場行軍。<br>在這裡，有人為你打點好一切 － 安全、放心、愉悅、輕鬆、療癒，只需要你的出現。</p>
                 </div>
                 <!-- 自由行文案（切換時顯示） -->
                 <div id="heroCopyFree" class="hero-copy animated slideInDown" style="display: none;">
@@ -2494,7 +2536,7 @@
 
     <!-- Content Section Start - Package Tour (Default) -->
     <div id="packageTourContent" class="content-section package-tour">
-    <!-- 老闆介紹 · 香郎津桃（包套）— 置頂 -->
+    <!-- 創辦人介紹 · 香郎津桃（包套）— 置頂 -->
     <div class="container-fluid boss-intro">
         <div class="container">
             <div class="boss-intro-inner wow fadeInUp" data-wow-delay="0.05s">
@@ -2503,13 +2545,13 @@
                     <span class="boss-photo-caption">本業是讓你玩得放心</span>
                 </div>
                 <div class="boss-copy">
-                    <p class="boss-title">老闆介紹</p>
+                    <p class="boss-title">創辦人介紹</p>
                     <h2 class="boss-name boss-name-gradient">香郎津桃</h2>
                     <blockquote class="boss-lead">名號很多，本業是讓你玩得放心、安心、開心。</blockquote>
                     <div class="boss-three-hearts">
-                        <p class="boss-heart-item boss-heart-1"><span class="boss-heart-dot">放心</span>心可以放著，人帶著就好。</p>
-                        <p class="boss-heart-item boss-heart-2"><span class="boss-heart-dot">安心</span>雷我們踩過了，路我們熟。</p>
-                        <p class="boss-heart-item boss-heart-3"><span class="boss-heart-dot">開心</span>笑到併軌的那種。</p>
+                        <p class="boss-heart-item boss-heart-1"><span class="boss-heart-dot">放心</span>心可以安放，人跟著導遊走就好</p>
+                        <p class="boss-heart-item boss-heart-2"><span class="boss-heart-dot">安心</span>地雷已踩盡，西貢的門路我們熟</p>
+                        <p class="boss-heart-item boss-heart-3"><span class="boss-heart-dot">開心</span>笑到併軌，流連忘返</p>
                     </div>
                     <div class="boss-aka-box">
                         <p class="boss-aka-label">津桃 AKA 又稱</p>
@@ -2519,7 +2561,7 @@
                     </div>
                     <p class="boss-exp-title">經歷</p>
                     <ul class="boss-exp-list boss-exp-timeline">
-                        <li><span class="boss-exp-text">十年野戰砲兵</span></li>
+                        <li><span class="boss-exp-text">十年陸軍</span></li>
                         <li><span class="boss-exp-text">一年美國德州砲兵基地訓練</span></li>
                         <li><span class="boss-exp-text">前蘋果日報人間事專欄作家</span></li>
                         <li><span class="boss-exp-text">越南十年暗黑經驗</span></li>
@@ -2541,7 +2583,7 @@
                                 <h1>專人包套暢遊越南</h1>
                             </div>
                         </div>
-                        <p class="mb-4 wow fadeInUp" data-wow-delay="0.2s">包套行程讓您無需操心，專人為您安排簽證、交通、住宿與精彩行程。從機場接送到 KTV、龍宮 VILLA、奧黛聖地到夜生活體驗，一站搞定，讓您專心享受越南的暗黑與日光魅力。</p>
+                        <p class="mb-4 wow fadeInUp" data-wow-delay="0.2s">包套行程讓您無需操心，專人為您安排簽證、交通、住宿與精彩行程。從機場接送到飯店 check-in、換匯、辣妹洗頭、米其林推薦美食、龍宮 Villa、奧黛聖地、KTV 到夜生活體驗，日光與暗黑行程相互穿插，一站搞定，讓您專心享受胡志明市的迷人魅力</p>
                         <ul class="list-group list-group-flush mb-5 wow fadeInUp" data-wow-delay="0.3s">
                             <li class="list-group-item bg-dark text-body border-secondary ps-0">
                                 <i class="fa fa-check-circle text-primary me-1"></i> 專人全程安排，簽證快通／包車／住宿一次搞定
@@ -2769,8 +2811,8 @@
     
     
     <!-- Content Section Start - Free Travel -->
-    <div id="freeTravelContent" class="content-section free-travel" style="display: none;">
-    <!-- 老闆介紹 · 香郎津桃（自由行）— 置頂 -->
+    <div id="freeTravelContent" class="content-section free-travel" style="display: none; pointer-events: none;">
+    <!-- 創辦人介紹 · 香郎津桃（自由行）— 置頂 -->
     <div class="container-fluid boss-intro">
         <div class="container">
             <div class="boss-intro-inner wow fadeInUp" data-wow-delay="0.05s" data-wow-duration="0.4s">
@@ -2779,13 +2821,13 @@
                     <span class="boss-photo-caption">本業是讓你玩得放心</span>
                 </div>
                 <div class="boss-copy">
-                    <p class="boss-title">老闆介紹</p>
+                    <p class="boss-title">創辦人介紹</p>
                     <h2 class="boss-name boss-name-gradient">香郎津桃</h2>
                     <blockquote class="boss-lead">名號很多，本業是讓你玩得放心、安心、開心。</blockquote>
                     <div class="boss-three-hearts">
-                        <p class="boss-heart-item boss-heart-1"><span class="boss-heart-dot">放心</span>心可以放著，人帶著就好。</p>
-                        <p class="boss-heart-item boss-heart-2"><span class="boss-heart-dot">安心</span>雷我們踩過了，路我們熟。</p>
-                        <p class="boss-heart-item boss-heart-3"><span class="boss-heart-dot">開心</span>笑到併軌的那種。</p>
+                        <p class="boss-heart-item boss-heart-1"><span class="boss-heart-dot">放心</span>心可以安放，人跟著導遊走就好</p>
+                        <p class="boss-heart-item boss-heart-2"><span class="boss-heart-dot">安心</span>地雷已踩盡，西貢的門路我們熟</p>
+                        <p class="boss-heart-item boss-heart-3"><span class="boss-heart-dot">開心</span>笑到併軌，流連忘返</p>
                     </div>
                     <div class="boss-aka-box">
                         <p class="boss-aka-label">津桃 AKA 又稱</p>
@@ -2795,7 +2837,7 @@
                     </div>
                     <p class="boss-exp-title">經歷</p>
                     <ul class="boss-exp-list boss-exp-timeline">
-                        <li><span class="boss-exp-text">十年野戰砲兵</span></li>
+                        <li><span class="boss-exp-text">十年陸軍</span></li>
                         <li><span class="boss-exp-text">一年美國德州砲兵基地訓練</span></li>
                         <li><span class="boss-exp-text">前蘋果日報人間事專欄作家</span></li>
                         <li><span class="boss-exp-text">越南十年暗黑經驗</span></li>
@@ -2822,16 +2864,16 @@
                             <span class="home-ft-no-fee-sub">代辦與諮詢<strong class="text-primary">不加價、不抽成</strong> · 僅收實際項目費用 · 明碼標價</span>
                         </div>
                         <p class="home-ft-no-fee-badge wow fadeInUp" data-wow-delay="0.15s" data-wow-duration="0.4s">核心承諾：諮詢與代辦全程免服務費</p>
-                        <p class="mb-4 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.4s">我們不抽成、不加價，只做你旅程裡可靠的那一雙手。由在地專業團隊協助簽證、交通、住宿、換匯與地陪，每一項服務透明報價、無隱藏費用；依你的節奏出發，深度體驗越南。</p>
+                        <p class="mb-4 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.4s">我們不抽成、不加價，只做你旅程裡可靠的那一雙手。由在地專業團隊協助簽證、交通、住宿、吃喝玩樂預訂與地陪，每一項服務透明報價、無隱藏費用；依你的節奏出發，深度體驗越南。</p>
                         <ul class="list-group list-group-flush mb-5 wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="0.4s">
                             <li class="list-group-item bg-dark text-body border-secondary ps-0">
-                                <i class="fa fa-check-circle text-primary me-1"></i> <strong>免服務費</strong>：簽證、包車、住宿、換匯、地陪等代辦與諮詢皆不加價抽成
+                                <i class="fa fa-check-circle text-primary me-1"></i> <strong>免服務費</strong>：簽證、包車、住宿、吃喝玩樂預訂、地陪等代辦與諮詢皆不加價抽成
                             </li>
                             <li class="list-group-item bg-dark text-body border-secondary ps-0">
                                 <i class="fa fa-check-circle text-primary me-1"></i> 明碼標價，行程與項目可自由選擇
                             </li>
                             <li class="list-group-item bg-dark text-body border-secondary ps-0">
-                                <i class="fa fa-check-circle text-primary me-1"></i> 專人對接，簽證、包車、飯店、換匯一次搞定
+                                <i class="fa fa-check-circle text-primary me-1"></i> 專人對接，簽證、包車、飯店、吃喝玩樂預訂一次搞定
                             </li>
                         </ul>
                         <div class="row wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.4s">
@@ -2923,14 +2965,14 @@
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5 order-md-1 text-md-end">
                         <div class="service-img p-5 wow fadeInLeft" data-wow-delay="0.08s" data-wow-duration="0.4s">
-                            <img class="img-fluid rounded-circle home-ft-parallax-img" src="img/service-4.jpg" alt="越南盾換匯">
+                            <img class="img-fluid rounded-circle home-ft-parallax-img" src="img/service-4.jpg" alt="吃喝玩樂預訂">
                         </div>
                     </div>
                     <div class="col-md-7">
                         <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.2s" data-wow-duration="0.4s">
-                            <h3>越南盾換匯</h3>
-                            <p class="home-ft-service-meta">台幣轉帳換匯 · 依當日匯率 · 免手續費</p>
-                            <p class="mb-4">匯率透明，可配合行程取件或到地交付，讓現金準備更安心。</p>
+                            <h3>吃喝玩樂預訂</h3>
+                            <p class="home-ft-service-meta">想去哪裡告訴我們，代訂 0 服務費</p>
+                            <p class="mb-4">各式 KTV、龍宮 Villa、半套桑拿、殘廢餐、日租情人伴遊，通通交給我們安排</p>
                             <a class="btn btn-outline-primary border-2 px-4" href="contact.html">詢價／預約 <i class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
@@ -2963,8 +3005,8 @@
                     <div class="col-md-7">
                         <div class="service-text px-5 px-md-0 py-md-5 text-md-end wow fadeInLeft" data-wow-delay="0.2s" data-wow-duration="0.4s">
                             <h3>旅遊顧問</h3>
-                            <p class="home-ft-service-meta">NT$ 800／天 · 明碼標價</p>
-                            <p class="mb-4">行程規劃、景點與餐廳建議、疑難解答，以日計費，隨時可諮詢。</p>
+                            <p class="home-ft-service-meta">NT$ 880／天 · 明碼標價</p>
+                            <p class="mb-4">午夜 12 點後的江湖救急，現金短缺周轉，專門處理疑難雜症</p>
                             <a class="btn btn-outline-primary border-2 px-4 me-2" href="free-travel.html">查看自由行專頁 <i class="fa fa-arrow-right ms-1"></i></a>
                             <a class="btn btn-primary px-4" href="contact.html">聯絡我們</a>
                         </div>
@@ -2975,152 +3017,6 @@
     </div>
     <!-- Service End -->
 
-
-    <!-- Banner Start - Free Travel -->
-    <div class="container-fluid py-5 bg-secondary" style="background-color: #ffffff !important; background: #ffffff !important;">
-        <div class="container py-5">
-            <div class="row g-0 justify-content-center">
-                <div class="col-lg-7 text-center">
-                    <div class="title mx-5 px-5 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="title-center">
-                            <h5>自由行諮詢</h5>
-                            <h1>開始規劃您的旅程</h1>
-                        </div>
-                    </div>
-                    <p class="fs-5 mb-5 wow fadeInUp" data-wow-delay="0.2s">想要自由探索越南？填寫您的聯絡方式，我們將為您提供最適合的自由行建議與規劃服務。</p>
-                    <div class="position-relative wow fadeInUp" data-wow-delay="0.3s">
-                        <input class="form-control border-0 bg-light rounded-pill w-100 py-4 ps-4 pe-5" type="text"
-                            placeholder="您的電子郵件">
-                        <button type="button" class="btn btn-primary py-3 px-4 position-absolute top-0 end-0 me-2"
-                            style="margin-top: 7px;">送出</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Banner End -->
-
-
-    <!-- Team Start - Free Travel -->
-    <div class="container-fluid py-5" style="background-color: #ffffff !important; background: #ffffff !important;">
-        <div class="container py-5">
-            <div class="text-center">
-                <div class="title wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="title-center">
-                        <h5>旅遊顧問</h5>
-                        <h1>我們的專業團隊</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <div class="team-body">
-                            <div class="team-before">
-                                <span>專長</span>
-                                <span>經驗</span>
-                                <span>語言</span>
-                                <span>服務</span>
-                                <span>評價</span>
-                                <span>地區</span>
-                            </div>
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
-                            <div class="team-after">
-                                <span>自由行規劃</span>
-                                <span>5年</span>
-                                <span>中英越</span>
-                                <span>簽證代辦</span>
-                                <span>4.9</span>
-                                <span>胡志明市</span>
-                            </div>
-                        </div>
-                        <a class="team-name" href="#">
-                            <h5 class="text-uppercase mb-0">旅遊顧問 A</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item">
-                        <div class="team-body">
-                            <div class="team-before">
-                                <span>專長</span>
-                                <span>經驗</span>
-                                <span>語言</span>
-                                <span>服務</span>
-                                <span>評價</span>
-                                <span>地區</span>
-                            </div>
-                            <img class="img-fluid" src="img/team-2.jpg" alt="">
-                            <div class="team-after">
-                                <span>交通安排</span>
-                                <span>3年</span>
-                                <span>中英</span>
-                                <span>包車服務</span>
-                                <span>4.8</span>
-                                <span>河內</span>
-                            </div>
-                        </div>
-                        <a class="team-name" href="#">
-                            <h5 class="text-uppercase mb-0">旅遊顧問 B</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item">
-                        <div class="team-body">
-                            <div class="team-before">
-                                <span>專長</span>
-                                <span>經驗</span>
-                                <span>語言</span>
-                                <span>服務</span>
-                                <span>評價</span>
-                                <span>地區</span>
-                            </div>
-                            <img class="img-fluid" src="img/team-3.jpg" alt="">
-                            <div class="team-after">
-                                <span>住宿推薦</span>
-                                <span>4年</span>
-                                <span>中英越</span>
-                                <span>飯店預訂</span>
-                                <span>4.7</span>
-                                <span>下龍灣</span>
-                            </div>
-                        </div>
-                        <a class="team-name" href="#">
-                            <h5 class="text-uppercase mb-0">旅遊顧問 C</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item">
-                        <div class="team-body">
-                            <div class="team-before">
-                                <span>專長</span>
-                                <span>經驗</span>
-                                <span>語言</span>
-                                <span>服務</span>
-                                <span>評價</span>
-                                <span>地區</span>
-                            </div>
-                            <img class="img-fluid" src="img/team-8.jpg" alt="">
-                            <div class="team-after">
-                                <span>旅遊資訊</span>
-                                <span>6年</span>
-                                <span>中英日</span>
-                                <span>行程規劃</span>
-                                <span>5.0</span>
-                                <span>會安</span>
-                            </div>
-                        </div>
-                        <a class="team-name" href="#">
-                            <h5 class="text-uppercase mb-0">旅遊顧問 D</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
     </div>
     <!-- Content Section End - Free Travel -->
 
@@ -3230,6 +3126,21 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <!-- 漢堡選單：展開瞬間抬高頂區 z-index，收合完才還原，減少與底部 bar 搶層閃爍 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var navCollapse = document.getElementById('navbarCollapse');
+            var shell = document.getElementById('siteHeaderShell');
+            if (!navCollapse || !shell) return;
+            navCollapse.addEventListener('show.bs.collapse', function () {
+                shell.classList.add('site-header-shell--nav-open');
+            });
+            /* 一點擊收合就還原層級，不必等動畫結束，體感較快 */
+            navCollapse.addEventListener('hide.bs.collapse', function () {
+                shell.classList.remove('site-header-shell--nav-open');
+            });
+        });
+    </script>
     <script src="js/search.js"></script>
     <script src="js/dropdown-submenu.js"></script>
     
@@ -3512,9 +3423,11 @@
                     }, 50);
                 }, 300);
                 
-                // 切換內容區塊
+                // 切換內容區塊（隱藏區塊不參與點擊，避免透明層蓋住可見內容）
                 packageTourContent.style.display = 'none';
+                packageTourContent.style.pointerEvents = 'none';
                 freeTravelContent.style.display = 'block';
+                freeTravelContent.style.pointerEvents = '';
                 // 自由行區塊剛顯示時重新計算滾動視差（否則首次 load 時區塊為 hidden，版面為 0，需捲動或重整才會更新）
                 requestAnimationFrame(function () {
                     requestAnimationFrame(function () {
@@ -3564,9 +3477,11 @@
                     }, 50);
                 }, 300);
                 
-                // 切換內容區塊
+                // 切換內容區塊（隱藏區塊不參與點擊，避免透明層蓋住可見內容）
                 freeTravelContent.style.display = 'none';
+                freeTravelContent.style.pointerEvents = 'none';
                 packageTourContent.style.display = 'block';
+                packageTourContent.style.pointerEvents = '';
                 // 切換 hero 文案為包套
                 const heroCopyPackage = document.getElementById('heroCopyPackage');
                 const heroCopyFree = document.getElementById('heroCopyFree');
@@ -3645,7 +3560,7 @@
                 width: 100% !important;
                 height: auto !important;
                 min-height: 60px !important;
-                z-index: 9990 !important;
+                z-index: 1020 !important;
                 display: block !important;
                 visibility: visible !important;
                 opacity: 1 !important;
@@ -3760,7 +3675,7 @@
                             left: 0 !important;
                             right: 0 !important;
                             width: 100% !important;
-                            z-index: 9990 !important;
+                            z-index: 1020 !important;
                             display: block !important;
                             visibility: visible !important;
                             opacity: 1 !important;

@@ -204,6 +204,94 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(228, 23, 121, 0.25);
         }
+        /* 服務卡：向下展開明細（對齊包套頁 duration 互動） */
+        .ft-card.ft-has-expand {
+            overflow: hidden;
+        }
+        .ft-expand-trigger {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            width: 100%;
+            margin-top: 0.75rem;
+            padding: 0.45rem 0.85rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: #b80f5c;
+            background: rgba(228, 23, 121, 0.06);
+            border: 1px solid rgba(228, 23, 121, 0.35);
+            border-radius: 999px;
+            cursor: pointer;
+            transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+            flex-shrink: 0;
+        }
+        .ft-expand-trigger:hover {
+            color: #fff;
+            background: linear-gradient(135deg, #E41779 0%, #c01466 100%);
+            border-color: #E41779;
+            box-shadow: 0 4px 14px rgba(228, 23, 121, 0.3);
+        }
+        .ft-expand-trigger .ft-expand-trigger-icon {
+            display: inline-block;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .ft-card.is-expanded .ft-expand-trigger .ft-expand-trigger-icon {
+            transform: rotate(180deg);
+        }
+        .ft-expand-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            flex-shrink: 0;
+        }
+        .ft-card.is-expanded .ft-expand-panel {
+            max-height: 1200px;
+        }
+        .ft-expand-panel-inner {
+            padding: 0.85rem 0 0;
+            margin-top: 0.65rem;
+            border-top: 1px solid rgba(228, 23, 121, 0.18);
+            text-align: left;
+        }
+        .ft-expand-panel-title {
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(184, 15, 92, 0.85);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .ft-expand-cat {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 0 0 0.35rem 0;
+        }
+        .ft-expand-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0.85rem 0;
+        }
+        .ft-expand-bullets li {
+            font-size: 0.78rem;
+            line-height: 1.55;
+            color: #444;
+            padding-left: 0.85rem;
+            position: relative;
+            margin-bottom: 0.2rem;
+        }
+        .ft-expand-bullets li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #E41779;
+        }
         .ft-cta {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: #fff;
@@ -264,7 +352,7 @@
                     <a href="service.html" class="nav-item nav-link">香郎津桃包套服務</a>
                     <a href="free-travel.html" class="nav-item nav-link active">自由行</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">服務指南</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">玩樂與服務指南</a>
                         <div class="dropdown-menu m-0">
                             <li class="dropdown-submenu">
                                 <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
@@ -310,7 +398,7 @@
                 <div class="col-lg-8 text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="text-primary text-uppercase mb-3">自由探索越南</h5>
                     <h2 class="mb-4">完全掌控你的旅程</h2>
-                    <p class="fs-5 text-muted ft-intro-lead">我們不抽成、不加價——<span class="ft-intro-highlight">免服務費</span>，只做你旅程裡最可靠的那一雙手。想去一般人進不去的地方？由在地專業導遊<span class="ft-intro-highlight">精選推薦</span>，從隱藏版據點到行家才懂的場所，<span class="ft-intro-highlight">自由選擇</span>、不強迫推銷。每一項服務<span class="ft-intro-highlight">明碼標價</span>，沒有隱藏費用，讓你算得清楚、玩得安心。<br class="d-none d-md-inline"><br class="d-none d-md-inline">依你的需求，我們可以協助：<span class="ft-intro-highlight">可帶妹飯店</span>推薦、<span class="ft-intro-highlight">多人座包車</span>交通安排、<span class="ft-intro-highlight">越南盾換匯</span>、娛樂場所<span class="ft-intro-highlight">陪伴導覽</span>、甚至<span class="ft-intro-highlight">就診陪伴</span>——該有的支援一次到位，節奏由你掌控。</p>
+                    <p class="fs-5 text-muted ft-intro-lead">我們不抽成、不加價——<span class="ft-intro-highlight">免服務費</span>，只做你旅程裡最可靠的那一雙手。想去一般人進不去的地方？由在地專業導遊<span class="ft-intro-highlight">精選推薦</span>，從隱藏版據點到行家才懂的場所，<span class="ft-intro-highlight">自由選擇</span>、不強迫推銷。每一項服務<span class="ft-intro-highlight">明碼標價</span>，沒有隱藏費用，讓你算得清楚、玩得安心。<br class="d-none d-md-inline"><br class="d-none d-md-inline">依你的需求，我們可以協助：<span class="ft-intro-highlight">可帶妹飯店</span>推薦、<span class="ft-intro-highlight">多人座包車</span>交通安排、<span class="ft-intro-highlight">吃喝玩樂預訂</span>、娛樂場所<span class="ft-intro-highlight">陪伴導覽</span>、甚至<span class="ft-intro-highlight">就診陪伴</span>——該有的支援一次到位，節奏由你掌控。</p>
                 </div>
             </div>
         </div>
@@ -326,65 +414,171 @@
             <p class="text-center text-muted mb-4">所有項目明碼標價，透明收費、無隱藏費用。</p>
             <div class="row g-4">
                 <div class="col-12 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="ft-card p-4 h-100">
+                    <div class="ft-card ft-has-expand p-4 h-100">
                         <div class="card-icon"><i class="fas fa-stamp"></i></div>
                         <h5 class="mb-2">簽證與快速通關代辦</h5>
                         <p class="ft-card-price">依類型報價 · 約 NT$ 1,200 起</p>
                         <p class="text-muted mb-0 small ft-card-desc">代辦越南簽證與機場快速通關，文件準備與流程指導，入境順暢、省時省心。</p>
+                        <button type="button" class="ft-expand-trigger" aria-expanded="false" aria-controls="ft-expand-visa">
+                            <span class="ft-expand-trigger-icon"><i class="fa fa-chevron-down"></i></span>
+                            <span>查看明細</span>
+                        </button>
+                        <div class="ft-expand-panel" id="ft-expand-visa" role="region">
+                            <div class="ft-expand-panel-inner">
+                                <p class="ft-expand-panel-title">價目與說明</p>
+                                <p class="ft-expand-cat">簽證與快速通關代辦</p>
+                                <ul class="ft-expand-bullets">
+                                    <li>越南簽證代辦：xxxx 台幣</li>
+                                    <li>越南境內所有機場快速通關：xxxx 台幣</li>
+                                    <li>木牌 - 柬埔寨邊境通關：xxxx 台幣</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.15s">
-                    <div class="ft-card p-4 h-100">
+                    <div class="ft-card ft-has-expand p-4 h-100">
                         <div class="card-icon"><i class="fas fa-car"></i></div>
                         <h5 class="mb-2">交通安排</h5>
                         <p class="ft-card-price">4／7／16／29 人座 · 依車型／時數報價</p>
                         <p class="text-muted mb-0 small ft-card-desc">機場接送、市區與跨城包車派遣，專車專用、時間彈性，人數多寡皆可配合。</p>
+                        <button type="button" class="ft-expand-trigger" aria-expanded="false" aria-controls="ft-expand-transport">
+                            <span class="ft-expand-trigger-icon"><i class="fa fa-chevron-down"></i></span>
+                            <span>查看明細</span>
+                        </button>
+                        <div class="ft-expand-panel" id="ft-expand-transport" role="region">
+                            <div class="ft-expand-panel-inner">
+                                <p class="ft-expand-panel-title">價目與說明</p>
+                                <p class="ft-expand-cat">交通安排</p>
+                                <ul class="ft-expand-bullets">
+                                    <li>7人座：3280 台幣／8小時，加班費 20 萬越南盾／1小時</li>
+                                    <li>豪華7人座：4380 台幣／8小時，加班費 20 萬越南盾／1小時</li>
+                                    <li>16人座：4980 台幣／8小時，加班費 30 萬越南盾／1小時</li>
+                                    <li>豪華9人座：6980 台幣／8小時，加班費 40 萬越南盾／1小時</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="ft-card p-4 h-100">
+                    <div class="ft-card ft-has-expand p-4 h-100">
                         <div class="card-icon"><i class="fas fa-hotel"></i></div>
                         <h5 class="mb-2">住宿推薦</h5>
                         <p class="ft-card-price">房價依飯店報價 · 代訂免服務費</p>
                         <p class="text-muted mb-0 small ft-card-desc">飯店、民宿代訂；若有特殊需求（如可帶妹飯店），可一併推薦、代訂。</p>
+                        <button type="button" class="ft-expand-trigger" aria-expanded="false" aria-controls="ft-expand-stay">
+                            <span class="ft-expand-trigger-icon"><i class="fa fa-chevron-down"></i></span>
+                            <span>查看明細</span>
+                        </button>
+                        <div class="ft-expand-panel" id="ft-expand-stay" role="region">
+                            <div class="ft-expand-panel-inner">
+                                <p class="ft-expand-panel-title">價目與說明</p>
+                                <p class="ft-expand-cat">住宿推薦</p>
+                                <ul class="ft-expand-bullets">
+                                    <li>依檔期與房型報價</li>
+                                    <li>市區五星級飯店</li>
+                                    <li>高級民宿公寓</li>
+                                    <li>獨幢泳池別墅</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.25s">
-                    <div class="ft-card p-4 h-100">
-                        <div class="card-icon"><i class="fas fa-exchange-alt"></i></div>
-                        <h5 class="mb-2">越南盾換匯</h5>
-                        <p class="ft-card-price">台幣轉帳換匯 · 依當日匯率</p>
-                        <p class="text-muted mb-0 small ft-card-desc">台幣轉帳即可換越南盾，匯率透明、免手續費，可配合行程取件或到地交付。</p>
+                    <div class="ft-card ft-has-expand p-4 h-100">
+                        <div class="card-icon"><i class="fas fa-utensils"></i></div>
+                        <h5 class="mb-2">吃喝玩樂預訂</h5>
+                        <p class="ft-card-price">想去哪裡告訴我們，代訂 0 服務費</p>
+                        <p class="text-muted mb-0 small ft-card-desc">各式 KTV、龍宮 Villa、半套桑拿、殘廢餐、日租情人伴遊，通通交給我們安排</p>
+                        <button type="button" class="ft-expand-trigger" aria-expanded="false" aria-controls="ft-expand-fun">
+                            <span class="ft-expand-trigger-icon"><i class="fa fa-chevron-down"></i></span>
+                            <span>查看明細</span>
+                        </button>
+                        <div class="ft-expand-panel" id="ft-expand-fun" role="region">
+                            <div class="ft-expand-panel-inner">
+                                <p class="ft-expand-panel-title">價目與說明</p>
+                                <p class="ft-expand-cat">吃喝玩樂預訂</p>
+                                <ul class="ft-expand-bullets">
+                                    <li>訂 KTV 包廂或單人併團</li>
+                                    <li>大、中、小龍宮</li>
+                                    <li>半套桑拿、辣妹洗頭、殘廢餐</li>
+                                    <li>日租情人伴遊</li>
+                                    <li>所有在胡志明市的娛樂項目都包辦</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="ft-card p-4 h-100">
+                    <div class="ft-card ft-has-expand p-4 h-100">
                         <div class="card-icon"><i class="fas fa-user-tie"></i></div>
                         <h5 class="mb-2">導遊／地陪派遣</h5>
                         <p class="ft-card-price">娛樂場所陪伴、就診陪伴等 · 依時數報價</p>
                         <p class="text-muted mb-0 small ft-card-desc">在地導遊或地陪派遣，含娛樂場所陪伴、就診陪伴等，時數與項目可依需求安排。</p>
+                        <button type="button" class="ft-expand-trigger" aria-expanded="false" aria-controls="ft-expand-guide">
+                            <span class="ft-expand-trigger-icon"><i class="fa fa-chevron-down"></i></span>
+                            <span>查看明細</span>
+                        </button>
+                        <div class="ft-expand-panel" id="ft-expand-guide" role="region">
+                            <div class="ft-expand-panel-inner">
+                                <p class="ft-expand-panel-title">價目與說明</p>
+                                <p class="ft-expand-cat">導遊／地陪派遣</p>
+                                <ul class="ft-expand-bullets">
+                                    <li>晚上6小時：200萬越南盾</li>
+                                    <li>整天8小時：250萬越南盾</li>
+                                    <li>整天12小時：300萬越南盾</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.35s">
-                    <div class="ft-card p-4 h-100">
+                    <div class="ft-card ft-has-expand p-4 h-100">
                         <div class="card-icon"><i class="fas fa-headset"></i></div>
                         <h5 class="mb-2">旅遊顧問</h5>
-                        <p class="ft-card-price">NT$ 800／天</p>
-                        <p class="text-muted mb-0 small ft-card-desc">行程規劃、景點與餐廳建議、疑難解答，以日計費、明碼標價，隨時可諮詢。</p>
+                        <p class="ft-card-price">NT$ 880／天</p>
+                        <p class="text-muted mb-0 small ft-card-desc">午夜 12 點後的江湖救急，現金短缺周轉，專門處理疑難雜症</p>
+                        <button type="button" class="ft-expand-trigger" aria-expanded="false" aria-controls="ft-expand-advisor">
+                            <span class="ft-expand-trigger-icon"><i class="fa fa-chevron-down"></i></span>
+                            <span>查看明細</span>
+                        </button>
+                        <div class="ft-expand-panel" id="ft-expand-advisor" role="region">
+                            <div class="ft-expand-panel-inner">
+                                <p class="ft-expand-panel-title">價目與說明</p>
+                                <p class="ft-expand-cat">旅遊諮詢顧問</p>
+                                <ul class="ft-expand-bullets">
+                                    <li>在胡志明市的娛樂預訂我們不收費</li>
+                                    <li>人在江湖有難我們隨 call 隨到</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">詢價／預約</a></div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="ft-card p-4 h-100">
+                    <div class="ft-card ft-has-expand p-4 h-100">
                         <div class="card-icon"><i class="fas fa-question-circle"></i></div>
                         <h5 class="mb-2">其他疑難雜症</h5>
                         <p class="ft-card-price">另洽報價</p>
                         <p class="text-muted mb-0 small ft-card-desc">上述未列之需求或特殊安排，歡迎來訊說明，我們另予報價、專案處理。</p>
+                        <button type="button" class="ft-expand-trigger" aria-expanded="false" aria-controls="ft-expand-other">
+                            <span class="ft-expand-trigger-icon"><i class="fa fa-chevron-down"></i></span>
+                            <span>查看明細</span>
+                        </button>
+                        <div class="ft-expand-panel" id="ft-expand-other" role="region">
+                            <div class="ft-expand-panel-inner">
+                                <p class="ft-expand-panel-title">說明</p>
+                                <ul class="ft-expand-bullets">
+                                    <li>上述未列之需求或特殊安排，歡迎來訊說明</li>
+                                    <li>我們另予報價、專案處理</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="ft-card-footer"><a href="contact.html" class="btn btn-outline-primary border-2 btn-sm">諮詢</a></div>
                     </div>
                 </div>
@@ -504,6 +698,16 @@
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
     <script src="js/dropdown-submenu.js"></script>
+    <script>
+        $(function () {
+            $('.ft-section-alt .ft-expand-trigger').on('click', function () {
+                var $card = $(this).closest('.ft-card');
+                var willOpen = !$card.hasClass('is-expanded');
+                $card.toggleClass('is-expanded', willOpen);
+                $(this).attr('aria-expanded', willOpen ? 'true' : 'false');
+            });
+        });
+    </script>
 </body>
 
 </html>
