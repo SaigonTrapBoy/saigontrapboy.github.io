@@ -14,31 +14,31 @@
 /* 小解析度／直式：置頂按鈕浮在 sticky 上方，用 max(px, vh) 適應 390×844、430×932 等各種高度 */
 @media (max-width: 991px) {
     .back-to-top {
-        bottom: max(155px, 18vh);
+        bottom: max(110px, 14vh);
         z-index: 1025;
     }
 }
 @media (max-width: 768px) {
     .back-to-top {
-        bottom: max(170px, 19vh);
+        bottom: max(115px, 14vh);
         z-index: 1025;
     }
 }
 @media (max-width: 576px) {
     .back-to-top {
-        bottom: max(185px, 20vh);
+        bottom: max(120px, 14vh);
         z-index: 1025;
     }
 }
 @media (max-width: 480px) {
     .back-to-top {
-        bottom: max(195px, 22vh);
+        bottom: max(120px, 14vh);
         z-index: 1025;
     }
 }
 @media (max-width: 380px) {
     .back-to-top {
-        bottom: max(200px, 24vh);
+        bottom: max(125px, 15vh);
     }
 }
 

@@ -2008,32 +2008,31 @@
         /* 小螢幕：用 max(固定px, vh) 適應不同直式高度，避免被 sticky bar 遮住 */
         @media (max-width: 991px) {
             .back-to-top {
-                bottom: max(155px, 18vh) !important;
+                bottom: max(110px, 14vh) !important;
                 z-index: 1025 !important;
             }
         }
         @media (max-width: 768px) {
             .back-to-top {
-                bottom: max(170px, 19vh) !important;
+                bottom: max(115px, 14vh) !important;
                 z-index: 1025 !important;
             }
         }
         @media (max-width: 576px) {
             .back-to-top {
-                bottom: max(185px, 20vh) !important;
+                bottom: max(120px, 14vh) !important;
                 z-index: 1025 !important;
             }
         }
-        /* 390×844、430×932 等：sticky 可能較高，再加大間距 */
         @media (max-width: 480px) {
             .back-to-top {
-                bottom: max(195px, 22vh) !important;
+                bottom: max(120px, 14vh) !important;
                 z-index: 1025 !important;
             }
         }
         @media (max-width: 380px) {
             .back-to-top {
-                bottom: max(200px, 24vh) !important;
+                bottom: max(125px, 15vh) !important;
             }
         }
         /* 預定流程：呼吸燈條（橫式由左至右、直式由上至下）＋從容留白 */
@@ -2351,40 +2350,49 @@
         }
         /* 響應式：維持右側留白，關閉鈕不重疊 */
         @media (max-width: 768px) {
+            /* 手機版：強制兩列 — 第一列文字、第二列 4 個按鈕均分 */
             .sticky-contact-content {
-                padding: 8px 16px 8px 16px !important;
-                padding-right: 48px !important;
-                gap: 8px 14px !important;
+                padding: 8px 44px 8px 14px !important;
+                gap: 5px !important;
             }
-            .sticky-contact-inner { gap: 8px 12px !important; }
-            .sticky-msg-main { font-size: 1.05rem !important; }
-            .sticky-msg-sub { font-size: 0.9rem !important; }
-            .sticky-method { padding: 6px 10px !important; min-width: 48px !important; }
-            .sticky-method-icon { font-size: 1.1rem !important; }
-            .sticky-method-label { font-size: 0.72rem !important; }
+            .sticky-contact-inner {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 5px !important;
+                width: 100% !important;
+            }
+            .sticky-msg { width: 100% !important; }
+            .sticky-msg-main { font-size: 0.95rem !important; }
+            .sticky-msg-sub { font-size: 0.82rem !important; }
+            .sticky-contact-methods {
+                width: 100% !important;
+                flex-wrap: nowrap !important;
+                justify-content: space-evenly !important;
+                gap: 4px !important;
+            }
+            .sticky-method {
+                flex: 1 !important;
+                flex-direction: row !important;
+                gap: 5px !important;
+                padding: 5px 4px !important;
+                min-width: 0 !important;
+                border-radius: 8px !important;
+            }
+            .sticky-method-icon { font-size: 1rem !important; }
+            .sticky-method-label { font-size: 0.7rem !important; }
             .sticky-contact-close {
-                right: 12px !important;
-                width: 32px !important;
-                height: 32px !important;
-                font-size: 0.9rem !important;
-            }
-        }
-        @media (max-width: 576px) {
-            .sticky-contact-content {
-                padding: 8px 12px 8px 12px !important;
-                padding-right: 44px !important;
-                gap: 6px 10px !important;
-            }
-            .sticky-contact-inner { gap: 6px 10px !important; }
-            .sticky-msg-main { font-size: 1rem !important; }
-            .sticky-msg-sub { font-size: 0.85rem !important; }
-            .sticky-method-label { display: none !important; }
-            .sticky-method { padding: 8px 12px !important; min-width: 44px !important; }
-            .sticky-contact-close {
+                top: 8px !important;
                 right: 10px !important;
+                transform: none !important;
                 width: 30px !important;
                 height: 30px !important;
+                font-size: 0.85rem !important;
             }
+        }
+        @media (max-width: 480px) {
+            .sticky-method-label { display: none !important; }
+            .sticky-method { padding: 7px 0 !important; justify-content: center !important; }
+            .sticky-method-icon { font-size: 1.15rem !important; }
         }
     </style>
 </head>
