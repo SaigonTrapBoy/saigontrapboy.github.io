@@ -8,7 +8,7 @@
     position: fixed;
     display: none;
     right: 16px;
-    bottom: 45px;
+    bottom: 102px;
     z-index: 1025;
 }
 /* 小解析度／直式：置頂按鈕浮在 sticky 上方，用 max(px, vh) 適應 390×844、430×932 等各種高度 */
