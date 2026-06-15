@@ -149,12 +149,25 @@
             text-transform: none;
             box-sizing: border-box;
         }
-        /* 自由行 hero 多一行 kicker，壓縮 title 與段落間距補回高度 */
+        /* 壓縮 hero 與 toggle 垂直間距，確保 toggle-info 在 100vh 內可見 */
         #heroCopyFree .title {
             margin-bottom: 1rem;
         }
         #heroCopyFree .fs-5 {
             margin-bottom: 1.5rem !important;
+        }
+        .trip-toggle-container {
+            margin-top: 12px !important;
+        }
+        .toggle-title {
+            margin-bottom: 12px !important;
+        }
+        .toggle-info {
+            margin-top: 8px !important;
+            min-height: 0 !important;
+        }
+        .toggle-info-item {
+            padding: 6px 20px !important;
         }
         #heroCopyFree .hero-free-travel-head {
             display: flex;
