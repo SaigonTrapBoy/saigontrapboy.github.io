@@ -274,6 +274,12 @@
 
 
 /*** Service ***/
+.service-img img.rounded-circle {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 100%;
+}
+
 .service-item {
     position: relative;
     margin-top: 2.5rem;
@@ -286,17 +292,7 @@
 }
 
 .service-item .service-img::before {
-    position: absolute;
-    content: "";
-    width: calc(100% - 12rem);
-    height: calc(100% - 12rem);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 3rem solid rgba(0, 0, 0, .5);
-    border-radius: 300px;
-    z-index: 1;
-    pointer-events: none;
+    content: none;
 }
 
 .service-item.service-item-left {
