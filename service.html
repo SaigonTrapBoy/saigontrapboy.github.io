@@ -279,8 +279,6 @@
             transition: border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
             z-index: 0;
             box-shadow: 0 4px 24px rgba(0,0,0,0.15), 0 0 20px rgba(0,229,204,0.08), 0 0 40px rgba(0,229,204,0.04);
-            display: flex;
-            flex-direction: column;
         }
         .package-includes .duration-card::before {
             position: absolute;
@@ -382,11 +380,9 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            flex: 0 0 auto;
         }
         .package-includes .duration-card.is-expanded .duration-highlights {
             max-height: 600px;
-            flex: 1;
         }
         .package-includes .duration-card .duration-highlights-inner {
             padding: 1.1rem 0 0.25rem;
@@ -1175,11 +1171,23 @@
                     pullDrag: false,
                 });
             });
+            function syncHighlightHeights() {
+                var panels = $('.package-includes .duration-card.is-expanded .duration-highlights');
+                if (panels.length === 0) return;
+                // 暫時移除 max-height 限制，量測各自的真實高度
+                panels.css('max-height', 'none');
+                var maxH = 0;
+                panels.each(function () { maxH = Math.max(maxH, $(this).outerHeight()); });
+                // 統一設成最高的那張
+                panels.css('max-height', maxH + 'px');
+            }
             $('.package-includes .duration-trigger').on('click', function () {
                 var card = $(this).closest('.duration-card');
                 var isExpanded = card.hasClass('is-expanded');
                 card.toggleClass('is-expanded', !isExpanded);
                 $(this).attr('aria-expanded', !isExpanded);
+                // 等動畫結束後同步高度
+                setTimeout(syncHighlightHeights, 420);
             });
         });
     </script>
