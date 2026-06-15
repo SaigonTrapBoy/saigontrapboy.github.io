@@ -57,7 +57,24 @@
         if ($(this).scrollTop() > 0) {
             $('.navbar').addClass('position-fixed bg-dark shadow-sm');
         } else {
-            $('.navbar').removeClass('position-fixed bg-dark shadow-sm');
+            // 選單展開中不移除深色背景
+            if (!$('.navbar-collapse').hasClass('show')) {
+                $('.navbar').removeClass('position-fixed bg-dark shadow-sm');
+            }
+        }
+    });
+
+    // 漢堡選單展開時強制深色背景，收起後若在頂部則還原透明
+    $('.navbar-toggler').on('click', function () {
+        var isOpen = $('.navbar-collapse').hasClass('show');
+        if (!isOpen) {
+            // 即將展開
+            $('.navbar').addClass('position-fixed bg-dark shadow-sm');
+        } else {
+            // 即將收起，若未滾動則移除深色
+            if ($(window).scrollTop() === 0) {
+                $('.navbar').removeClass('position-fixed bg-dark shadow-sm');
+            }
         }
     });
     
