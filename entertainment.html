@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <title>其他娛樂選擇 - 香郎津桃</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="越南娛樂,洗頭按摩,桑拿,龍宮Villa,殘廢餐,伴遊,胡志明市" name="keywords">
+    <meta content="香郎津桃帶您探索越南各式娛樂體驗，洗頭按摩、桑拿洗浴、龍宮Villa、殘廢餐、日租伴遊一站掌握。" name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Nested Dropdown Styles */
+        .dropdown-submenu { position: relative; }
+        .dropdown-submenu > .dropdown-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin: 0;
+            min-width: 200px;
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+            z-index: 1000;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .dropdown-submenu:hover > .dropdown-menu,
+        .dropdown-submenu > .dropdown-menu:hover {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown-submenu > a::after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+        .dropdown-submenu:hover > a::after { border-left-color: #fff; }
+        .dropdown-submenu::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+            z-index: 1001;
+            background: transparent;
+        }
+        .dropdown-menu.show .dropdown-submenu > .dropdown-menu {
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .dropdown-menu.show .dropdown-submenu:hover > .dropdown-menu {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        @media (max-width: 991px) {
+            .dropdown-submenu > .dropdown-menu {
+                position: static;
+                float: none;
+                margin-left: 1rem;
+            }
+        }
+
+        /* 娛樂選擇頁面樣式 */
+        .ent-section {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 2.5rem 0;
+        }
+        .ent-section:last-of-type { border-bottom: 0; }
+        .ent-section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .ent-section-intro {
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 1.5rem;
+            max-width: 720px;
+        }
+
+        /* Accordion 深色客製 */
+        .ent-accordion .accordion-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px !important;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+        .ent-accordion .accordion-button {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 10px !important;
+            box-shadow: none;
+        }
+        .ent-accordion .accordion-button:not(.collapsed) {
+            background: rgba(228,23,121,0.15);
+            color: #ff8ab8;
+            box-shadow: none;
+        }
+        .ent-accordion .accordion-button::after {
+            filter: invert(1) brightness(2);
+        }
+        .ent-accordion .accordion-button:not(.collapsed)::after {
+            filter: none;
+        }
+        .ent-accordion .accordion-body {
+            background: rgba(0,0,0,0.25);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.97rem;
+            line-height: 1.75;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .ent-tag {
+            display: inline-block;
+            background: rgba(228,23,121,0.18);
+            color: #ff8ab8;
+            border: 1px solid rgba(228,23,121,0.35);
+            border-radius: 20px;
+            padding: 2px 12px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center gap-2">
+                <img src="img/logo-symbol-pink.png" alt="" class="navbar-logo-symbol" height="40">
+                <img src="img/logo-text-transparent.png" alt="香郎津桃" class="navbar-logo-text" height="40" style="max-height: 40px; width: auto;">
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">香郎津桃包套服務</a>
+                    <a href="free-travel.html" class="nav-item nav-link">自由行</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">玩樂與服務指南</a>
+                        <div class="dropdown-menu m-0">
+                            <li class="dropdown-submenu">
+                                <a href="ktv.html" class="dropdown-item">KTV 選擇</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="ktv.html#ktv-dress" class="dropdown-item">禮服 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-sheer" class="dropdown-item">薄紗 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-vietnamese" class="dropdown-item">越式 KTV</a></li>
+                                    <li><a href="ktv.html#ktv-korean" class="dropdown-item">韓式 KTV</a></li>
+                                </ul>
+                            </li>
+                            <a href="entertainment.html" class="dropdown-item active">其他娛樂選擇</a>
+                            <a href="hotel.html" class="dropdown-item">飯店選擇</a>
+                            <a href="restaurant.html" class="dropdown-item">餐廳推薦</a>
+                            <a href="guide.html" class="dropdown-item">新手指南</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="#" class="nav-item nav-link d-lg-none" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fas fa-search me-1"></i>搜尋
+                    </a>
+                </div>
+                <div class="d-none d-lg-flex align-items-center">
+                    <button type="button" class="btn btn-outline-primary border-2 me-3" data-bs-toggle="modal" data-bs-target="#searchModal" title="搜尋網站">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a class="btn btn-outline-primary border-2" href="contact.html">立即諮詢</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="page-header pb-5" style="background-image: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)), url('img/top-banner-1.jpg');">
+            <div class="container text-center py-5">
+                <h1 class="display-4 text-uppercase mb-3 animated slideInDown">其他娛樂選擇</h1>
+                <p class="lead text-white mb-4 animated slideInDown">越南在地特色娛樂體驗，專人帶路探索更多</p>
+                <nav aria-label="breadcrumb animated slideInDown">
+                    <ol class="breadcrumb justify-content-center text-uppercase mb-0">
+                        <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
+                        <li class="breadcrumb-item text-primary active" aria-current="page">其他娛樂選擇</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Entertainment Section Start -->
+    <div class="container-fluid py-5 bg-dark">
+        <div class="container py-4">
+
+            <!-- 1. 洗頭／按摩 -->
+            <section id="ent-massage" class="ent-section wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="ent-section-title">洗頭／按摩</h2>
+                <p class="ent-section-intro">越南特色的洗頭與按摩體驗，從頭皮護理到全身放鬆，讓您在旅途中徹底紓壓。</p>
+                <div class="accordion ent-accordion" id="accordionMassage">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#massage-detail">
+                                <i class="fas fa-spa me-2 text-primary"></i> 洗頭／按摩 — 了解更多
+                            </button>
+                        </h2>
+                        <div id="massage-detail" class="accordion-collapse collapse" data-bs-parent="#accordionMassage">
+                            <div class="accordion-body">
+                                <span class="ent-tag">放鬆首選</span>
+                                <p class="mb-0">（簡短說明待補充）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 桑拿洗浴 -->
+            <section id="ent-sauna" class="ent-section wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="ent-section-title">桑拿洗浴</h2>
+                <p class="ent-section-intro">越南當地特色桑拿體驗，設施完善、服務到位，適合想要深度放鬆的旅客。</p>
+                <div class="accordion ent-accordion" id="accordionSauna">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sauna-detail">
+                                <i class="fas fa-hot-tub me-2 text-primary"></i> 桑拿洗浴 — 了解更多
+                            </button>
+                        </h2>
+                        <div id="sauna-detail" class="accordion-collapse collapse" data-bs-parent="#accordionSauna">
+                            <div class="accordion-body">
+                                <span class="ent-tag">深度紓壓</span>
+                                <p class="mb-0">（簡短說明待補充）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 龍宮 Villa -->
+            <section id="ent-villa" class="ent-section wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="ent-section-title">龍宮 Villa</h2>
+                <p class="ent-section-intro">越南知名的龍宮 Villa 體驗，私密包廂、頂級服務，是暗黑行程中最受歡迎的選項之一。</p>
+                <div class="accordion ent-accordion" id="accordionVilla">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#villa-detail">
+                                <i class="fas fa-dungeon me-2 text-primary"></i> 龍宮 Villa — 了解更多
+                            </button>
+                        </h2>
+                        <div id="villa-detail" class="accordion-collapse collapse" data-bs-parent="#accordionVilla">
+                            <div class="accordion-body">
+                                <span class="ent-tag">暗黑必訪</span>
+                                <p class="mb-0">（簡短說明待補充）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 殘廢餐 -->
+            <section id="ent-special-dining" class="ent-section wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="ent-section-title">殘廢餐</h2>
+                <p class="ent-section-intro">越南獨特的殘廢餐文化，結合美食與特色服務，帶給您難忘的用餐體驗。</p>
+                <div class="accordion ent-accordion" id="accordionDining">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dining-detail">
+                                <i class="fas fa-utensils me-2 text-primary"></i> 殘廢餐 — 了解更多
+                            </button>
+                        </h2>
+                        <div id="dining-detail" class="accordion-collapse collapse" data-bs-parent="#accordionDining">
+                            <div class="accordion-body">
+                                <span class="ent-tag">在地特色</span>
+                                <p class="mb-0">（簡短說明待補充）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. 日租情人伴遊 -->
+            <section id="ent-escort" class="ent-section wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="ent-section-title">日租情人伴遊</h2>
+                <p class="ent-section-intro">專業伴遊服務，由在地團隊嚴選，陪您遊覽城市、享用美食或夜間活動，讓旅程更有溫度。</p>
+                <div class="accordion ent-accordion" id="accordionEscort">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#escort-detail">
+                                <i class="fas fa-heart me-2 text-primary"></i> 日租情人伴遊 — 了解更多
+                            </button>
+                        </h2>
+                        <div id="escort-detail" class="accordion-collapse collapse" data-bs-parent="#accordionEscort">
+                            <div class="accordion-body">
+                                <span class="ent-tag">專人伴遊</span>
+                                <p class="mb-0">（簡短說明待補充）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <!-- Entertainment Section End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <a href="index.html">
+                <img src="img/logo-text-transparent.png" alt="香郎津桃" class="footer-logo-img" style="max-height: 56px; width: auto;">
+            </a>
+            <div class="d-flex justify-content-center mb-4">
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-x-twitter"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; CK Travelling, All Right Reserved.</p>
+            <p class="mb-0">Designed by Rod C. and Jeff T.</p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white" id="searchModalLabel">
+                        <i class="fas fa-search me-2"></i>搜尋網站
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-secondary border-0 text-white" id="searchInput"
+                                   placeholder="輸入關鍵字搜尋..." autocomplete="off">
+                            <button class="btn btn-primary" type="button" id="searchButton">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="searchResults" class="search-results">
+                        <div class="text-center py-5 text-muted">
+                            <i class="fas fa-search fa-2x mb-3"></i>
+                            <p>請輸入關鍵字開始搜尋</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/dropdown-submenu.js"></script>
+</body>
+
+</html>
