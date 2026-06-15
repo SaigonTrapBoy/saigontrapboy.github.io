@@ -115,7 +115,7 @@
         .header-hero-container {
             position: relative;
             width: 100%;
-            min-height: 100vh;
+            height: 100vh;
             overflow: hidden;
         }
         .hero-background-img {
@@ -148,6 +148,13 @@
             overflow: visible;
             text-transform: none;
             box-sizing: border-box;
+        }
+        /* 自由行 hero 多一行 kicker，壓縮 title 與段落間距補回高度 */
+        #heroCopyFree .title {
+            margin-bottom: 1rem;
+        }
+        #heroCopyFree .fs-5 {
+            margin-bottom: 1.5rem !important;
         }
         #heroCopyFree .hero-free-travel-head {
             display: flex;
