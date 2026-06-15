@@ -149,6 +149,17 @@
             text-transform: none;
             box-sizing: border-box;
         }
+        /* Hero 文字框放寬，減少 Bootstrap mx-5 px-5 的水平擠壓 */
+        .header-hero-container .carousel-caption .hero-copy {
+            width: min(95vw, 860px);
+            text-align: center;
+        }
+        .header-hero-container .carousel-caption .hero-copy .title {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-left: clamp(0.5rem, 3vw, 2rem) !important;
+            padding-right: clamp(0.5rem, 3vw, 2rem) !important;
+        }
         /* Hero 所有垂直空間依視窗高度自動縮放，確保任何設備都能看到 toggle-info */
         .header-hero-container .carousel-caption .hero-copy h1.display-1 {
             font-size: clamp(2rem, 6.5vh, 5rem);
