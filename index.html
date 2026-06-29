@@ -2020,31 +2020,6 @@
             opacity: 0.95 !important;
         }
         
-        /* 關閉按鈕 */
-        .sticky-contact-close {
-            position: absolute !important;
-            top: 50% !important;
-            right: 16px !important;
-            transform: translateY(-50%) !important;
-            width: 36px !important;
-            height: 36px !important;
-            border-radius: 50% !important;
-            border: 1px solid rgba(255, 255, 255, 0.15) !important;
-            background: rgba(255, 255, 255, 0.06) !important;
-            color: rgba(255, 255, 255, 0.6) !important;
-            font-size: 0.9rem !important;
-            cursor: pointer !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            transition: all 0.25s ease !important;
-        }
-        .sticky-contact-close:hover {
-            background: rgba(255, 255, 255, 0.12) !important;
-            color: #fff !important;
-            border-color: rgba(255, 255, 255, 0.25) !important;
-        }
-        .sticky-contact-close i { display: block !important; }
         /* 確保 back-to-top 按鈕不會被遮擋：桌面在 sticky 下層，小解析度浮在 sticky 上方，依直式解析度留足間距 */
         .back-to-top {
             z-index: 1025 !important;
@@ -2424,14 +2399,6 @@
             }
             .sticky-method-icon { font-size: 1rem !important; }
             .sticky-method-label { font-size: 0.7rem !important; }
-            .sticky-contact-close {
-                top: 8px !important;
-                right: 10px !important;
-                transform: none !important;
-                width: 30px !important;
-                height: 30px !important;
-                font-size: 0.85rem !important;
-            }
         }
         @media (max-width: 480px) {
             .sticky-method-label { display: none !important; }
@@ -3115,9 +3082,6 @@
                 </a>
             </div>
             </div>
-            <button class="sticky-contact-close" id="stickyContactClose" title="關閉" aria-label="關閉">
-                <i class="fas fa-times"></i>
-            </button>
         </div>
     </div>
 
@@ -3578,18 +3542,12 @@
         // 使用多種方式確保執行
         function initStickyContactBar() {
             const stickyContactBar = document.getElementById('stickyContactBar');
-            const stickyContactClose = document.getElementById('stickyContactClose');
-            
+
             if (!stickyContactBar) {
                 console.error('Sticky contact bar element not found!');
                 return;
             }
-            
-            if (!stickyContactClose) {
-                console.error('Sticky contact close button not found!');
-                return;
-            }
-            
+
             console.log('Sticky contact bar found, initializing...');
             
             // 強制設置樣式確保顯示
@@ -3646,25 +3604,9 @@
                 }
             }, 300);
             
-            // 檢查 localStorage 中是否已關閉
-            const isHidden = localStorage.getItem('stickyContactBarHidden') === 'true';
-            if (isHidden) {
-                stickyContactBar.classList.add('hidden');
-                console.log('Sticky bar is hidden (from localStorage)');
-            } else {
-                stickyContactBar.classList.remove('hidden');
-                console.log('Sticky bar is visible');
-            }
-            
-            // 關閉按鈕點擊事件
-            stickyContactClose.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                stickyContactBar.classList.add('hidden');
-                localStorage.setItem('stickyContactBarHidden', 'true');
-                console.log('Sticky bar closed');
-            });
-            
+            stickyContactBar.classList.remove('hidden');
+            console.log('Sticky bar is visible');
+
             // 文案輪播（文青多句輪播）
             var stickyCopyList = [
                 { main: '你心裡想過，但還沒問出口的那件事。', sub: '我們在聽。一句話就夠。' },
